@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="خدمات Natural Hub — علاجات شعر، عناية بشرة، رموش، وباقات عرائس. اكشفي كل خدماتنا الاحترافية بأسعار مميزة في الإسكندرية.">
+    <title>خدماتنا | Natural Hub — صالون وسبا المنتجات الطبيعية</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="services.css">
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar clean-navbar" id="navbar">
+        <div class="container nav-flex">
+            <a href="index.html" class="logo-clean">
+                <div class="logo-icon-wrap" style="color:#f74d6c;font-size:2.2rem;margin-left:10px;"><i class="fas fa-spa"></i></div>
+                <div class="logo-text">
+                    <span class="logo-main" style="color:#1E1717;font-weight:800;font-size:1.5rem;letter-spacing:-0.5px;">NaturalHub</span>
+                    <span class="logo-sub" style="color:#8B7B73;font-size:0.75rem;display:block;margin-top:-6px;">Spa and Salon</span>
+                </div>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#hero">الرئيسية</a></li>
+                <li><a href="services.html" style="color:#f74d6c;">الخدمات</a></li>
+                <li><a href="gallery.html">المعرض</a></li>
+                <li><a href="videos.html">الفيديوهات</a></li>
+                <li><a href="blog.html">المدونة</a></li>
+                <li><a href="about.html">من نحن</a></li>
+                <li><a href="contact.html">تواصل معنا</a></li>
+            </ul>
+            <div class="nav-actions-clean">
+                <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank">احجزي جلستك</a>
+                <button class="burger" id="burger" aria-label="القائمة">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="srv-hero">
+        <div class="srv-hero-bg">
+            <div class="srv-hero-grad"></div>
+            <div class="srv-hero-dots"></div>
+        </div>
+        <div class="container srv-hero-inner">
+            <!-- LEFT text -->
+            <div class="srv-hero-text">
+                <span class="srv-tag">
+                    <i class="fas fa-spa"></i> Natural Hub
+                </span>
+                <h1 class="srv-hero-title">
+                    خدمات الجمال<br>
+                    <span class="srv-hero-accent">بلمسة طبيعية</span>
+                </h1>
+                <p class="srv-hero-desc">
+                    من علاجات الشعر إلى العناية بالبشرة والرموش — كل ما تحتاجيه في مكان واحد،<br>
+                    بأيدي متخصصات ومنتجات عالمية مضمونة.
+                </p>
+                <div class="srv-hero-btns">
+                    <a href="#services-grid" class="srv-btn-primary">
+                        <i class="fas fa-th-large"></i> اكشفي خدماتنا
+                    </a>
+                    <a href="https://wa.me/201001234567" class="srv-btn-wa" target="_blank">
+                        <i class="fab fa-whatsapp"></i> احجزي الآن
+                    </a>
+                </div>
+            </div>
+            <!-- RIGHT: split cards -->
+            <div class="srv-hero-cards">
+                <div class="srv-hero-card shc-1">
+                    <div class="shc-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                    <h3>الشعر</h3>
+                    <p>بروتين • كيراتين • بوتوكس • صبغات</p>
+                    <span class="shc-count">+6 خدمات</span>
+                </div>
+                <div class="srv-hero-card shc-2">
+                    <div class="shc-icon"><i class="fas fa-sun"></i></div>
+                    <h3>البشرة</h3>
+                    <p>تنظيف عميق • نضارة • علاج • ماسك</p>
+                    <span class="shc-count">+6 خدمات</span>
+                </div>
+                <div class="srv-hero-card shc-3">
+                    <div class="shc-icon"><i class="fas fa-eye"></i></div>
+                    <h3>الرموش</h3>
+                    <p>كلاسيك • روسية • هايبرد • ميجا</p>
+                    <span class="shc-count">+4 خدمات</span>
+                </div>
+                <div class="srv-hero-card shc-4">
+                    <div class="shc-icon"><i class="fas fa-crown"></i></div>
+                    <h3>العرائس</h3>
+                    <p>باقات VIP شاملة لأجمل يوم في حياتك</p>
+                    <span class="shc-count">+4 باقات</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== STICKY CATEGORY TABS ===== -->
+    <div class="srv-tabs-bar" id="srvTabsBar">
+        <div class="container srv-tabs-inner">
+            <button class="srv-tab active" data-target="cat-hair">
+                <i class="fas fa-wand-magic-sparkles"></i> الشعر
+            </button>
+            <button class="srv-tab" data-target="cat-skin">
+                <i class="fas fa-sun"></i> البشرة
+            </button>
+            <button class="srv-tab" data-target="cat-lash">
+                <i class="fas fa-eye"></i> الرموش
+            </button>
+            <button class="srv-tab" data-target="cat-bridal">
+                <i class="fas fa-crown"></i> العرائس
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== SERVICES GRID ===== -->
+    <main class="srv-main" id="services-grid">
+
+        <!-- ══════════════════════════
+             الشعر
+        ══════════════════════════ -->
+        <section class="srv-cat" id="cat-hair">
+            <div class="container">
+                <div class="srv-cat-head">
+                    <div class="srv-cat-label">
+                        <div class="srv-cat-icon hair-icon"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <div>
+                            <h2>علاجات الشعر</h2>
+                            <p>بروتين، كيراتين، بوتوكس، صبغات، وأكتر — لشعر ناعم ولامع دايماً</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/201001234567" class="srv-cat-book" target="_blank">
+                        <i class="fab fa-whatsapp"></i> احجزي الآن
+                    </a>
+                </div>
+
+                <div class="srv-cards">
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=320&fit=crop&q=80" alt="بروتين الشعر" loading="lazy">
+                            <div class="srv-card-cat hair-cat">الأكثر طلباً</div>
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">بروتين الشعر</h3>
+                            <p class="srv-card-desc">يعيد الحياة لشعرك المتعب — يقوي، يرطب، ويخلص من التجعيد بشكل رائع.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٢–٤ ساعات</span>
+                                <span><i class="fas fa-sync-alt"></i> تدوم ٣–٦ شهور</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val">٤٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن خدمة بروتين الشعر" class="srv-book-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1633681926035-ec1ac984418a?w=500&h=320&fit=crop&q=80" alt="كيراتين برازيلي" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">كيراتين برازيلي</h3>
+                            <p class="srv-card-desc">العلاج الأشهر عالمياً — يفرد الشعر بشكل مذهل ويضيف لمعاناً لا مثيل له.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٣–٥ ساعات</span>
+                                <span><i class="fas fa-sync-alt"></i> تدوم ٤–٦ شهور</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val">٥٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن خدمة الكيراتين البرازيلي" class="srv-book-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&h=320&fit=crop&q=80" alt="بوتوكس الشعر" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">بوتوكس الشعر</h3>
+                            <p class="srv-card-desc">علاج تغذوي مكثف يملأ الفراغات في الشعر ويستعيد حيويته وكثافته الطبيعية.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٢–٣ ساعات</span>
+                                <span><i class="fas fa-sync-alt"></i> تدوم ٢–٣ شهور</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val">٣٥٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن خدمة بوتوكس الشعر" class="srv-book-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1492106087820-71f1a00d2b11?w=500&h=320&fit=crop&q=80" alt="صبغة الشعر" loading="lazy">
+                            <div class="srv-card-cat hair-cat">هايلايت ✨</div>
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">صبغة وهايلايت</h3>
+                            <p class="srv-card-desc">ألوان زاهية أو طبيعية — هايلايت، بلايش، أومبريه، أو صبغة مونو بأعلى جودة.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٢–٤ ساعات</span>
+                                <span><i class="fas fa-palette"></i> ألوان لا محدودة</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val">٣٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن خدمة صبغة الشعر" class="srv-book-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?w=500&h=320&fit=crop&q=80" alt="قص وتشكيل" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">قص وتشكيل</h3>
+                            <p class="srv-card-desc">قص احترافي يناسب شكل وجهك ويبرز جمالك — من الكلاسيكي للعصري.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٣٠–٦٠ دقيقة</span>
+                                <span><i class="fas fa-cut"></i> تشطيب بليو دراي</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val">١٥٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن خدمة قص الشعر" class="srv-book-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=500&h=320&fit=crop&q=80" alt="ماسك الشعر" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">ماسك وعناية مكثفة</h3>
+                            <p class="srv-card-desc">جلسة ترطيب وتغذية عميقة للشعر بمواد طبيعية — مثالية كصيانة شهرية.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٦٠–٩٠ دقيقة</span>
+                                <span><i class="fas fa-leaf"></i> مواد طبيعية</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val">٢٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن جلسة ماسك الشعر" class="srv-book-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════
+             البشرة
+        ══════════════════════════ -->
+        <section class="srv-cat srv-cat-alt" id="cat-skin">
+            <div class="container">
+                <div class="srv-cat-head">
+                    <div class="srv-cat-label">
+                        <div class="srv-cat-icon skin-icon"><i class="fas fa-sun"></i></div>
+                        <div>
+                            <h2>جلسات العناية بالبشرة</h2>
+                            <p>بشرة نضرة، مشرقة، وصحية — علاجات متخصصة بمنتجات طبية مرخصة</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/201001234567" class="srv-cat-book skin-book" target="_blank">
+                        <i class="fab fa-whatsapp"></i> احجزي الآن
+                    </a>
+                </div>
+
+                <div class="srv-cards">
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=320&fit=crop&q=80" alt="تنظيف عميق" loading="lazy">
+                            <div class="srv-card-cat skin-cat">الأكثر طلباً</div>
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">تنظيف عميق للبشرة</h3>
+                            <p class="srv-card-desc">تنظيف احترافي يزيل الشوائب والرؤوس السوداء ويعيد مسامات البشرة لحجمها الطبيعي.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٦٠–٩٠ دقيقة</span>
+                                <span><i class="fas fa-sync-alt"></i> كل شهر</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val skin-price">٢٥٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن جلسة تنظيف البشرة" class="srv-book-btn skin-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=500&h=320&fit=crop&q=80" alt="جلسة نضارة" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">جلسة النضارة والإشراق</h3>
+                            <p class="srv-card-desc">تفتيح وتوحيد لون البشرة بماسكات متخصصة تمنحك إشراقاً فورياً.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٧٥ دقيقة</span>
+                                <span><i class="fas fa-star"></i> نتائج فورية</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val skin-price">٣٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن جلسة النضارة" class="srv-book-btn skin-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=500&h=320&fit=crop&q=80" alt="علاج حب الشباب" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">علاج حب الشباب</h3>
+                            <p class="srv-card-desc">بروتوكول علاجي متكامل يستهدف حب الشباب والبقع الداكنة بمنتجات طبية فعّالة.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٩٠ دقيقة</span>
+                                <span><i class="fas fa-vials"></i> منتجات طبية</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val skin-price">٣٥٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن علاج حب الشباب" class="srv-book-btn skin-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=500&h=320&fit=crop&q=80" alt="ماسك مرطب" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">ماسك الترطيب العميق</h3>
+                            <p class="srv-card-desc">ترطيب مكثف للبشرة الجافة — هياولورونيك أسيد ومواد طبيعية تعيد النعومة فوراً.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٦٠ دقيقة</span>
+                                <span><i class="fas fa-tint"></i> ترطيب فوري</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val skin-price">٢٢٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن جلسة الماسك المرطب" class="srv-book-btn skin-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1532413992378-f169ac26fff0?w=500&h=320&fit=crop&q=80" alt="تقشير البشرة" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">تقشير كيميائي</h3>
+                            <p class="srv-card-desc">إزالة الخلايا الميتة وتجديد البشرة بجلسة تقشير آمنة ومحسوبة لكل نوع بشرة.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٤٥–٦٠ دقيقة</span>
+                                <span><i class="fas fa-bolt"></i> تجديد فوري</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val skin-price">٢٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن جلسة التقشير" class="srv-book-btn skin-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?w=500&h=320&fit=crop&q=80" alt="مساج الوجه" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">مساج الوجه بالزيوت</h3>
+                            <p class="srv-card-desc">مساج استرخائي بزيوت طبيعية فاخرة يحسن الدورة الدموية ويشد ملامح الوجه.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٤٥ دقيقة</span>
+                                <span><i class="fas fa-leaf"></i> زيوت طبيعية</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val skin-price">١٨٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن مساج الوجه" class="srv-book-btn skin-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════
+             الرموش
+        ══════════════════════════ -->
+        <section class="srv-cat" id="cat-lash">
+            <div class="container">
+                <div class="srv-cat-head">
+                    <div class="srv-cat-label">
+                        <div class="srv-cat-icon lash-icon"><i class="fas fa-eye"></i></div>
+                        <div>
+                            <h2>تركيب الرموش</h2>
+                            <p>رموش تعكس شخصيتك — من الطبيعي الناعم للدرامي المذهل</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/201001234567" class="srv-cat-book lash-book" target="_blank">
+                        <i class="fab fa-whatsapp"></i> احجزي الآن
+                    </a>
+                </div>
+
+                <div class="srv-cards">
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=500&h=320&fit=crop&q=80" alt="رموش كلاسيك" loading="lazy">
+                            <div class="srv-card-cat lash-cat">للمبتدئات</div>
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">رموش كلاسيك</h3>
+                            <p class="srv-card-desc">رمشة واحدة لكل رمشة طبيعية — إطالة وتكثيف بمظهر طبيعي وجميل.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ٩٠ دقيقة</span>
+                                <span><i class="fas fa-sync-alt"></i> صيانة كل ٣ أسابيع</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val lash-price">٢٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن رموش كلاسيك" class="srv-book-btn lash-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=500&h=320&fit=crop&q=80" alt="رموش روسية" loading="lazy">
+                            <div class="srv-card-cat lash-cat">الأكثر طلباً</div>
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">رموش روسية (فوليوم)</h3>
+                            <p class="srv-card-desc">فان من ٢–٦ رموش لكل رمشة طبيعية — كثافة درامية تجعل نظرتك لا تُنسى.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ١٢٠ دقيقة</span>
+                                <span><i class="fas fa-sync-alt"></i> صيانة كل ٣–٤ أسابيع</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val lash-price">٣٠٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن الرموش الروسية" class="srv-book-btn lash-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1588516903720-8ceb67f96d6f?w=500&h=320&fit=crop&q=80" alt="رموش هايبرد" loading="lazy">
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">رموش هايبرد</h3>
+                            <p class="srv-card-desc">مزيج مثالي بين الكلاسيك والروسي — كثافة طبيعية مع لمسة من الدراما.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ١١٠ دقيقة</span>
+                                <span><i class="fas fa-sync-alt"></i> صيانة كل ٣ أسابيع</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val lash-price">٢٥٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن الرموش الهايبرد" class="srv-book-btn lash-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="srv-card">
+                        <div class="srv-card-img">
+                            <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=500&h=320&fit=crop&q=80" alt="ميجا فوليوم" loading="lazy">
+                            <div class="srv-card-cat lash-cat">الأكثر جرأة</div>
+                        </div>
+                        <div class="srv-card-body">
+                            <h3 class="srv-card-title">ميجا فوليوم</h3>
+                            <p class="srv-card-desc">الكثافة القصوى لعيون درامية ومذهلة — مثالية للمناسبات الخاصة.</p>
+                            <div class="srv-card-details">
+                                <span><i class="fas fa-clock"></i> ١٥٠ دقيقة</span>
+                                <span><i class="fas fa-sync-alt"></i> صيانة كل أسبوعين</span>
+                            </div>
+                            <div class="srv-card-footer">
+                                <div class="srv-price">
+                                    <span class="srv-price-from">يبدأ من</span>
+                                    <span class="srv-price-val lash-price">٣٥٠ ج</span>
+                                </div>
+                                <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن الميجا فوليوم" class="srv-book-btn lash-btn" target="_blank">احجزي</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══════════════════════════
+             العرائس
+        ══════════════════════════ -->
+        <section class="srv-cat srv-cat-bridal" id="cat-bridal">
+            <div class="srv-bridal-bg"></div>
+            <div class="container">
+                <div class="srv-cat-head">
+                    <div class="srv-cat-label">
+                        <div class="srv-cat-icon bridal-icon"><i class="fas fa-crown"></i></div>
+                        <div>
+                            <h2>باقات العرائس VIP</h2>
+                            <p>ليوم فرحك الاستثنائي — باقات شاملة ومخصصة لكل عروسة</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/201001234567" class="srv-cat-book bridal-book" target="_blank">
+                        <i class="fab fa-whatsapp"></i> تواصلي معنا
+                    </a>
+                </div>
+
+                <div class="srv-bridal-cards">
+
+                    <div class="srv-bridal-card featured-bridal">
+                        <div class="sbc-badge">الأكثر اختياراً ⭐</div>
+                        <div class="sbc-icon"><i class="fas fa-crown"></i></div>
+                        <h3 class="sbc-title">باقة العروسة الملكية</h3>
+                        <p class="sbc-desc">باقة شاملة كاملة — كل ما تحتاجيه ليوم فرحك في مكان واحد</p>
+                        <ul class="sbc-includes">
+                            <li><i class="fas fa-check"></i> تنظيف وجه عميق</li>
+                            <li><i class="fas fa-check"></i> تركيب رموش روسية</li>
+                            <li><i class="fas fa-check"></i> مكياج العروسة الاحترافي</li>
+                            <li><i class="fas fa-check"></i> تسريحة شعر فاخرة</li>
+                            <li><i class="fas fa-check"></i> جلسة بروتين الشعر</li>
+                            <li><i class="fas fa-check"></i> ماسك بشرة مرطب</li>
+                        </ul>
+                        <div class="sbc-footer">
+                            <div class="sbc-price">
+                                <span>يبدأ من</span>
+                                <strong>١٨٠٠ ج</strong>
+                            </div>
+                            <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن باقة العروسة الملكية" class="sbc-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> احجزي الباقة
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="srv-bridal-card">
+                        <div class="sbc-icon"><i class="fas fa-gem"></i></div>
+                        <h3 class="sbc-title">باقة قبل الزفاف</h3>
+                        <p class="sbc-desc">جلسات تحضيرية قبل يوم الفرح لبشرة وشعر في أفضل حالة</p>
+                        <ul class="sbc-includes">
+                            <li><i class="fas fa-check"></i> ٣ جلسات بشرة متتابعة</li>
+                            <li><i class="fas fa-check"></i> جلسة ترطيب عميقة</li>
+                            <li><i class="fas fa-check"></i> علاج شعر بروتين</li>
+                            <li><i class="fas fa-check"></i> استشارة جمال مجانية</li>
+                        </ul>
+                        <div class="sbc-footer">
+                            <div class="sbc-price">
+                                <span>يبدأ من</span>
+                                <strong>١٠٠٠ ج</strong>
+                            </div>
+                            <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن باقة قبل الزفاف" class="sbc-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> احجزي الباقة
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="srv-bridal-card">
+                        <div class="sbc-icon"><i class="fas fa-spa"></i></div>
+                        <h3 class="sbc-title">باقة يوم الفرح</h3>
+                        <p class="sbc-desc">مكياج وتسريحة فقط — لمن تريد الاعتناء بنفسها يوم الفرح</p>
+                        <ul class="sbc-includes">
+                            <li><i class="fas fa-check"></i> مكياج العروسة الاحترافي</li>
+                            <li><i class="fas fa-check"></i> تسريحة شعر مميزة</li>
+                            <li><i class="fas fa-check"></i> لمسات تثبيت نهائية</li>
+                            <li><i class="fas fa-check"></i> استشارة لون ومعيار</li>
+                        </ul>
+                        <div class="sbc-footer">
+                            <div class="sbc-price">
+                                <span>يبدأ من</span>
+                                <strong>٨٠٠ ج</strong>
+                            </div>
+                            <a href="https://wa.me/201001234567?text=مرحباً، أريد الاستفسار عن باقة يوم الفرح" class="sbc-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> احجزي الباقة
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="srv-bridal-card">
+                        <div class="sbc-icon"><i class="fas fa-heart"></i></div>
+                        <h3 class="sbc-title">باقة مخصصة</h3>
+                        <p class="sbc-desc">بنصمم معك الباقة اللي يناسب احتياجاتك وميزانيتك بالكامل</p>
+                        <ul class="sbc-includes">
+                            <li><i class="fas fa-check"></i> استشارة مجانية</li>
+                            <li><i class="fas fa-check"></i> خدمات حسب اختيارك</li>
+                            <li><i class="fas fa-check"></i> سعر مرن ومناسب</li>
+                            <li><i class="fas fa-check"></i> متابعة شخصية</li>
+                        </ul>
+                        <div class="sbc-footer">
+                            <div class="sbc-price">
+                                <span>السعر</span>
+                                <strong>حسب الاتفاق</strong>
+                            </div>
+                            <a href="https://wa.me/201001234567?text=مرحباً، أريد تصميم باقة مخصصة للعروسة" class="sbc-btn" target="_blank">
+                                <i class="fab fa-whatsapp"></i> تواصلي معنا
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== BOOKING CTA ===== -->
+    <section class="srv-cta">
+        <div class="srv-cta-bg"></div>
+        <div class="container srv-cta-inner">
+            <div class="srv-cta-icon"><i class="fas fa-spa"></i></div>
+            <h2>مش عارفة تختاري؟ <span>احنا هنساعدك!</span></h2>
+            <p>تواصلي معنا على واتساب وهنرشدك للخدمة الأنسب لك حسب نوع شعرك وبشرتك.</p>
+            <div class="srv-cta-btns">
+                <a href="https://wa.me/201001234567" class="srv-btn-wa lg" target="_blank">
+                    <i class="fab fa-whatsapp"></i> تواصلي على واتساب
+                </a>
+                <a href="contact.html" class="srv-cta-ghost">
+                    <i class="fas fa-calendar-alt"></i> احجزي موعد
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-clean">
+        <div class="container">
+            <div class="ft-top">
+                <div class="ft-logo">
+                    <div class="logo-icon-wrap" style="color:#f74d6c;font-size:2.5rem;margin-left:10px;"><i class="fas fa-spa"></i></div>
+                    <div class="logo-text">
+                        <span class="logo-main" style="color:#1E1717;font-weight:800;font-size:1.8rem;">NaturalHub</span>
+                        <span class="logo-sub" style="color:#8B7B73;font-size:0.85rem;display:block;margin-top:-6px;">Spa and Salon</span>
+                    </div>
+                </div>
+                <div class="ft-social-circles">
+                    <a href="#" class="soc-icon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="soc-icon tw"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="soc-icon pi"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" class="soc-icon in"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="ft-mid">
+                <div class="ft-col ft-col-about"><h3>من نحن</h3><p>صالون وسبا المنتجات الطبيعية الأفضل، يقدم أحدث خدمات العناية بالشعر والبشرة.</p></div>
+                <div class="ft-col ft-col-contact">
+                    <h3>تواصل معنا</h3>
+                    <ul>
+                        <li><div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div><span>محرم بك، الإسكندرية</span></li>
+                        <li><div class="icon-circle"><i class="fas fa-envelope"></i></div><span>support@naturalhub.com</span></li>
+                        <li><div class="icon-circle"><i class="fas fa-mobile-alt"></i></div><span dir="ltr">+20 101 234 5678</span></li>
+                    </ul>
+                </div>
+                <div class="ft-col ft-col-hours">
+                    <h3>ساعات العمل</h3>
+                    <div class="hours-row"><span>السبت - الخميس:</span><strong>10ص - 10م</strong></div>
+                    <div class="hours-row"><span>الجمعة:</span><strong>1م - 10م</strong></div>
+                    <a href="https://wa.me/201001234567" class="ft-book-link" target="_blank">احجزي موعدك</a>
+                </div>
+            </div>
+            <div class="ft-bottom-copy"><p>Copyright © 2026, NaturalHub Powered by Web Master.</p></div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/201001234567" class="wa-float" target="_blank" aria-label="واتساب" id="waFloat">
+        <i class="fab fa-whatsapp"></i><span class="wa-pulse"></span>
+    </a>
+    <button class="btt" id="btt" aria-label="للأعلى"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="services.js"></script>
+</body>
+</html>
