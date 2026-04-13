@@ -299,6 +299,7 @@
     margin-top: -30px;
     border-radius: 20px;
     width: fit-content;
+    max-width: calc(100% - 32px);
     margin-inline: auto;
     padding: 0 20px;
 }
@@ -954,7 +955,13 @@
         align-items: flex-start;
     }
 
-    .srv-tabs-bar { top: 62px; }
+    .srv-tabs-bar { 
+        top: 62px; 
+    }
+    .srv-tabs-inner {
+        justify-content: flex-start; 
+        padding: 12px 0;
+    }
 }
 
 @media (max-width: 480px) {
