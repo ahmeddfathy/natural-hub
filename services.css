@@ -5,12 +5,14 @@
 /* ══════════════════════════════
    NAVBAR - DARK MODE FOR HERO
    ══════════════════════════════ */
-.clean-navbar:not(.scrolled) .nav-menu li a { color: rgba(255,255,255,0.85) !important; }
-.clean-navbar:not(.scrolled) .nav-menu li a:hover { color: #fff !important; }
-.clean-navbar:not(.scrolled) .nav-menu li a[style*="color:#f74d6c"] { color: #f74d6c !important; text-shadow: 0 0 10px rgba(247,77,108,0.4); }
+@media (min-width: 1025px) {
+    .clean-navbar:not(.scrolled) .nav-menu li a { color: rgba(255,255,255,0.85) !important; }
+    .clean-navbar:not(.scrolled) .nav-menu li a:hover { color: #fff !important; }
+    .clean-navbar:not(.scrolled) .nav-menu li a[style*="color:#f74d6c"] { color: #f74d6c !important; text-shadow: 0 0 10px rgba(247,77,108,0.4); }
+}
 .clean-navbar:not(.scrolled) .logo-main { color: #fff !important; }
 .clean-navbar:not(.scrolled) .logo-sub { color: rgba(255,255,255,0.6) !important; }
-.clean-navbar:not(.scrolled) .burger span { background: #fff !important; }
+.clean-navbar:not(.scrolled) .burger:not(.open) span { background: #fff !important; }
 
 /* ══════════════════════════════
    HERO — PREMIUM CINEMATIC
