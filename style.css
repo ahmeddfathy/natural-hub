@@ -40,19 +40,23 @@
     box-sizing: border-box
 }
 
-/* Site Logo Adjustments */
+/* Site Logo Adjustments (Handling image with large whitespace) */
 .site-logo {
-    height: 55px;
+    height: 140px;
     width: auto;
     display: block;
     mix-blend-mode: multiply;
+    margin: -45px 0; /* Negate the whitespace to preserve navbar height */
+    object-fit: contain;
 }
 
 .site-logo-ft {
-    height: 80px;
+    height: 200px;
     width: auto;
     display: block;
     mix-blend-mode: multiply;
+    margin: -60px 0; 
+    object-fit: contain;
 }
 
 html {

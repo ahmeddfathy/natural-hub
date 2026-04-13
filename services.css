@@ -621,7 +621,8 @@
     justify-content: center;
     text-decoration: none;
     color: #fff;
-    background: #1E1717;
+    background: linear-gradient(135deg, #f74d6c, #ff7a95);
+    box-shadow: 0 4px 12px rgba(247, 77, 108, 0.2);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     font-size: 0; /* Hide text, just show icon */
     flex-shrink: 0;
@@ -636,27 +637,13 @@
 }
 
 .srv-card:hover .srv-book-btn {
-    background: #f74d6c;
-    box-shadow: 0 10px 24px rgba(247,77,108,0.3);
+    box-shadow: 0 10px 24px rgba(247,77,108,0.35);
+    transform: translateX(-4px);
 }
 
 .srv-book-btn:hover {
-    transform: translateX(-6px) scale(1.08);
-}
-
-.skin-btn {
-    background: #1E1717;
-}
-
-.srv-book-btn:hover {
-    background: #f74d6c;
-    transform: scale(1.1) rotate(-45deg);
-    box-shadow: 0 10px 20px rgba(247,77,108,0.3);
-}
-
-.skin-btn:hover {
-    background: #B08A3C;
-    box-shadow: 0 10px 20px rgba(176,138,60,0.3);
+    transform: translateX(-6px) scale(1.1);
+    box-shadow: 0 12px 28px rgba(247,77,108,0.45);
 }
 
 /* Replaced with icon inside pseudo element above, these are not needed but keeping empty to clear */
