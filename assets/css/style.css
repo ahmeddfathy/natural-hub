@@ -42,11 +42,12 @@
 
 /* Site Logo Adjustments */
 .site-logo {
-    height: 85px; 
+    height: 90px;
     width: auto;
     display: block;
     mix-blend-mode: multiply;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.05));
 }
 
 .site-logo-ft {
@@ -122,6 +123,88 @@ ul {
     color: var(--gold)
 }
 
+/* ── Unified Sub-Hero ── */
+.sub-hero {
+    position: relative;
+    padding: 220px 0 160px;
+    background-color: #1E1717;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+}
+
+.sub-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, 
+        rgba(30, 23, 23, 0.7) 0%, 
+        rgba(30, 23, 23, 0.3) 50%, 
+        rgba(30, 23, 23, 0.7) 100%);
+    z-index: 1;
+}
+
+.hero-glass-card {
+    position: relative;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 40px;
+    border-radius: 40px;
+    max-width: 850px;
+    margin: 0 auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.sub-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.sub-hero .editorial-title {
+    font-family: var(--fk);
+    font-size: clamp(3.5rem, 10vw, 6.5rem);
+    font-weight: 900;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    color: var(--white);
+    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--txt3);
+}
+
+.breadcrumbs a {
+    color: var(--gold);
+    transition: var(--ease);
+}
+
+.breadcrumbs i {
+    font-size: 0.7rem;
+    opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+    .sub-hero {
+        padding: 140px 0 80px;
+    }
+}
+
 /* ── Buttons ── */
 .btn {
     display: inline-flex;
@@ -182,14 +265,14 @@ ul {
 
 .outline-btn {
     background: transparent;
-    color: var(--off);
-    border: 2px solid rgba(255, 255, 255, .25);
+    color: var(--black);
+    border: 2px solid var(--black);
 }
 
 .outline-btn:hover {
-    background: rgba(255, 255, 255, .08);
-    border-color: var(--gold-l);
-    color: var(--gold-l)
+    background: var(--black);
+    color: var(--white);
+    border-color: var(--black);
 }
 
 .btn.sm {
@@ -207,24 +290,33 @@ ul {
    ══════════════════════════════ */
 .navbar.clean-navbar {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: 25px;
+    left: 20px;
+    right: 20px;
     z-index: 1000;
-    padding: 20px 0;
-    transition: var(--ease);
-    background: transparent;
+    padding: 15px 30px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
 }
 
 .navbar.clean-navbar.scrolled {
     position: fixed;
-    background: #fff;
-    padding: 8px 0;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, .05);
+    top: 15px;
+    background: rgba(255, 255, 255, 0.92);
+    padding: 10px 30px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
 }
 
 .navbar.clean-navbar.scrolled .site-logo {
-    height: 60px; /* shrink logo so it fits gracefully within the slim scrolled nav */
+    height: 60px;
+    /* shrink logo so it fits gracefully within the slim scrolled nav */
 }
 
 .nav-flex {
@@ -261,11 +353,13 @@ ul {
 }
 
 .nav-menu a {
-    font-size: .95rem;
-    font-weight: 500;
-    color: #1E1717;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--black);
     position: relative;
-    padding: 4px 0
+    padding: 8px 0;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
 }
 
 .nav-menu a::after {
@@ -326,22 +420,21 @@ ul {
 }
 
 .pink-btn {
-    background: #f74d6c;
+    background: linear-gradient(135deg, #f74d6c, #ff7a95);
     color: #fff;
     padding: 14px 34px;
-    border-radius: 40px;
-    font-size: .95rem;
-    font-weight: 600;
-    box-shadow: 0 8px 24px rgba(247, 77, 108, 0.25);
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(247, 77, 108, 0.3);
     border: none;
     cursor: pointer;
-    transition: var(--ease);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .pink-btn:hover {
-    background: #e63A5a;
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(247, 77, 108, 0.35);
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(247, 77, 108, 0.45);
     color: #fff;
 }
 
@@ -538,22 +631,86 @@ ul {
 /* ══════════════════════════════
    WHY SECTION
    ══════════════════════════════ */
-.why {
-    background: var(--white)
+/* ── Swipe Carousel Global ── */
+.swipe-arrow {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a1a;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
-.why-grid {
+.swipe-arrow:hover {
+    background: #f74d6c;
+    color: #fff;
+    box-shadow: 0 20px 45px rgba(247, 77, 108, 0.25);
+    transform: translateY(-50%) scale(1.1) !important;
+}
+
+/* ── Swipe Carousel Fluid ── */
+.swipe-container-fluid {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+}
+
+.swipe-container-fluid .swipe-track {
+    padding: 20px 5vw;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    cursor: grab;
+}
+
+.swipe-container-fluid .swipe-track::-webkit-scrollbar {
+    display: none;
+}
+
+.swipe-container-fluid .swipe-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.swipe-container-fluid .swipe-arrow.prev {
+    right: 2vw;
+}
+
+.swipe-container-fluid .swipe-arrow.next {
+    left: 2vw;
+}
+
+@media (max-width: 991px) {
+    .swipe-container-fluid .swipe-arrow {
+        display: none;
+    }
+}
+
+.why {
+    background: var(--white);
+    padding-bottom: 100px;
+}
+
+.why-track {
+    padding: 40px 0;
 }
 
 .why-card {
-    width: calc(33.333% - 20px);
-    min-width: 280px; /* safety for shrinking */
+    flex: 0 0 420px;
+    /* Slightly larger to show peek better */
+    scroll-snap-align: center;
     background: #ffffff;
-    border-radius: 30px;
+    border-radius: 40px;
     padding: 0;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -561,6 +718,14 @@ ul {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.035);
     overflow: hidden;
     position: relative;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+    .why-card {
+        flex: 0 0 85vw;
+        /* mostly full screen on mobile with peek */
+    }
 }
 
 .why-card:hover {
@@ -581,12 +746,12 @@ ul {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.02);
+    background: rgba(0, 0, 0, 0.02);
     transition: background 0.4s ease;
 }
 
 .why-card:hover .why-img::after {
-    background: rgba(0,0,0,0);
+    background: rgba(0, 0, 0, 0);
 }
 
 .why-img img {
@@ -597,7 +762,8 @@ ul {
 }
 
 .why-card:hover .why-img img {
-    transform: scale(1.08); /* Cinematic zoom */
+    transform: scale(1.08);
+    /* Cinematic zoom */
 }
 
 .why-card h3 {

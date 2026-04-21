@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // stagger siblings
         const parent = el.parentElement;
         if (parent) {
-            const sibs = Array.from(parent.children).filter(c => revealEls instanceof NodeList ? 
+            const sibs = Array.from(parent.children).filter(c => revealEls instanceof NodeList ?
                 Array.from(revealEls).includes(c) : false);
             const idx = sibs.indexOf(el);
             if (idx > 0) el.dataset.d = idx * 100;
@@ -90,22 +90,38 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObs.observe(el);
     });
 
-    /* ── Swipe carousel enhanced touch ── */
-    const tracks = document.querySelectorAll('.swipe-track');
+    /* ── Swipe carousel enhanced touch & Arrows ── */
+    const swipeContainers = document.querySelectorAll('.swipe-container, .swipe-container-fluid');
 
-    tracks.forEach(track => {
+    swipeContainers.forEach(container => {
+        const track = container.querySelector('.swipe-track');
+        const prevBtn = container.querySelector('.swipe-arrow.prev');
+        const nextBtn = container.querySelector('.swipe-arrow.next');
+
+        if (!track) return;
+
+        // Arrows
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                track.scrollBy({ left: 350, behavior: 'smooth' }); // RTL positive is right (previous)
+            });
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                track.scrollBy({ left: -350, behavior: 'smooth' }); // RTL negative is left (next)
+            });
+        }
+
+        // Drag/Swipe
         let isDown = false, startX, scrollLeft;
-
         track.addEventListener('mousedown', (e) => {
             isDown = true;
             track.style.cursor = 'grabbing';
             startX = e.pageX - track.offsetLeft;
             scrollLeft = track.scrollLeft;
         });
-
         track.addEventListener('mouseleave', () => { isDown = false; track.style.cursor = 'grab'; });
         track.addEventListener('mouseup', () => { isDown = false; track.style.cursor = 'grab'; });
-
         track.addEventListener('mousemove', (e) => {
             if (!isDown) return;
             e.preventDefault();
