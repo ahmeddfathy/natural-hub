@@ -1,0 +1,287 @@
+/* =============================================
+   NATURAL HUB — Videos Page
+   Same style as Gallery — Horizontal Carousel
+   ============================================= */
+
+/* ══════════════════════════════
+   HERO
+   ══════════════════════════════ */
+.vd-hero {
+    background: var(--white);
+    padding: 140px 0 50px;
+    border-bottom: 1px solid rgba(30,23,23,0.06);
+}
+
+.vd-hero .sec-chip {
+    margin-bottom: 14px;
+    display: inline-block;
+}
+
+.vd-hero-title {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    color: var(--black);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.vd-hero-sub {
+    font-size: 1rem;
+    color: var(--txt2);
+    line-height: 1.8;
+}
+
+/* ══════════════════════════════
+   VIDEOS BODY (dark — same as gallery)
+   ══════════════════════════════ */
+.vd-body {
+    background: #111;
+    padding: 20px 0 60px;
+}
+
+/* ══════════════════════════════
+   CATEGORY SECTION
+   ══════════════════════════════ */
+.vd-section {
+    padding: 40px 0 10px;
+}
+
+.vd-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.vd-section-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Colored dots */
+.vd-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.hair-dot   { background: #8B5CF6; box-shadow: 0 0 8px rgba(139,92,246,0.7); }
+.skin-dot   { background: #B08A3C; box-shadow: 0 0 8px rgba(176,138,60,0.7); }
+.lash-dot   { background: #f74d6c; box-shadow: 0 0 8px rgba(247,77,108,0.7); }
+.bridal-dot { background: #D4AF61; box-shadow: 0 0 8px rgba(212,175,97,0.7); }
+
+.vd-section-label h2 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 800;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vd-vip-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #B08A3C, #D4AF61);
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+}
+
+/* Arrow buttons */
+.vd-section-arrows {
+    display: flex;
+    gap: 8px;
+}
+
+.vd-arrow {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.18);
+    color: #fff;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--ease);
+    backdrop-filter: blur(6px);
+}
+
+.vd-arrow:hover {
+    background: #f74d6c;
+    border-color: #f74d6c;
+    transform: scale(1.08);
+}
+
+.vd-arrow:active { transform: scale(0.95); }
+
+/* ══════════════════════════════
+   SWIPE TRACK
+   ══════════════════════════════ */
+.vd-track-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.vd-track {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 8px 20px 20px 20px;
+    scrollbar-width: none;
+    cursor: grab;
+    scroll-behavior: smooth;
+}
+
+.vd-track::-webkit-scrollbar { display: none; }
+.vd-track:active { cursor: grabbing; }
+
+/* ══════════════════════════════
+   VIDEO CARD — portrait style (like gallery)
+   ══════════════════════════════ */
+.vd-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #1a1a1a;
+    position: relative;
+    transition: transform 0.45s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.45s ease;
+    border: 1px solid rgba(255,255,255,0.08);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.vd-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 40px 80px rgba(0,0,0,0.7);
+    border-color: rgba(247,77,108,0.4);
+}
+
+/* Video embed wrapper — fixed portrait height */
+.vd-card-embed {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    background: #0d0d0d;
+}
+
+.vd-card-embed iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+    pointer-events: none; /* prevents accidental interaction while scrolling */
+}
+
+/* Play overlay on hover */
+.vd-card-embed::before {
+    content: '\f144';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.6);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(247, 77, 108, 0.85);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    opacity: 0;
+    z-index: 3;
+    transition: all 0.3s ease;
+    line-height: 56px;
+    text-align: center;
+    pointer-events: none;
+}
+
+.vd-card:hover .vd-card-embed::before {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Dark gradient at bottom */
+.vd-card-embed::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, rgba(10,8,8,0.7) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Info strip */
+.vd-card-info {
+    padding: 14px 16px;
+    background: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.vd-card-info p {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.45;
+    margin: 0;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* Category badges */
+.vd-card-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+    width: fit-content;
+}
+
+.hair-badge   { background: rgba(139,92,246,0.2); color: #b99dff; }
+.skin-badge   { background: rgba(176,138,60,0.2);  color: #D4AF61; }
+.lash-badge   { background: rgba(247,77,108,0.2);  color: #ff8fab; }
+.bridal-badge { background: rgba(212,175,97,0.18); color: #f0d57a; }
+
+/* ══════════════════════════════
+   NAVBAR SCROLL + BTT (shared from style.css)
+   ══════════════════════════════ */
+/* (inherits from style.css) */
+
+/* ══════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════ */
+@media (max-width: 768px) {
+    .vd-hero { padding: 120px 0 36px; }
+    .vd-card { flex: 0 0 240px; }
+    .vd-card-embed { height: 380px; }
+}
+
+@media (max-width: 480px) {
+    .vd-card { flex: 0 0 175px; }
+    .vd-card-embed { height: 240px; }
+    .vd-card-info p { font-size: 0.76rem; }
+}

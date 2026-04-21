@@ -13,7 +13,7 @@
         href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
@@ -32,6 +32,7 @@
                 <li><a href="services.html">الخدمات</a></li>
                 <li><a href="gallery.html">المعرض</a></li>
                 <li><a href="videos.html">الفيديوهات</a></li>
+                <li><a href="shop.html">المتجر</a></li>
                 <li><a href="blog.html">المدونة</a></li>
                 <li><a href="about.html">من نحن</a></li>
                 <li><a href="contact.html">تواصل معنا</a></li>
@@ -51,16 +52,23 @@
     <section class="hero-clean" id="hero">
         <div class="hero-slider">
             <div class="hero-slide active">
-                <img src="WhatsApp Image 2026-04-12 at 19.53.15.jpeg" alt="Spa Background" class="hero-bg-img">
+                <img src="assets/images/sallon.jpeg" alt="Natural Hub Salon" class="hero-bg-img">
                 <div class="container hero-content-overlay">
-                    <h1 class="hero-script-txt">Massage <span style="font-family: Arial, sans-serif;">🌿</span></h1>
+                    <h1 class="hero-script-txt">Natural <span class="gold">Hub</span></h1>
+                    <p class="hero-sub-txt">بمناسبة افتتاح فرعنا الجديد في محرم بك 😍</p>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <img src="assets/images/1.jpeg" alt="Natural Hub Services" class="hero-bg-img">
+                <div class="container hero-content-overlay">
+                    <h1 class="hero-script-txt">جمالك <span class="gold">أمانتنا</span></h1>
                 </div>
             </div>
         </div>
-        <!-- Slider controls like the reference -->
+        <!-- Slider controls -->
         <div class="slider-controls-clean container">
-            <button class="ctrl-btn"><i class="fas fa-chevron-right"></i></button>
-            <button class="ctrl-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="ctrl-btn next"><i class="fas fa-chevron-right"></i></button>
+            <button class="ctrl-btn prev"><i class="fas fa-chevron-left"></i></button>
         </div>
     </section>
 
@@ -74,35 +82,35 @@
             <div class="why-grid">
                 <div class="why-card">
                     <div class="why-img">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?w=400&h=300&fit=crop&q=80" alt="جلسات علاجية" loading="lazy">
+                        <img src="assets/images/b&a1.jpeg" alt="جلسات علاجية" loading="lazy">
                     </div>
                     <h3>جلسات علاجية حقيقية</h3>
                     <p>مش مجرد تجميل سطحي… بنعالج المشكلة من جذورها ونحافظ على النتيجة.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-img">
-                        <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=400&h=300&fit=crop&q=80" alt="عناية مخصصة" loading="lazy">
+                        <img src="assets/images/b&a2.jpeg" alt="عناية مخصصة" loading="lazy">
                     </div>
                     <h3>عناية مخصصة ليكي</h3>
                     <p>كل بشرة وشعر مختلف. عشان كده بنصمم خطة عناية شخصية حسب احتياجك.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-img">
-                        <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=300&fit=crop&q=80" alt="منتجات فاخرة" loading="lazy">
+                        <img src="assets/images/2jpeg.jpeg" alt="منتجات فاخرة" loading="lazy">
                     </div>
                     <h3>منتجات عالمية فاخرة</h3>
                     <p>بنستخدم أفضل البراندات الطبية المعتمدة. جمالك ما ينفعش نجرب فيه.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-img">
-                        <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=400&h=300&fit=crop&q=80" alt="نظافة وأمان" loading="lazy">
+                        <img src="assets/images/sallon.jpeg" alt="نظافة وأمان" loading="lazy">
                     </div>
                     <h3>نظافة وأمان كامل</h3>
                     <p>أعلى معايير التعقيم في كل ركن. أدوات معقمة وبيئة صحية لراحتك.</p>
                 </div>
                 <div class="why-card">
                     <div class="why-img">
-                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=300&fit=crop&q=80" alt="نتائج ملموسة" loading="lazy">
+                        <img src="assets/images/1.jpeg" alt="نتائج ملموسة" loading="lazy">
                     </div>
                     <h3>نتائج ملموسة</h3>
                     <p>الفرق هتحسي بيه من أول جلسة. نتائج حقيقية ومستمرة مش مؤقتة.</p>
@@ -128,14 +136,15 @@
             <div class="sec-head">
                 <span class="sec-chip">خدماتنا</span>
                 <h2 class="sec-title">عناية متكاملة لكل تفاصيل <span class="gold">جمالك</span></h2>
-                <p class="sec-sub">اسحبي لاستكشاف خدماتنا ←</p>
-            </div>
+            <p class="sec-sub">الشعر الكثيف أو الطويل جداً بيزيد ٥٠٠ ج.م على سعر الجلسة ✨</p>
+            <p class="sec-sub">اسحبي لاستكشاف خدماتنا ←</p>
+        </div>
         </div>
         <div class="swipe-track" id="servicesTrack">
             <!-- Card 1: Hair -->
             <div class="srv-card">
                 <div class="srv-img">
-                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=360&fit=crop&q=80"
+                    <img src="assets/images/1.jpeg"
                         alt="علاجات الشعر" loading="lazy">
                     <span class="srv-badge">الأكثر طلباً</span>
                 </div>
@@ -149,7 +158,7 @@
             <!-- Card 2: Skin -->
             <div class="srv-card featured-card">
                 <div class="srv-img">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=360&fit=crop&q=80"
+                    <img src="assets/images/b&a5.jpeg"
                         alt="جلسات البشرة" loading="lazy">
                     <span class="srv-badge gold-badge">Premium</span>
                 </div>
@@ -163,7 +172,7 @@
             <!-- Card 3: Lashes -->
             <div class="srv-card">
                 <div class="srv-img">
-                    <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=500&h=360&fit=crop&q=80"
+                    <img src="assets/images/b&a4.jpeg"
                         alt="تركيب الرموش" loading="lazy">
                     <span class="srv-badge">مميز</span>
                 </div>
@@ -172,20 +181,6 @@
                     <h3>تركيب الرموش</h3>
                     <p>رموش طبيعية وكثيفة تبرز جمال عينيكي. تركيب احترافي بخامات فاخرة ومريحة.</p>
                     <a href="#booking" class="btn gold-btn sm"><i class="fas fa-calendar-check"></i> احجزي جلستك</a>
-                </div>
-            </div>
-            <!-- Card 4: Bridal -->
-            <div class="srv-card">
-                <div class="srv-img">
-                    <img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=500&h=360&fit=crop&q=80"
-                        alt="باقة العروسة" loading="lazy">
-                    <span class="srv-badge gold-badge">باقة VIP</span>
-                </div>
-                <div class="srv-body">
-                    <div class="srv-icon"><i class="fas fa-crown"></i></div>
-                    <h3>باقة العروسة</h3>
-                    <p>عناية متكاملة بالشعر والبشرة والرموش قبل يومك الكبير. عشان تبقي أحلى عروسة.</p>
-                    <a href="#booking" class="btn gold-btn sm"><i class="fas fa-calendar-check"></i> احجزي الباقة</a>
                 </div>
             </div>
         </div>
@@ -202,62 +197,32 @@
             <div class="ba-grid">
                 <!-- Before/After 1 -->
                 <div class="ba-card">
-                    <div class="ba-images">
-                        <div class="ba-side before">
-                            <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=400&h=500&fit=crop&q=80"
-                                alt="قبل علاج الشعر" loading="lazy">
-                            <span class="ba-label">قبل</span>
-                        </div>
-                        <div class="ba-divider"><i class="fas fa-arrow-left"></i></div>
-                        <div class="ba-side after">
-                            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=500&fit=crop&q=80"
-                                alt="بعد علاج الشعر" loading="lazy">
-                            <span class="ba-label gold-label">بعد</span>
-                        </div>
+                    <div class="ba-images single-img">
+                        <img src="assets/images/b&a1.jpeg" alt="Hydrafacial Deep Cleansing" loading="lazy">
                     </div>
                     <div class="ba-info">
-                        <h4>علاج بروتين مكثف</h4>
-                        <p>شعر صحي ولامع بعد 3 جلسات فقط</p>
+                        <h4>Hydrafacial Deep Cleansing</h4>
+                        <p>تنظيف عميق ونضارة فورية للبشرة</p>
                     </div>
                 </div>
                 <!-- Before/After 2 -->
                 <div class="ba-card">
-                    <div class="ba-images">
-                        <div class="ba-side before">
-                            <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=400&h=500&fit=crop&q=80"
-                                alt="قبل جلسة البشرة" loading="lazy">
-                            <span class="ba-label">قبل</span>
-                        </div>
-                        <div class="ba-divider"><i class="fas fa-arrow-left"></i></div>
-                        <div class="ba-side after">
-                            <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&h=500&fit=crop&q=80"
-                                alt="بعد جلسة البشرة" loading="lazy">
-                            <span class="ba-label gold-label">بعد</span>
-                        </div>
+                    <div class="ba-images single-img">
+                        <img src="assets/images/b&a7.jpeg" alt="Lash Extensions" loading="lazy">
                     </div>
                     <div class="ba-info">
-                        <h4>جلسات تنظيف ونضارة</h4>
-                        <p>بشرة مشرقة وصافية من أول جلسة</p>
+                        <h4>Lash Extensions</h4>
+                        <p>تركيب رموش هير باي هير (الريفيل خلال ٣ أيام مجاناً)</p>
                     </div>
                 </div>
                 <!-- Before/After 3 -->
                 <div class="ba-card">
-                    <div class="ba-images">
-                        <div class="ba-side before">
-                            <img src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?w=400&h=500&fit=crop&q=80"
-                                alt="قبل تركيب الرموش" loading="lazy">
-                            <span class="ba-label">قبل</span>
-                        </div>
-                        <div class="ba-divider"><i class="fas fa-arrow-left"></i></div>
-                        <div class="ba-side after">
-                            <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=400&h=500&fit=crop&q=80"
-                                alt="بعد تركيب الرموش" loading="lazy">
-                            <span class="ba-label gold-label">بعد</span>
-                        </div>
+                    <div class="ba-images single-img">
+                        <img src="assets/images/b&a3.jpeg" alt="Brow Lamination" loading="lazy">
                     </div>
                     <div class="ba-info">
-                        <h4>تركيب رموش كلاسيك</h4>
-                        <p>رموش طبيعية وكثيفة بدون ما حد يحس</p>
+                        <h4>Brow Lamination & Lash Lifting</h4>
+                        <p>رفع وتنسيق الحواجب والرموش بنتائج مبهرة</p>
                     </div>
                 </div>
             </div>
@@ -284,34 +249,28 @@
         </div>
         <div class="swipe-track gallery-track" id="galleryTrack">
             <div class="gal-card">
-                <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=500&h=600&fit=crop&q=80"
-                    alt="أجواء الصالون" loading="lazy">
+                <img src="assets/images/sallon.jpeg" alt="أجواء الصالون" loading="lazy">
                 <span class="gal-caption">أجواء فاخرة ومريحة</span>
             </div>
             <div class="gal-card">
-                <img src="https://images.unsplash.com/photo-1633681926035-ec1ac984418a?w=500&h=600&fit=crop&q=80"
-                    alt="منتجات عالمية" loading="lazy">
-                <span class="gal-caption">منتجات عالمية أصلية</span>
-            </div>
-            <div class="gal-card">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&h=600&fit=crop&q=80"
-                    alt="نتائج الشعر" loading="lazy">
+                <img src="assets/images/1.jpeg" alt="نتائج الشعر" loading="lazy">
                 <span class="gal-caption">نتائج مبهرة للشعر</span>
             </div>
             <div class="gal-card">
-                <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500&h=600&fit=crop&q=80"
-                    alt="عناية بالبشرة" loading="lazy">
+                <img src="assets/images/2jpeg.jpeg" alt="منتجاتنا" loading="lazy">
+                <span class="gal-caption">أفضل المنتجات العالمية</span>
+            </div>
+            <div class="gal-card">
+                <img src="assets/images/b&a2.jpeg" alt="عناية بالبشرة" loading="lazy">
                 <span class="gal-caption">جلسات نضارة وتفتيح</span>
             </div>
             <div class="gal-card">
-                <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=500&h=600&fit=crop&q=80"
-                    alt="رموش فاخرة" loading="lazy">
+                <img src="assets/images/b&a4.jpeg" alt="رموش فاخرة" loading="lazy">
                 <span class="gal-caption">رموش طبيعية وكثيفة</span>
             </div>
             <div class="gal-card">
-                <img src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=500&h=600&fit=crop&q=80"
-                    alt="غرفة العلاج" loading="lazy">
-                <span class="gal-caption">بيئة نظيفة ومعقمة</span>
+                <img src="assets/images/b&a6.jpeg" alt="نتائج حقيقية" loading="lazy">
+                <span class="gal-caption">نتائج تتحدث عن نفسها</span>
             </div>
         </div>
     </section>
@@ -328,21 +287,31 @@
         <div class="swipe-track video-track" id="videoTrack">
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1202932697775344%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <video controls poster="assets/images/sallon.jpeg">
+                        <source src="assets/videos/b&a.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
                 </div>
-                <span class="video-caption">جلسة علاج الشعر بالبروتين</span>
+                <span class="video-caption">نتائج علاج الشعر والبشرة</span>
             </div>
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FNaturalHubSkincare%2Fvideos%2F738301605821467%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <video controls poster="assets/images/2jpeg.jpeg">
+                        <source src="assets/videos/products.mp4" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
                 </div>
-                <span class="video-caption">فيديو من جلساتنا</span>
+                <span class="video-caption">منتجات العناية بالأفتركير</span>
             </div>
             <div class="video-card">
                 <div class="video-wrapper">
-                    <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2FNaturalHubSkincare%2Fvideos%2F1513627269626500%2F&show_text=false&width=267&t=0" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+                    <video controls>
+                        <source src="assets/videos/IMG_4597.MOV" type="video/quicktime">
+                        <source src="assets/videos/IMG_4597.MOV" type="video/mp4">
+                        متصفحك لا يدعم تشغيل الفيديو.
+                    </video>
                 </div>
-                <span class="video-caption">فيديو من جلساتنا</span>
+                <span class="video-caption">من داخل صالون Natural Hub</span>
             </div>
         </div>
     </section>
@@ -363,7 +332,7 @@
                     <p class="rev-text">"أول مرة أحس إن حد فعلاً فاهم شعري ومحتاج إيه. النتيجة كانت مذهلة وشعري بقى صحي
                         ولامع. شكراً Natural Hub!"</p>
                     <div class="rev-author">
-                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face&q=80"
+                        <img src="assets/images/b&a3.jpeg"
                             alt="سارة أحمد" loading="lazy">
                         <div>
                             <strong>سارة أحمد</strong>
@@ -380,7 +349,7 @@
                     <p class="rev-text">"بشرتي اتغيرت ١٨٠ درجة بعد 3 جلسات! المكان نضيف جداً والبنات محترفات ولطيفات.
                         حاسة إني لقيت مكاني أخيراً."</p>
                     <div class="rev-author">
-                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face&q=80"
+                        <img src="assets/images/b&a5.jpeg"
                             alt="نورهان محمد" loading="lazy">
                         <div>
                             <strong>نورهان محمد</strong>
@@ -397,7 +366,7 @@
                     <p class="rev-text">"الرموش طبيعية جداً مش حاسة بيها خالص! كل الناس بتسألني عليها. أحسن مكان جربته
                         للرموش بأمانة."</p>
                     <div class="rev-author">
-                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&h=80&fit=crop&crop=face&q=80"
+                        <img src="assets/images/b&a7.jpeg"
                             alt="مريم خالد" loading="lazy">
                         <div>
                             <strong>مريم خالد</strong>
@@ -411,14 +380,13 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
                             class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
-                    <p class="rev-text">"باقة العروسة كانت حلم! اهتموا بكل تفصيلة وطلعت أحلى عروسة. مش هروح مكان تاني
-                        غير Natural Hub."</p>
+                    <p class="rev-text">"تجربة الأوكسجينو كانت خيالية! بشرتي بقت منورة وناعمة جداً والمسام صغرت بشكل ملحوظ. فعلاً المكان الأفضل في الإسكندرية."</p>
                     <div class="rev-author">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face&q=80"
+                        <img src="assets/images/b&a8.jpeg"
                             alt="هنا علي" loading="lazy">
                         <div>
                             <strong>هنا علي</strong>
-                            <span>باقة العروسة</span>
+                            <span>جلسة أوكسجينو للبشرة</span>
                         </div>
                     </div>
                     <i class="fas fa-quote-right rev-quote"></i>
@@ -437,61 +405,62 @@
             </div>
 
             <div class="prod-grid">
-                <!-- Product 1 -->
+                <!-- Product 1: Aftercare Bundle -->
                 <div class="prod-card">
                     <div class="prod-img">
-                        <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?w=400&h=400&fit=crop"
-                            alt="Product">
+                        <span class="prod-badge pink-badge">بينك</span>
+                        <img src="assets/images/2jpeg.jpeg" alt="Aftercare Bundle Pink">
                         <div class="prod-overlay">
-                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> إضافة للسلة</button>
+                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> اطلبي الآن</button>
                         </div>
                     </div>
                     <div class="prod-info">
-                        <h3>زيت الأرجان الطبيعي</h3>
-                        <div class="prod-price">250 ج.م</div>
+                        <h3>مجموعة العناية (Pink)</h3>
+                        <p>للشعر العادي والدهني (١٠٠٠ مل)</p>
+                        <div class="prod-price">١٠٠٠ ج.م</div>
                     </div>
                 </div>
-                <!-- Product 2 -->
+                <!-- Product 2: Aftercare Bundle -->
                 <div class="prod-card">
                     <div class="prod-img">
-                        <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&h=400&fit=crop"
-                            alt="Product">
+                        <span class="prod-badge green-badge">أخضر</span>
+                        <img src="assets/images/2jpeg.jpeg" alt="Aftercare Bundle Green">
                         <div class="prod-overlay">
-                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> إضافة للسلة</button>
+                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> اطلبي الآن</button>
                         </div>
                     </div>
                     <div class="prod-info">
-                        <h3>سيروم فيتامين سي</h3>
-                        <div class="prod-price">340 ج.م</div>
+                        <h3>مجموعة العناية (Green)</h3>
+                        <p>للشعر المصبوغ (٥٠٠ مل)</p>
+                        <div class="prod-price">٨٠٠ ج.م</div>
                     </div>
                 </div>
-                <!-- Product 3 -->
+                <!-- Product 3: Individual Item -->
                 <div class="prod-card">
                     <div class="prod-img">
-                        <span class="prod-badge">جديد</span>
-                        <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop"
-                            alt="Product">
+                        <img src="assets/images/2jpeg.jpeg" alt="Serum">
                         <div class="prod-overlay">
-                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> إضافة للسلة</button>
+                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> اطلبي الآن</button>
                         </div>
                     </div>
                     <div class="prod-info">
-                        <h3>كريم ترطيب عميق</h3>
-                        <div class="prod-price">180 ج.م</div>
+                        <h3>سيروم العناية (١٠٠ مل)</h3>
+                        <p>مناسب لجميع أنواع الشعر</p>
+                        <div class="prod-price">٣٥٠ ج.م</div>
                     </div>
                 </div>
-                <!-- Product 4 -->
+                <!-- Product 4: Individual Item -->
                 <div class="prod-card">
                     <div class="prod-img">
-                        <img src="https://images.unsplash.com/photo-1611078489935-0cb964de46d6?w=400&h=400&fit=crop"
-                            alt="Product">
+                        <img src="assets/images/2jpeg.jpeg" alt="Hair Mask">
                         <div class="prod-overlay">
-                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> إضافة للسلة</button>
+                            <button class="add-cart-btn"><i class="fas fa-shopping-cart"></i> اطلبي الآن</button>
                         </div>
                     </div>
                     <div class="prod-info">
-                        <h3>غسول الوجه المهدئ</h3>
-                        <div class="prod-price">150 ج.م</div>
+                        <h3>حمام كريم (٥٠٠ مل)</h3>
+                        <p>ترطيب عميق وإصلاح فوري</p>
+                        <div class="prod-price">٣٥٠ ج.م</div>
                     </div>
                 </div>
             </div>
@@ -533,7 +502,7 @@
                     <img src="logo.jpeg" alt="Natural Hub" class="site-logo-ft">
                 </div>
                 <div class="ft-social-circles">
-                    <a href="#" class="soc-icon fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/NaturalHubSkincare" class="soc-icon fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" class="soc-icon tw"><i class="fab fa-twitter"></i></a>
                     <a href="#" class="soc-icon pi"><i class="fab fa-pinterest-p"></i></a>
                     <a href="#" class="soc-icon in"><i class="fab fa-linkedin-in"></i></a>
@@ -563,7 +532,7 @@
                         </li>
                         <li>
                             <div class="icon-circle"><i class="fas fa-mobile-alt"></i></div>
-                            <span dir="ltr">+20 101 234 5678</span>
+                            <span dir="ltr">+20 100 123 4567</span>
                         </li>
                     </ul>
                 </div>
@@ -599,7 +568,7 @@
     <!-- ===== BACK TO TOP ===== -->
     <button class="btt" id="btt" aria-label="العودة للأعلى"><i class="fas fa-chevron-up"></i></button>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
