@@ -567,7 +567,9 @@
    NAVBAR - SOLID MODE FOR POST HERO
    ══════════════════════════════ */
 .post-page-body .clean-navbar {
-    background: #fff !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     padding: 12px 0 !important;
     box-shadow: 0 4px 20px rgba(30, 23, 23, 0.05) !important;
 }

@@ -2,15 +2,6 @@
    NATURAL HUB — About Page Styles
    ============================================= */
 
-/* ══════════════════════════════
-   NAVBAR - DARK MODE FOR HERO
-   ══════════════════════════════ */
-.clean-navbar:not(.scrolled) .nav-menu li a { color: rgba(255,255,255,0.9) !important; text-shadow: 0 1px 3px rgba(0,0,0,0.3); }
-.clean-navbar:not(.scrolled) .nav-menu li a:hover { color: #fff !important; }
-.clean-navbar:not(.scrolled) .nav-menu li a[style*="color:#f74d6c"] { color: #f74d6c !important; text-shadow: 0 0 10px rgba(247,77,108,0.4); }
-.clean-navbar:not(.scrolled) .logo-main { color: #fff !important; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-.clean-navbar:not(.scrolled) .logo-sub { color: rgba(255,255,255,0.75) !important; text-shadow: 0 1px 2px rgba(0,0,0,0.2); }
-.clean-navbar:not(.scrolled) .burger span { background: #fff !important; }
 
 /* ══════════════════════════════
    ABOUT HERO

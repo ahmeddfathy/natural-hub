@@ -4,23 +4,29 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* ── Navbar scroll ── */
     const navbar = document.getElementById('navbar');
     const btt = document.getElementById('btt');
+    const navProgress = document.getElementById('navProgress');
 
     const onScroll = () => {
         const y = window.scrollY;
         navbar.classList.toggle('scrolled', y > 60);
         btt.classList.toggle('show', y > 500);
+
+        if (navProgress) {
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docH > 0 ? (y / docH) * 100 : 0;
+            navProgress.style.width = pct + '%';
+        }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
     btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    /* ── Mobile menu ── */
     const burger = document.getElementById('burger');
     const navMenu = document.getElementById('navMenu');
+    const navClose = document.getElementById('navClose');
     let overlay = null;
 
     const mkOverlay = () => {
@@ -35,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.add('open');
         if (!overlay) mkOverlay();
         requestAnimationFrame(() => overlay.classList.add('on'));
+        document.body.classList.add('nav-open');
         document.body.style.overflow = 'hidden';
     };
 
@@ -42,13 +49,14 @@ document.addEventListener('DOMContentLoaded', () => {
         navMenu.classList.remove('on');
         burger.classList.remove('open');
         if (overlay) overlay.classList.remove('on');
+        document.body.classList.remove('nav-open');
         document.body.style.overflow = '';
     };
 
     burger.addEventListener('click', () => navMenu.classList.contains('on') ? closeNav() : openNav());
-    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNav));
+    if (navClose) navClose.addEventListener('click', closeNav);
+    navMenu.querySelectorAll('li > a').forEach(a => a.addEventListener('click', closeNav));
 
-    /* ── Smooth scroll ── */
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', function (e) {
             const id = this.getAttribute('href');

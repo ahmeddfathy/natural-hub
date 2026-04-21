@@ -19,26 +19,36 @@
 <body>
 
     <!-- ===== NAVBAR ===== -->
+    <div class="nav-progress" id="navProgress"></div>
     <nav class="navbar clean-navbar" id="navbar">
         <div class="container nav-flex">
-            <!-- LOGO: Left side -->
             <a href="index.html" class="logo-clean">
                 <img src="logo.jpeg" alt="Natural Hub" class="site-logo">
             </a>
 
-            <!-- MENU: Center -->
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#hero">الرئيسية</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="gallery.html">المعرض</a></li>
-                <li><a href="videos.html">الفيديوهات</a></li>
-                <li><a href="shop.html">المتجر</a></li>
-                <li><a href="blog.html">المدونة</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
+                <div class="nav-mobile-header">
+                    <span class="nav-mobile-header-title">القائمة</span>
+                    <button class="nav-mobile-header-close" id="navClose" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+                </div>
+                <li><a href="index.html#hero" class="active-link"><i class="fas fa-home nav-icon"></i> الرئيسية</a></li>
+                <li><a href="services.html"><i class="fas fa-spa nav-icon"></i> الخدمات</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images nav-icon"></i> المعرض</a></li>
+                <li><a href="videos.html"><i class="fas fa-play-circle nav-icon"></i> الفيديوهات</a></li>
+                <li><a href="shop.html"><i class="fas fa-shopping-bag nav-icon"></i> المتجر</a></li>
+                <li><a href="blog.html"><i class="fas fa-newspaper nav-icon"></i> المدونة</a></li>
+                <li><a href="about.html"><i class="fas fa-heart nav-icon"></i> من نحن</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> تواصل معنا</a></li>
+                <div class="nav-mobile-footer">
+                    <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank"><i class="fab fa-whatsapp"></i> احجزي جلستك</a>
+                    <div class="nav-mobile-social">
+                        <a href="https://www.facebook.com/NaturalHubSkincare" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
             </ul>
 
-            <!-- ACTIONS: Right side -->
             <div class="nav-actions-clean">
                 <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank">احجزي جلستك</a>
                 <button class="burger" id="burger" aria-label="القائمة">
@@ -48,18 +58,24 @@
         </div>
     </nav>
 
-    <!-- ===== HERO ===== -->
-    <section class="sub-hero reveal vis" style="background-image: url('assets/images/1.jpeg');" id="hero">
-        <div class="container">
-            <div class="hero-glass-card">
-                <span class="sec-chip" style="margin-bottom: 25px; background: rgba(255, 255, 255, 0.1); color: #fff; font-weight: 800; border: 1px solid rgba(255,255,255,0.2);">مرحباً بكِ في عالم الجمال</span>
-                <h1 class="editorial-title">Natural <span class="gold">Hub</span></h1>
-                <p class="hero-sub-txt" style="margin-top: 15px; font-size: clamp(1.1rem, 2vw, 1.4rem); color: rgba(255,255,255,0.9); font-weight: 500; max-width: 600px; margin-inline: auto; line-height: 1.6;">بمناسبة افتتاح فرعنا الجديد في محرم بك 😍 <br> عيشي تجربة عناية استثنائية تليق بجمالك.</p>
-                <div style="margin-top: 40px;">
-                    <a href="#services" class="btn pink-btn lg">استكشفي خدماتنا</a>
-                    <a href="https://wa.me/201001234567" class="btn outline-btn lg" style="margin-right: 15px; border-color: #fff; color: #fff; background: rgba(255,255,255,0.05);">احجزي الآن</a>
-                </div>
+    <!-- ===== MASTER HERO ===== -->
+    <section class="master-hero mh-centered" id="hero">
+        <div class="mh-bg">
+            <div class="mh-overlay"></div>
+            <div class="mh-glows"></div>
+            <div class="mh-particles">
+                <span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span>
             </div>
+        </div>
+        <div class="container mh-inner">
+            <div class="mh-content">
+                <span class="mh-tag"><i class="fas fa-sparkles"></i> مرحباً بكِ في Natural Hub</span>
+                <h1 class="mh-title">جمالكِ يستحق <br><span class="mh-accent">الأفضل دائماً</span></h1>
+                <p class="mh-desc">نحن لا نقدم مجرد خدمات، بل نصنع تجربة فريدة للعناية بجمالكِ الطبيعي بأحدث التقنيات العالمية وأيدي خبراء متخصصين.</p>
+                <div class="mh-btns">
+                    <a href="services.html" class="mh-btn-primary">استكشفي خدماتنا</a>
+                    <a href="https://wa.me/201001234567" class="mh-btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> احجزي جلستكِ</a>
+                </div>
         </div>
     </section>
 

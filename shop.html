@@ -20,6 +20,7 @@
 <body>
 
     <!-- ===== NAVBAR ===== -->
+    <div class="nav-progress" id="navProgress"></div>
     <nav class="navbar clean-navbar" id="navbar">
         <div class="container nav-flex">
             <a href="index.html" class="logo-clean">
@@ -27,14 +28,26 @@
             </a>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="gallery.html">المعرض</a></li>
-                <li><a href="videos.html">الفيديوهات</a></li>
-                <li><a href="shop.html" style="color:#f74d6c;">المتجر</a></li>
-                <li><a href="blog.html">المدونة</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
+                <div class="nav-mobile-header">
+                    <span class="nav-mobile-header-title">القائمة</span>
+                    <button class="nav-mobile-header-close" id="navClose" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+                </div>
+                <li><a href="index.html"><i class="fas fa-home nav-icon"></i> الرئيسية</a></li>
+                <li><a href="services.html"><i class="fas fa-spa nav-icon"></i> الخدمات</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images nav-icon"></i> المعرض</a></li>
+                <li><a href="videos.html"><i class="fas fa-play-circle nav-icon"></i> الفيديوهات</a></li>
+                <li><a href="shop.html" class="active-link"><i class="fas fa-shopping-bag nav-icon"></i> المتجر</a></li>
+                <li><a href="blog.html"><i class="fas fa-newspaper nav-icon"></i> المدونة</a></li>
+                <li><a href="about.html"><i class="fas fa-heart nav-icon"></i> من نحن</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> تواصل معنا</a></li>
+                <div class="nav-mobile-footer">
+                    <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank"><i class="fab fa-whatsapp"></i> اطلبي الآن</a>
+                    <div class="nav-mobile-social">
+                        <a href="https://www.facebook.com/NaturalHubSkincare" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
             </ul>
 
             <div class="nav-actions-clean">
@@ -47,12 +60,25 @@
     </nav>
 
     <main>
-        <!-- ===== SHOP HERO ===== -->
-        <section class="shop-hero">
-            <div class="container">
-                <span class="sec-chip">منتجاتنا الحصرية</span>
-                <h1 class="shop-hero-title">متجر <span class="gold">Natural Hub</span></h1>
-                <p class="shop-hero-sub">اختاري من بين مجموعات العناية المتخصصة المصممة للحفاظ على صحة وجمال شعرك وبشرتك.</p>
+        <!-- ===== MASTER HERO ===== -->
+        <section class="master-hero mh-centered" id="shop-hero">
+            <div class="mh-bg">
+                <div class="mh-overlay"></div>
+                <div class="mh-glows"></div>
+                <div class="mh-particles">
+                    <span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span>
+                </div>
+            </div>
+            <div class="container mh-inner">
+                <div class="mh-content">
+                    <span class="mh-tag"><i class="fas fa-shopping-bag"></i> منتجاتنا الحصرية</span>
+                    <h1 class="mh-title">جمالكِ <br><span class="mh-accent">بين يديكِ</span></h1>
+                    <p class="mh-desc">مجموعات العناية المنزلية (Aftercare) المختارة بعناية فائقة لتضمن لكِ استمرار نتائج الجلسات الاحترافية وصحة شعركِ وبشرتكِ.</p>
+                    <div class="mh-btns">
+                        <a href="#shop-grid" class="mh-btn-primary">تسوقي الآن</a>
+                        <a href="https://wa.me/201001234567" class="mh-btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> اطلبي عبر واتساب</a>
+                    </div>
+                </div>
             </div>
         </section>
 

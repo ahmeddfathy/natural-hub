@@ -19,22 +19,37 @@
 
 <body>
 
-    <!-- ===== NAVBAR ===== -->
+<!-- ===== NAVBAR ===== -->
+    <div class="nav-progress" id="navProgress"></div>
     <nav class="navbar clean-navbar" id="navbar">
         <div class="container nav-flex">
             <a href="index.html" class="logo-clean">
                 <img src="logo.jpeg" alt="Natural Hub" class="site-logo">
             </a>
+
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#hero">الرئيسية</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="gallery.html">المعرض</a></li>
-                <li><a href="videos.html" style="color:#f74d6c;">الفيديوهات</a></li>
-                <li><a href="shop.html">المتجر</a></li>
-                <li><a href="blog.html">المدونة</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
+                <div class="nav-mobile-header">
+                    <span class="nav-mobile-header-title">القائمة</span>
+                    <button class="nav-mobile-header-close" id="navClose" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+                </div>
+                <li><a href="index.html"><i class="fas fa-home nav-icon"></i> الرئيسية</a></li>
+                <li><a href="services.html"><i class="fas fa-spa nav-icon"></i> الخدمات</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images nav-icon"></i> المعرض</a></li>
+                <li><a href="videos.html" class="active-link"><i class="fas fa-play-circle nav-icon"></i> الفيديوهات</a></li>
+                <li><a href="shop.html"><i class="fas fa-shopping-bag nav-icon"></i> المتجر</a></li>
+                <li><a href="blog.html"><i class="fas fa-newspaper nav-icon"></i> المدونة</a></li>
+                <li><a href="about.html"><i class="fas fa-heart nav-icon"></i> من نحن</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> تواصل معنا</a></li>
+                <div class="nav-mobile-footer">
+                    <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank"><i class="fab fa-whatsapp"></i> احجزي جلستك</a>
+                    <div class="nav-mobile-social">
+                        <a href="https://www.facebook.com/NaturalHubSkincare" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
             </ul>
+
             <div class="nav-actions-clean">
                 <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank">احجزي جلستك</a>
                 <button class="burger" id="burger" aria-label="القائمة">

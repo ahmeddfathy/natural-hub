@@ -18,21 +18,36 @@
 <body>
 
     <!-- ===== NAVBAR ===== -->
+    <div class="nav-progress" id="navProgress"></div>
     <nav class="navbar clean-navbar" id="navbar">
         <div class="container nav-flex">
             <a href="index.html" class="logo-clean">
                 <img src="logo.jpeg" alt="Natural Hub" class="site-logo">
             </a>
+
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#hero">الرئيسية</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="gallery.html">المعرض</a></li>
-                <li><a href="videos.html">الفيديوهات</a></li>
-                <li><a href="shop.html">المتجر</a></li>
-                <li><a href="blog.html" style="color:#f74d6c;">المدونة</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
+                <div class="nav-mobile-header">
+                    <span class="nav-mobile-header-title">القائمة</span>
+                    <button class="nav-mobile-header-close" id="navClose" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+                </div>
+                <li><a href="index.html"><i class="fas fa-home nav-icon"></i> الرئيسية</a></li>
+                <li><a href="services.html"><i class="fas fa-spa nav-icon"></i> الخدمات</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images nav-icon"></i> المعرض</a></li>
+                <li><a href="videos.html"><i class="fas fa-play-circle nav-icon"></i> الفيديوهات</a></li>
+                <li><a href="shop.html"><i class="fas fa-shopping-bag nav-icon"></i> المتجر</a></li>
+                <li><a href="blog.html" class="active-link"><i class="fas fa-newspaper nav-icon"></i> المدونة</a></li>
+                <li><a href="about.html"><i class="fas fa-heart nav-icon"></i> من نحن</a></li>
+                <li><a href="contact.html"><i class="fas fa-envelope nav-icon"></i> تواصل معنا</a></li>
+                <div class="nav-mobile-footer">
+                    <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank"><i class="fab fa-whatsapp"></i> احجزي جلستك</a>
+                    <div class="nav-mobile-social">
+                        <a href="https://www.facebook.com/NaturalHubSkincare" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
             </ul>
+
             <div class="nav-actions-clean">
                 <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank">احجزي جلستك</a>
                 <button class="burger" id="burger" aria-label="القائمة">
@@ -42,22 +57,29 @@
         </div>
     </nav>
 
-    <!-- ===== BLOG HERO ===== -->
-    <section class="blog-hero">
-        <div class="container blog-hero-inner">
-            <div class="blog-hero-text">
-                <span class="sec-chip">مدونة Natural Hub</span>
-                <h1 class="blog-hero-title">نصائح الجمال <span class="gold">من خبراتنا</span></h1>
-                <p class="blog-hero-desc">مقالات متخصصة في العناية بالشعر والبشرة والرموش — كتبها فريق Natural Hub لمساعدتك في رحلة جمالك.</p>
-                <!-- Search -->
-                <div class="blog-search-wrap">
-                    <i class="fas fa-search blog-search-icon"></i>
-                    <input type="text" id="blogSearch" class="blog-search-input" placeholder="ابحثي في المدونة…" autocomplete="off">
-                    <button class="blog-search-clear" id="blogSearchClear" aria-label="مسح"><i class="fas fa-times"></i></button>
+    <!-- ===== MASTER HERO ===== -->
+    <section class="master-hero" id="blog-hero">
+        <div class="mh-bg">
+            <div class="mh-overlay"></div>
+            <div class="mh-glows"></div>
+            <div class="mh-particles">
+                <span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span>
+            </div>
+        </div>
+        <div class="container mh-inner">
+            <div class="mh-content">
+                <span class="mh-tag"><i class="fas fa-newspaper"></i> نصائح جمالية</span>
+                <h1 class="mh-title">جمالكِ <br><span class="mh-accent">يبدأ بالمعرفة</span></h1>
+                <p class="mh-desc">نشارككِ أحدث النصائح والتوجهات في عالم العناية بالشعر والبشرة والرموش من واقع خبرتنا اليومية مع عميلاتنا.</p>
+                <div class="blog-search-wrap" style="position: relative; max-width: 450px; margin-top: 10px;">
+                    <i class="fas fa-search" style="position: absolute; right: 22px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.4); font-size: 0.9rem;"></i>
+                    <input type="text" id="blogSearch" class="blog-search-input" placeholder="ابحثي عن نصيحة جمالية…" autocomplete="off" style="width: 100%; padding: 18px 55px 18px 25px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 50px; color: #fff; font-family: inherit; font-size: 1rem; outline: none; transition: all 0.4s ease; backdrop-filter: blur(20px);">
                 </div>
             </div>
-            <div class="blog-hero-featured" id="heroFeatured">
-                <!-- Featured post card — injected by JS -->
+            <div class="mh-visual">
+                <div class="blog-hero-featured" id="heroFeatured">
+                    <!-- Featured post card — injected by JS -->
+                </div>
             </div>
         </div>
     </section>

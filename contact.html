@@ -20,6 +20,7 @@
 <body>
 
     <!-- ===== NAVBAR ===== -->
+    <div class="nav-progress" id="navProgress"></div>
     <nav class="navbar clean-navbar" id="navbar">
         <div class="container nav-flex">
             <a href="index.html" class="logo-clean">
@@ -27,14 +28,26 @@
             </a>
 
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html#hero">الرئيسية</a></li>
-                <li><a href="services.html">الخدمات</a></li>
-                <li><a href="gallery.html">المعرض</a></li>
-                <li><a href="videos.html">الفيديوهات</a></li>
-                <li><a href="shop.html">المتجر</a></li>
-                <li><a href="blog.html">المدونة</a></li>
-                <li><a href="about.html">من نحن</a></li>
-                <li><a href="contact.html" style="color:#f74d6c;">تواصل معنا</a></li>
+                <div class="nav-mobile-header">
+                    <span class="nav-mobile-header-title">القائمة</span>
+                    <button class="nav-mobile-header-close" id="navClose" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+                </div>
+                <li><a href="index.html"><i class="fas fa-home nav-icon"></i> الرئيسية</a></li>
+                <li><a href="services.html"><i class="fas fa-spa nav-icon"></i> الخدمات</a></li>
+                <li><a href="gallery.html"><i class="fas fa-images nav-icon"></i> المعرض</a></li>
+                <li><a href="videos.html"><i class="fas fa-play-circle nav-icon"></i> الفيديوهات</a></li>
+                <li><a href="shop.html"><i class="fas fa-shopping-bag nav-icon"></i> المتجر</a></li>
+                <li><a href="blog.html"><i class="fas fa-newspaper nav-icon"></i> المدونة</a></li>
+                <li><a href="about.html"><i class="fas fa-heart nav-icon"></i> من نحن</a></li>
+                <li><a href="contact.html" class="active-link"><i class="fas fa-envelope nav-icon"></i> تواصل معنا</a></li>
+                <div class="nav-mobile-footer">
+                    <a href="https://wa.me/201001234567" class="btn pink-btn" target="_blank"><i class="fab fa-whatsapp"></i> احجزي جلستك</a>
+                    <div class="nav-mobile-social">
+                        <a href="https://www.facebook.com/NaturalHubSkincare" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
             </ul>
 
             <div class="nav-actions-clean">
@@ -46,56 +59,48 @@
         </div>
     </nav>
 
-    <!-- ===== CONTACT HERO ===== -->
-    <section class="contact-hero">
-        <div class="ch-hero-bg"></div>
-        <div class="ch-hero-grad"></div>
-        <div class="ch-hero-dots"></div>
-        <div class="container ch-hero-inner">
-            <!-- LEFT: Text -->
-            <div class="ch-hero-text">
-                <span class="ch-tag">
-                    <span class="ch-tag-dot"></span>
-                    تواصلي معنا
-                </span>
-                <h1 class="ch-title">
-                    نحن هنا<br>
-                    <span class="ch-title-accent">من أجلك</span>
-                </h1>
-                <p class="ch-hero-desc">
-                    فريق Natural Hub جاهز دايماً لمساعدتك.<br>
-                    احجزي جلستك، استفسري، أو زورينا — مرحباً بيكي!
-                </p>
-                <div class="ch-hero-btns">
-                    <a href="https://wa.me/201001234567" class="ch-btn-primary" target="_blank">
-                        <i class="fab fa-whatsapp"></i> واتساب مباشر
-                    </a>
-                    <a href="tel:+201001234567" class="ch-btn-wa">
-                        <i class="fas fa-phone"></i> اتصلي بينا
-                    </a>
+    <!-- ===== MASTER HERO ===== -->
+    <section class="master-hero" id="contact-hero">
+        <div class="mh-bg">
+            <div class="mh-overlay"></div>
+            <div class="mh-glows"></div>
+            <div class="mh-particles">
+                <span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span>
+            </div>
+        </div>
+        <div class="container mh-inner">
+            <div class="mh-content">
+                <span class="mh-tag"><i class="fas fa-headset"></i> يسعدنا تواصلكِ</span>
+                <h1 class="mh-title">دائماً <br><span class="mh-accent">قريبون منكِ</span></h1>
+                <p class="mh-desc">فريقنا جاهز للإجابة على جميع استفساراتكِ ومساعدتكِ في اختيار الجلسات والمنتجات الأنسب لجمالكِ. تواصلوا معنا الآن.</p>
+                <div class="mh-btns">
+                    <a href="#contact-section" class="mh-btn-primary">أرسلي رسالة</a>
+                    <a href="https://wa.me/201001234567" class="mh-btn-outline" target="_blank"><i class="fab fa-whatsapp"></i> واتساب مباشر</a>
                 </div>
             </div>
-            <!-- RIGHT: Cards -->
-            <div class="ch-hero-cards">
-                <div class="ch-hero-card chc-1">
-                    <div class="chc-icon"><i class="fas fa-map-marker-alt"></i></div>
-                    <h3>موقعنا</h3>
-                    <p>فرعنا الرئيسي في قلب الإسكندرية، محرم بك.</p>
-                </div>
-                <div class="ch-hero-card chc-2">
-                    <div class="chc-icon"><i class="far fa-clock"></i></div>
-                    <h3>مفتوح الآن</h3>
-                    <p>نستقبلك يومياً من 11 صباحاً حتى 10 مساءً.</p>
-                </div>
-                <div class="ch-hero-card chc-3">
-                    <div class="chc-icon"><i class="fas fa-spa"></i></div>
-                    <h3>خبراء التجميل</h3>
-                    <p>فريق محترف لأفضل خدمات العناية بالشعر والبشرة.</p>
-                </div>
-                <div class="ch-hero-card chc-4">
-                    <div class="chc-icon"><i class="fab fa-whatsapp"></i></div>
-                    <h3>دعم متواصل</h3>
-                    <p>تواصلي معنا في أي وقت لتنسيق موعدك ومتابعة استفساراتك.</p>
+            <div class="mh-visual">
+                <div class="mh-glass-card">
+                    <div class="mh-feature">
+                        <div class="mh-feature-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="mh-feature-info">
+                            <h4>موقعنا</h4>
+                            <p>المقطم، القاهرة، مصر</p>
+                        </div>
+                    </div>
+                    <div class="mh-feature">
+                        <div class="mh-feature-icon"><i class="fas fa-phone-alt"></i></div>
+                        <div class="mh-feature-info">
+                            <h4>اتصلي بنا</h4>
+                            <p>+20 100 123 4567</p>
+                        </div>
+                    </div>
+                    <div class="mh-feature">
+                        <div class="mh-feature-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="mh-feature-info">
+                            <h4>بريدنا الإلكتروني</h4>
+                            <p>info@naturalhub.com</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -11,19 +11,23 @@
     const navbar = document.getElementById('navbar');
     const btt    = document.getElementById('btt');
     const waFloat = document.getElementById('waFloat');
+    const navProgress = document.getElementById('navProgress');
     const tabsBar = document.getElementById('srvTabsBar');
 
     window.addEventListener('scroll', () => {
         const y = window.scrollY;
         
-        // Navbar styling
         if (navbar) navbar.classList.toggle('scrolled', y > 60);
         
-        // Buttons visibility
         if (btt) btt.classList.toggle('visible', y > 400);
         if (waFloat) waFloat.classList.toggle('visible', y > 200);
 
-        // Sticky tabs style tweak if needed when scrolling
+        if (navProgress) {
+            const docH = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docH > 0 ? (y / docH) * 100 : 0;
+            navProgress.style.width = pct + '%';
+        }
+
         if (tabsBar) {
             tabsBar.classList.toggle('sticking', y > 400);
             updateActiveTabOnScroll();
@@ -37,23 +41,40 @@
         });
     }
 
-    /* ════════════════════════════════
-       BURGER MENU
-    ════════════════════════════════ */
     const burger  = document.getElementById('burger');
     const navMenu = document.getElementById('navMenu');
+    const navClose = document.getElementById('navClose');
+    let overlay = null;
+
+    const mkOverlay = () => {
+        overlay = document.createElement('div');
+        overlay.className = 'nav-overlay';
+        document.body.appendChild(overlay);
+        overlay.addEventListener('click', closeNav);
+    };
+
+    const openNav = () => {
+        navMenu.classList.add('on');
+        burger.classList.add('open');
+        if (!overlay) mkOverlay();
+        requestAnimationFrame(() => overlay.classList.add('on'));
+        document.body.classList.add('nav-open');
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeNav = () => {
+        navMenu.classList.remove('on');
+        burger.classList.remove('open');
+        if (overlay) overlay.classList.remove('on');
+        document.body.classList.remove('nav-open');
+        document.body.style.overflow = '';
+    };
 
     if (burger && navMenu) {
-        burger.addEventListener('click', () => {
-            burger.classList.toggle('open');
-            navMenu.classList.toggle('on');
-        });
-
-        navMenu.querySelectorAll('a').forEach(a => {
-            a.addEventListener('click', () => {
-                burger.classList.remove('open');
-                navMenu.classList.remove('on');
-            });
+        burger.addEventListener('click', () => navMenu.classList.contains('on') ? closeNav() : openNav());
+        if (navClose) navClose.addEventListener('click', closeNav);
+        navMenu.querySelectorAll('li > a').forEach(a => {
+            a.addEventListener('click', closeNav);
         });
     }
 
