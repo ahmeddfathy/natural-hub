@@ -13,6 +13,8 @@ class Video extends Model
     protected $fillable = [
         'title',
         'slug',
+        'category_type',
+        'service_id',
         'excerpt',
         'description',
         'youtube_url',
@@ -48,6 +50,11 @@ class Video extends Model
                 $video->slug = Str::slug($video->title);
             }
         });
+    }
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class);
     }
 
     public function category()
