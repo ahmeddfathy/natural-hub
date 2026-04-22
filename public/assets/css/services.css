@@ -1,0 +1,950 @@
+/* =============================================
+   NATURAL HUB — Services Page
+   ============================================= */
+
+/* Fix logo size on desktop */
+.site-logo {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    transition: all 0.4s ease;
+}
+
+/* ══════════════════════════════
+   HERO VISUALS — CARDS
+   ══════════════════════════════ */
+/* Keep only the specific card layouts used inside the master-hero */
+.srv-hero-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    animation: fadeUp 0.9s ease 0.3s both;
+    position: relative;
+    /* Transform to make it dynamic */
+    transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+    transform-style: preserve-3d;
+}
+
+.srv-hero-card {
+    background: rgba(20, 14, 16, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+    cursor: default;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+}
+
+/* Hover pop effect */
+.srv-hero-card:hover {
+    transform: translateY(-10px) translateZ(30px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+}
+
+.srv-hero-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.srv-hero-card:hover::before { opacity: 1; }
+
+.srv-hero-card h3 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+    margin: 16px 0 8px;
+}
+
+.srv-hero-card p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.6);
+}
+
+.shc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.shc-count {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+}
+
+/* Theme accent glows */
+.srv-hero-card.shc-1:hover { border-color: rgba(139,92,246,0.5); }
+.shc-1 .shc-icon { color: #a78bfa; box-shadow: 0 0 20px rgba(139,92,246,0.2); }
+
+.srv-hero-card.shc-2:hover { border-color: rgba(176,138,60,0.5); }
+.shc-2 .shc-icon { color: #fbbf24; box-shadow: 0 0 20px rgba(176,138,60,0.2); }
+
+.srv-hero-card.shc-3:hover { border-color: rgba(247,77,108,0.5); }
+.shc-3 .shc-icon { color: #f472b6; box-shadow: 0 0 20px rgba(247,77,108,0.2); }
+
+.srv-hero-card.shc-4:hover { border-color: rgba(212,175,97,0.5); }
+.shc-4 .shc-icon { color: #fcd34d; box-shadow: 0 0 20px rgba(212,175,97,0.2); }
+
+/* ══════════════════════════════
+   TABS BAR
+   ══════════════════════════════ */
+.srv-tabs-bar {
+    background: #fff;
+    position: relative;
+    z-index: 80;
+    box-shadow: 0 4px 20px rgba(30,23,23,0.06);
+    margin-top: -30px;
+    border-radius: 20px;
+    width: fit-content;
+    max-width: calc(100% - 32px);
+    margin-inline: auto;
+    padding: 0 20px;
+}
+
+.srv-tabs-inner {
+    display: flex;
+    gap: 8px;
+    padding: 16px 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    justify-content: center;
+}
+
+.srv-tabs-inner::-webkit-scrollbar { display: none; }
+
+.srv-tab {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    border: 1.5px solid rgba(30,23,23,0.1);
+    background: transparent;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #6b5e5a;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.srv-tab:hover {
+    border-color: #f74d6c;
+    color: #f74d6c;
+    background: rgba(247,77,108,0.05);
+}
+
+.srv-tab.active {
+    background: #f74d6c;
+    border-color: #f74d6c;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(247,77,108,0.3);
+}
+
+/* ══════════════════════════════
+   CATEGORY SECTIONS
+   ══════════════════════════════ */
+.srv-main { background: #fff; }
+
+.srv-cat {
+    padding: 85px 0 70px;
+    background: #fff;
+    border-bottom: none;
+}
+
+.srv-cat-alt { background: #FFF3F6; }
+
+/* Category header */
+.srv-cat-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 56px;
+    gap: 24px;
+}
+
+.srv-cat-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.srv-cat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    flex-shrink: 0;
+}
+
+.hair-icon   { background: rgba(247,77,108,0.12); color: #f74d6c; }
+.skin-icon   { background: rgba(247,77,108,0.12); color: #f74d6c; }
+.lash-icon   { background: rgba(247,77,108,0.12); color: #f74d6c; }
+.bridal-icon { background: rgba(247,77,108,0.12); color: #f74d6c; }
+
+.srv-cat-label h2 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 900;
+    color: #1E1717;
+    margin-bottom: 4px;
+}
+
+.srv-cat-label p {
+    font-size: 0.92rem;
+    color: #6b5e5a;
+    line-height: 1.6;
+}
+
+.srv-cat-book {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 50px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    font-family: 'Tajawal', sans-serif;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    background: linear-gradient(135deg, #f74d6c, #ff7a95);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(247, 77, 108, 0.25);
+}
+
+.srv-cat-book:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(247, 77, 108, 0.35); }
+
+/* ══════════════════════════════
+   SERVICE CARDS GRID — STUNNING DESIGN
+   ══════════════════════════════ */
+.srv-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.srv-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 0; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.srv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 60px rgba(247, 77, 108, 0.12);
+    border-color: rgba(247, 77, 108, 0.15);
+}
+
+.srv-card-img {
+    position: relative;
+    height: 300px;
+    border-radius: 0;
+    overflow: hidden;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+.srv-card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.03);
+    transition: background 0.4s ease;
+}
+
+.srv-card:hover .srv-card-img::after {
+    opacity: 1;
+}
+
+.srv-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.srv-card:hover .srv-card-img img {
+    transform: scale(1.08);
+}
+
+.srv-card-cat {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+/* Category specific badges */
+.hair-cat   { background: rgba(247,77,108,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.skin-cat   { background: rgba(247,77,108,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+.lash-cat   { background: rgba(247,77,108,0.85); color: #fff; border: 1px solid rgba(255,255,255,0.2); }
+
+.srv-card-body {
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    background: transparent;
+    position: relative;
+    z-index: 3;
+}
+
+.srv-card-title {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.srv-card:hover .srv-card-title {
+    color: #f74d6c;
+}
+
+.srv-cat-alt .srv-card:hover .srv-card-title {
+    color: #B08A3C;
+}
+
+.srv-card-desc {
+    font-size: 0.92rem;
+    color: #7a6e6b;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    flex: 1;
+}
+
+/* Elegant textual details */
+.srv-card-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+    font-size: 0.85rem;
+    color: #8b7b73;
+}
+
+.srv-card-details span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.srv-card-details i {
+    color: #1E1717;
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.srv-card-details::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.srv-card-details span:not(:last-child)::after {
+    content: '•';
+    margin-right: 8px;
+    color: rgba(30,23,23,0.3);
+}
+
+/* Elegant Minimal Footer */
+.srv-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 22px;
+    margin-top: auto;
+    border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.srv-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.srv-price-from {
+    font-size: 0.7rem;
+    color: #9c8e8a;
+    font-weight: 600;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.srv-price-val {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1E1717;
+    font-family: 'Tajawal', sans-serif;
+    line-height: 1.2;
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+}
+
+.skin-price { color: #1E1717; }
+.lash-price { color: #1E1717; }
+
+/* Chic Round Arrow Button */
+.srv-book-btn {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #fff;
+    background: linear-gradient(135deg, #f74d6c, #ff7a95);
+    box-shadow: 0 4px 12px rgba(247, 77, 108, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 0; /* Hide text, just show icon */
+    flex-shrink: 0;
+}
+
+.srv-book-btn::before {
+    content: '\f060'; /* FontAwesome left arrow for RTL */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.srv-card:hover .srv-book-btn {
+    box-shadow: 0 10px 24px rgba(247,77,108,0.35);
+    transform: translateX(-4px);
+}
+
+.srv-book-btn:hover {
+    transform: translateX(-6px) scale(1.1);
+    box-shadow: 0 12px 28px rgba(247,77,108,0.45);
+}
+
+/* Replaced with icon inside pseudo element above, these are not needed but keeping empty to clear */
+
+/* ══════════════════════════════
+   BRIDAL SECTION
+   ══════════════════════════════ */
+.srv-cat-bridal {
+    background: linear-gradient(160deg, #0f0a0b 0%, #1a0f12 100%);
+    border: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.srv-bridal-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 10% 50%, rgba(247,77,108,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 20%, rgba(176,138,60,0.12) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.srv-cat-bridal .srv-cat-label h2 { color: #fff; }
+.srv-cat-bridal .srv-cat-label p { color: rgba(255,255,255,0.6); }
+
+.srv-bridal-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.srv-bridal-card {
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid rgba(255,255,255,0.1);
+    border-radius: 22px;
+    padding: 30px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.srv-bridal-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    border-color: rgba(247,77,108,0.4);
+}
+
+.featured-bridal {
+    border-color: rgba(212,175,97,0.4);
+    background: rgba(212,175,97,0.06);
+}
+
+.featured-bridal:hover { border-color: rgba(212,175,97,0.7); }
+
+.sbc-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #B08A3C, #D4AF61);
+    color: #fff;
+    font-size: 0.72rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 999px;
+}
+
+.sbc-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(247,77,108,0.15);
+    color: #f74d6c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+}
+
+.featured-bridal .sbc-icon {
+    background: rgba(212,175,97,0.18);
+    color: #D4AF61;
+}
+
+.sbc-title {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.sbc-desc {
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.sbc-includes {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sbc-includes li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.8);
+}
+
+.sbc-includes i { color: #f74d6c; font-size: 0.75rem; flex-shrink: 0; }
+.featured-bridal .sbc-includes i { color: #D4AF61; }
+
+.sbc-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sbc-price {
+    display: flex;
+    flex-direction: column;
+}
+
+.sbc-price span {
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 600;
+}
+
+.sbc-price strong {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #fff;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.sbc-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-size: 0.86rem;
+    font-weight: 700;
+    font-family: 'Tajawal', sans-serif;
+    text-decoration: none;
+    background: linear-gradient(135deg, #25D366, #1da851);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(37,211,102,0.3);
+    transition: all 0.25s ease;
+}
+
+.sbc-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(37,211,102,0.4); }
+
+.featured-bridal .sbc-btn {
+    background: linear-gradient(135deg, #B08A3C, #D4AF61);
+    box-shadow: 0 4px 14px rgba(176,138,60,0.3);
+}
+
+/* ══════════════════════════════
+   BOOKING CTA
+   ══════════════════════════════ */
+.srv-cta {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1E1717 0%, #2d1f1f 100%);
+}
+
+.srv-cta-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 10% 50%, rgba(247,77,108,0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 30%, rgba(176,138,60,0.12) 0%, transparent 50%);
+}
+
+.srv-cta-inner {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.srv-cta-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    background: rgba(247,77,108,0.18);
+    border: 1.5px solid rgba(247,77,108,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #f74d6c;
+    margin: 0 auto 24px;
+}
+
+.srv-cta-inner h2 {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 14px;
+}
+
+.srv-cta-inner h2 span { color: #f74d6c; }
+
+.srv-cta-inner p {
+    color: rgba(255,255,255,0.65);
+    font-size: 1rem;
+    margin-bottom: 32px;
+    max-width: 440px;
+    margin-inline: auto;
+    line-height: 1.8;
+}
+
+.srv-cta-btns {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.srv-cta-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 14px 28px;
+    border-radius: 50px;
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    font-weight: 700;
+    font-size: 0.96rem;
+    font-family: 'Tajawal', sans-serif;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.srv-cta-ghost:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(247,77,108,0.5);
+    color: #f74d6c;
+    transform: translateY(-2px);
+}
+
+/* ══════════════════════════════
+   REVEAL ANIMATIONS
+   ══════════════════════════════ */
+.srv-card, .srv-bridal-card, .srv-hero-card {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.srv-card.visible, .srv-bridal-card.visible, .srv-hero-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ══════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════ */
+@media (max-width: 1024px) {
+    .srv-hero-inner {
+        grid-template-columns: 1fr;
+        padding: 110px 0 60px;
+        gap: 40px;
+    }
+
+    .srv-hero-cards {
+        transform: none; /* Reset 3D transform on mobile */
+    }
+
+    .srv-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .srv-hero-cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .srv-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .srv-bridal-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .srv-cat-head {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .srv-tabs-bar { 
+        top: 62px; 
+    }
+    .srv-tabs-inner {
+        justify-content: flex-start; 
+        padding: 12px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .srv-hero-cards { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .srv-hero-card { padding: 18px 14px; }
+    .srv-hero-card h3 { font-size: 0.92rem; }
+    .srv-hero-card p { font-size: 0.72rem; }
+}
+
+/* ===================================================
+   BOOKING FORM SECTION (services page)
+   =================================================== */
+.srv-booking-section {
+    background: linear-gradient(135deg, #0d0d14 0%, #1a0a1e 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+.srv-booking-section::before {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,163,107,.08) 0%, transparent 70%);
+    top: -100px; left: -100px;
+    pointer-events: none;
+}
+
+.srv-booking-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 60px;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .srv-booking-wrap { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* --- Left Info --- */
+.srv-booking-info {
+    color: #fff;
+    text-align: right;
+}
+.srv-booking-info .srv-cta-icon {
+    width: 64px; height: 64px;
+    background: linear-gradient(135deg, #c9a36b, #e8c87d);
+    border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; color: #0d0d14;
+    margin-bottom: 24px;
+}
+.srv-booking-info h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 800; margin-bottom: 12px; line-height: 1.3;
+}
+.srv-booking-info h2 span { color: #c9a36b; }
+.srv-booking-info p { color: rgba(255,255,255,.65); font-size: 1rem; margin-bottom: 28px; }
+
+.booking-perks { display: flex; flex-direction: column; gap: 10px; margin-bottom: 32px; }
+.perk-item { display: flex; align-items: center; gap: 10px; font-size: .95rem; color: rgba(255,255,255,.8); }
+.perk-item i { color: #c9a36b; font-size: 1rem; }
+
+.srv-booking-info .srv-btn-wa {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #25d366; color: #fff;
+    padding: 12px 24px; border-radius: 50px;
+    font-size: .95rem; font-weight: 600;
+    text-decoration: none; transition: .3s;
+}
+.srv-booking-info .srv-btn-wa:hover { background: #1db954; transform: translateY(-2px); }
+
+/* --- Form Panel --- */
+.srv-booking-form-wrap {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(201,163,107,.15);
+    border-radius: 24px;
+    padding: 40px;
+    backdrop-filter: blur(20px);
+}
+@media (max-width: 600px) {
+    .srv-booking-form-wrap { padding: 24px 20px; }
+}
+
+.booking-success-msg {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(37,211,102,.1); border: 1px solid rgba(37,211,102,.3);
+    border-radius: 12px; padding: 16px 20px; margin-bottom: 24px;
+    color: #fff;
+}
+.booking-success-msg i { color: #25d366; font-size: 1.4rem; margin-top: 2px; }
+.booking-success-msg strong { display: block; margin-bottom: 4px; }
+.booking-success-msg p { opacity: .7; font-size: .9rem; margin: 0; }
+
+.booking-errors {
+    background: rgba(255,80,80,.1); border: 1px solid rgba(255,80,80,.3);
+    border-radius: 12px; padding: 14px 20px; margin-bottom: 20px; color: #ffaaaa;
+}
+.booking-errors ul { margin: 0; padding-right: 16px; }
+
+/* Form Fields */
+.srv-booking-form .sbf-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+@media (max-width: 600px) {
+    .srv-booking-form .sbf-row { grid-template-columns: 1fr; }
+}
+
+.srv-booking-form .sbf-group {
+    margin-bottom: 18px;
+}
+.srv-booking-form label {
+    display: flex; align-items: center; gap: 6px;
+    font-size: .88rem; color: rgba(255,255,255,.65);
+    margin-bottom: 7px; font-weight: 500;
+}
+.srv-booking-form label i { color: #c9a36b; }
+
+.srv-booking-form input,
+.srv-booking-form textarea,
+.sbf-select-wrap select {
+    width: 100%; padding: 12px 16px;
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    color: #fff; font-size: .95rem;
+    outline: none; transition: .3s;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+.srv-booking-form input::placeholder,
+.srv-booking-form textarea::placeholder { color: rgba(255,255,255,.3); }
+.srv-booking-form input:focus,
+.srv-booking-form textarea:focus,
+.sbf-select-wrap select:focus {
+    border-color: rgba(201,163,107,.5);
+    background: rgba(255,255,255,.08);
+}
+.srv-booking-form input[type="datetime-local"] { color-scheme: dark; }
+
+.sbf-select-wrap { position: relative; }
+.sbf-select-wrap select {
+    appearance: none; cursor: pointer; padding-left: 40px;
+}
+.sbf-select-wrap i {
+    position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255,255,255,.4); pointer-events: none; font-size: .85rem;
+}
+.sbf-select-wrap select option { background: #1a1a2e; color: #fff; }
+.sbf-select-wrap select optgroup { color: #c9a36b; }
+
+.sbf-error {
+    display: block; font-size: .8rem;
+    color: #ff8888; margin-top: 5px;
+}
+
+.sbf-submit {
+    width: 100%; padding: 15px 24px;
+    background: linear-gradient(135deg, #c9a36b, #e8c87d);
+    color: #0d0d14; border: none; border-radius: 14px;
+    font-size: 1.05rem; font-weight: 700;
+    cursor: pointer; display: flex; align-items: center;
+    justify-content: center; gap: 10px;
+    transition: .3s; margin-top: 8px;
+}
+.sbf-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,163,107,.35);
+}

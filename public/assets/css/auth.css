@@ -1,0 +1,243 @@
+/*
+ * Natural Hub — Auth Pages CSS
+ * Light pink theme matching site aesthetic
+ */
+
+/* ── Section wrapper ───────────────────────────── */
+.nh-auth-section {
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, #fff0f3 0%, #fce4ec 40%, #fdf6f9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 140px 20px 80px;
+}
+
+/* ── Shell ─────────────────────────────────────── */
+.nh-auth-shell {
+    width: 100%;
+    max-width: 460px;
+}
+
+/* ── Card ──────────────────────────────────────── */
+.nh-auth-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 42px 40px;
+    box-shadow: 0 12px 48px rgba(201, 80, 120, .10),
+                0 2px 8px rgba(0,0,0,.06);
+}
+@media (max-width: 480px) {
+    .nh-auth-card { padding: 28px 22px; border-radius: 18px; }
+}
+
+/* ── Card Logo Row ─────────────────────────────── */
+.nh-auth-card-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 28px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid #f5e6ea;
+}
+.nh-auth-logo-mark {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #c9a36b, #e8c87d);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.25rem; font-weight: 900;
+    color: #fff;
+    flex-shrink: 0;
+    box-shadow: 0 4px 14px rgba(201,163,107,.35);
+}
+.nh-auth-card-logo strong {
+    display: block;
+    color: #2d1a24;
+    font-size: .95rem;
+    font-weight: 700;
+}
+.nh-auth-card-logo small {
+    color: #b08090;
+    font-size: .75rem;
+}
+
+/* ── Headings ──────────────────────────────────── */
+.nh-auth-card h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #2d1a24;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.nh-auth-sub {
+    text-align: center;
+    color: #b08090;
+    font-size: .88rem;
+    margin-bottom: 26px;
+}
+
+/* ── Alert ─────────────────────────────────────── */
+.nh-auth-alert {
+    background: #fff0f0;
+    border: 1px solid #ffcccc;
+    border-radius: 10px;
+    padding: 11px 15px;
+    margin-bottom: 20px;
+    color: #cc3344;
+    font-size: .87rem;
+    display: flex; gap: 9px; align-items: flex-start;
+}
+.nh-auth-alert i { margin-top: 2px; flex-shrink: 0; }
+.nh-auth-alert p { margin: 0; }
+
+.nh-auth-success {
+    background: #f0fff4;
+    border: 1px solid #b2f5c8;
+    border-radius: 10px;
+    padding: 11px 15px;
+    margin-bottom: 20px;
+    color: #1a7f4b;
+    font-size: .88rem;
+    text-align: center;
+}
+
+/* ── Fields ────────────────────────────────────── */
+.nh-auth-field { margin-bottom: 16px; }
+
+.nh-auth-field label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .83rem;
+    color: #7a4a5a;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+.nh-auth-field label i { color: #c9a36b; font-size: .78rem; }
+
+.nh-auth-input-wrap { position: relative; }
+
+.nh-auth-input {
+    width: 100%;
+    padding: 12px 15px;
+    background: #fdf5f8;
+    border: 1.5px solid #f0d5df;
+    border-radius: 11px;
+    color: #2d1a24;
+    font-size: .93rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color .22s, background .22s, box-shadow .22s;
+    direction: ltr;
+    text-align: left;
+    box-sizing: border-box;
+}
+.nh-auth-input::placeholder { color: #c5a0b0; }
+.nh-auth-input:focus {
+    border-color: #f74d6c;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(247,77,108,.08);
+}
+.nh-auth-input.has-toggle { padding-left: 42px; }
+
+.nh-auth-eye {
+    position: absolute;
+    left: 12px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: #c5a0b0;
+    cursor: pointer; font-size: .88rem;
+    padding: 4px; transition: color .2s;
+}
+.nh-auth-eye:hover { color: #f74d6c; }
+
+/* ── Meta row ──────────────────────────────────── */
+.nh-auth-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 22px;
+    margin-top: -2px;
+}
+.nh-auth-remember {
+    display: flex; align-items: center; gap: 7px;
+    color: #9a6878;
+    font-size: .83rem; cursor: pointer;
+}
+.nh-auth-remember input[type="checkbox"] {
+    width: 14px; height: 14px;
+    accent-color: #f74d6c; cursor: pointer;
+}
+.nh-auth-link {
+    font-size: .83rem;
+    color: #f74d6c;
+    text-decoration: none;
+    transition: color .2s;
+}
+.nh-auth-link:hover { color: #d4305a; }
+
+/* ── Submit Button ─────────────────────────────── */
+.nh-auth-btn {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(135deg, #c9a36b, #e8c87d);
+    color: #fff;
+    border: none; border-radius: 13px;
+    font-size: .98rem; font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex; align-items: center;
+    justify-content: center; gap: 8px;
+    transition: transform .22s, box-shadow .22s;
+}
+.nh-auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(201,163,107,.35);
+}
+
+/* ── Footer ────────────────────────────────────── */
+.nh-auth-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #b08090;
+    font-size: .86rem;
+}
+.nh-auth-footer a {
+    color: #f74d6c;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color .2s;
+}
+.nh-auth-footer a:hover { color: #d4305a; }
+
+/* ── Status / OTP ──────────────────────────────── */
+.nh-auth-status {
+    background: #f0fff4;
+    border: 1px solid #b2f5c8;
+    border-radius: 10px;
+    padding: 12px 16px;
+    color: #1a7f4b;
+    font-size: .87rem;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.nh-auth-otp {
+    display: flex; gap: 8px;
+    justify-content: center;
+    margin-bottom: 22px;
+    direction: ltr;
+}
+.nh-auth-otp input {
+    width: 46px; height: 52px;
+    text-align: center;
+    font-size: 1.25rem; font-weight: 700;
+    background: #fdf5f8;
+    border: 1.5px solid #f0d5df;
+    border-radius: 11px;
+    color: #2d1a24;
+    outline: none;
+    transition: border-color .22s;
+    font-family: inherit;
+}
+.nh-auth-otp input:focus { border-color: #f74d6c; }
