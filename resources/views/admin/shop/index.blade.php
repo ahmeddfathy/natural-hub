@@ -3,107 +3,114 @@
 @section('page-title', 'إدارة المتجر')
 
 @section('content')
-@if(session('success'))<div class="alert alert-success"><i class="fas fa-check-circle me-2"></i>{{ session('success') }}</div>@endif
+@if(session('success'))<div class="ops-alert ops-alert-success"><i class="fas fa-check-circle"></i>{{ session('success') }}</div>@endif
 
-{{-- Stats + Header --}}
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-        <h4 class="mb-0"><i class="fas fa-shopping-bag text-primary me-2"></i>المتجر</h4>
-        <p class="text-muted small mb-0">
-            {{ $stats['bundles'] }} مجموعة —
-            {{ $stats['products'] }} منتج —
-            <span class="text-danger">{{ $stats['out_of_stock'] }} نفذت</span>
-        </p>
-    </div>
-    <div class="d-flex gap-2">
-        <a href="{{ route('admin.shop.products.create') }}" class="btn btn-outline-primary btn-sm">
-            <i class="fas fa-plus me-1"></i> منتج
-        </a>
-        <a href="{{ route('admin.shop.bundles.create') }}" class="btn btn-primary btn-sm">
-            <i class="fas fa-plus me-1"></i> مجموعة
-        </a>
+<div class="ops-banner">
+    <div class="ops-banner-top">
+        <div class="ops-banner-title">
+            <i class="fas fa-shopping-bag" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
+            <div>
+                <h4>المتجر</h4>
+                <p>{{ $stats['bundles'] }} مجموعة — {{ $stats['products'] }} منتج — <span style="color:#dc2626;">{{ $stats['out_of_stock'] }} نفذت</span></p>
+            </div>
+        </div>
+        <div class="d-flex gap-2">
+            <a href="{{ route('admin.shop.products.create') }}" class="ops-banner-btn" style="background:var(--bg-body);color:var(--text-secondary) !important;border:1px solid var(--border);">
+                <i class="fas fa-plus"></i> منتج
+            </a>
+            <a href="{{ route('admin.shop.bundles.create') }}" class="ops-banner-btn">
+                <i class="fas fa-plus"></i> مجموعة
+            </a>
+        </div>
     </div>
 </div>
 
 {{-- Bundles --}}
 @if($bundles->count())
-<h5 class="mb-3"><i class="fas fa-box-open me-2 text-muted"></i>المجموعات</h5>
-<div class="row g-3 mb-5">
-    @foreach($bundles as $bundle)
-    <div class="col-md-6 col-lg-4">
-        <div class="card border-0 shadow-sm h-100">
-            @if($bundle->image)
-                <img src="{{ $bundle->image_url }}" class="card-img-top" style="height:160px;object-fit:cover;" alt="{{ $bundle->name }}">
-            @endif
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-start">
-                    <div>
-                        <h6 class="mb-1">{{ $bundle->name }}</h6>
-                        @if($bundle->color_variant)
-                            <span class="badge bg-secondary small">{{ $bundle->color_variant }}</span>
-                        @endif
+<div style="margin-bottom:2rem;">
+    <h5 style="font-weight:800;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem;">
+        <i class="fas fa-box-open" style="color:var(--accent);"></i> المجموعات
+    </h5>
+    <div class="row g-3">
+        @foreach($bundles as $bundle)
+        <div class="col-md-6 col-lg-4">
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:transform .25s, box-shadow .25s;height:100%;box-shadow:0 1px 3px rgba(0,0,0,.04);"
+                 onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 28px rgba(0,0,0,.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 1px 3px rgba(0,0,0,.04)'">
+                @if($bundle->image)
+                    <img src="{{ $bundle->image_url }}" alt="{{ $bundle->name }}" style="width:100%;height:160px;object-fit:cover;">
+                @else
+                    <div style="width:100%;height:100px;background:linear-gradient(135deg,rgba(124,58,237,.06),rgba(13,148,136,.06));display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-box-open" style="font-size:1.5rem;color:var(--accent);opacity:.4;"></i>
                     </div>
-                    <span class="fw-bold text-success">{{ number_format($bundle->price) }} ج</span>
-                </div>
-                @if($bundle->description)
-                    <p class="small text-muted mt-2 mb-0">{{ Str::limit($bundle->description, 80) }}</p>
                 @endif
-                <div class="small text-muted mt-2">
-                    <i class="fas fa-cubes me-1"></i> {{ $bundle->products_count }} منتج
+                <div style="padding:1.25rem;">
+                    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem;">
+                        <div>
+                            <h6 style="font-weight:800;margin:0;color:var(--text-main);">{{ $bundle->name }}</h6>
+                            @if($bundle->color_variant)
+                                <span class="ops-badge ops-badge-neutral" style="margin-top:4px;">{{ $bundle->color_variant }}</span>
+                            @endif
+                        </div>
+                        <span style="font-weight:900;color:#059669;font-size:1.1rem;">{{ number_format($bundle->price) }} ج</span>
+                    </div>
+                    @if($bundle->description)
+                        <p style="font-size:.82rem;color:var(--text-muted);margin:.5rem 0 0;">{{ Str::limit($bundle->description, 80) }}</p>
+                    @endif
+                    <div style="font-size:.78rem;color:var(--text-muted);margin-top:.5rem;">
+                        <i class="fas fa-cubes" style="color:var(--accent);"></i> {{ $bundle->products_count }} منتج
+                    </div>
                 </div>
-            </div>
-            <div class="card-footer bg-white border-0 d-flex gap-2">
-                <a href="{{ route('admin.shop.bundles.edit', $bundle) }}" class="btn btn-outline-primary btn-sm flex-fill">
-                    <i class="fas fa-edit me-1"></i> تعديل
-                </a>
-                <form method="POST" action="{{ route('admin.shop.bundles.destroy', $bundle) }}"
-                      onsubmit="return confirm('حذف المجموعة؟')">
-                    @csrf @method('DELETE')
-                    <button class="btn btn-outline-danger btn-sm"><i class="fas fa-trash"></i></button>
-                </form>
+                <div style="padding:.75rem 1.25rem;border-top:1px solid var(--border);display:flex;gap:.5rem;">
+                    <a href="{{ route('admin.shop.bundles.edit', $bundle) }}" class="ops-action-btn edit" style="flex:1;text-align:center;padding:.4rem;border-radius:8px;text-decoration:none;">
+                        <i class="fas fa-edit"></i> تعديل
+                    </a>
+                    <form method="POST" action="{{ route('admin.shop.bundles.destroy', $bundle) }}" onsubmit="return confirm('حذف المجموعة؟')" style="flex:0;">
+                        @csrf @method('DELETE')
+                        <button class="ops-action-btn delete" style="padding:.4rem .6rem;border-radius:8px;"><i class="fas fa-trash"></i></button>
+                    </form>
+                </div>
             </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
 </div>
 @endif
 
 {{-- Standalone Products --}}
 @if($products->count())
-<h5 class="mb-3"><i class="fas fa-cube me-2 text-muted"></i>منتجات مستقلة</h5>
-<div class="card border-0 shadow-sm">
+<div class="ops-table-card">
+    <div class="ops-table-header">
+        <i class="fas fa-cube"></i>
+        <h5>منتجات مستقلة</h5>
+    </div>
     <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead class="table-light">
+        <table class="ops-table">
+            <thead>
                 <tr><th>الصورة</th><th>الاسم</th><th>السعر</th><th>الحجم</th><th>المخزون</th><th>إجراءات</th></tr>
             </thead>
             <tbody>
                 @foreach($products as $product)
                 <tr>
                     <td>
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}"
-                             width="50" height="50" style="object-fit:cover;" class="rounded">
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}" style="width:50px;height:50px;object-fit:cover;border-radius:10px;border:1px solid var(--border);">
                     </td>
-                    <td class="fw-semibold">{{ $product->name }}</td>
-                    <td class="text-success fw-bold">{{ number_format($product->price) }} ج</td>
-                    <td class="small text-muted">{{ $product->size_label ?: '—' }}</td>
+                    <td style="font-weight:700;color:var(--text-main);">{{ $product->name }}</td>
+                    <td style="font-weight:800;color:#059669;">{{ number_format($product->price) }} ج</td>
+                    <td style="font-size:.82rem;">{{ $product->size_label ?: '—' }}</td>
                     <td>
                         <form method="POST" action="{{ route('admin.shop.products.toggle-stock', $product) }}">
                             @csrf
-                            <button type="submit" class="badge border-0 bg-{{ $product->in_stock ? 'success' : 'danger' }} text-white">
+                            <button type="submit" class="ops-badge {{ $product->in_stock ? 'ops-badge-active' : 'ops-badge-inactive' }}" style="border:none;cursor:pointer;">
                                 {{ $product->in_stock ? 'متوفر' : 'نفذ' }}
                             </button>
                         </form>
                     </td>
                     <td>
-                        <div class="d-flex gap-1">
-                            <a href="{{ route('admin.shop.products.edit', $product) }}" class="btn btn-sm btn-outline-primary">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <form method="POST" action="{{ route('admin.shop.products.destroy', $product) }}"
-                                  onsubmit="return confirm('حذف المنتج؟')">
+                        <div class="ops-actions">
+                            <a href="{{ route('admin.shop.products.edit', $product) }}" class="ops-action-btn edit"><i class="fas fa-edit"></i></a>
+                            <form method="POST" action="{{ route('admin.shop.products.destroy', $product) }}" onsubmit="return confirm('حذف المنتج؟')">
                                 @csrf @method('DELETE')
-                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                <button class="ops-action-btn delete"><i class="fas fa-trash"></i></button>
                             </form>
                         </div>
                     </td>
@@ -116,9 +123,20 @@
 @endif
 
 @if(!$bundles->count() && !$products->count())
-<div class="text-center py-5 text-muted">
-    <i class="fas fa-shopping-bag fa-3x mb-3 d-block"></i>
-    لم يتم إضافة أي منتجات أو مجموعات بعد
+<div style="background:var(--bg-card);border:1px solid var(--border);border-radius:18px;box-shadow:0 1px 3px rgba(0,0,0,.04);text-align:center;padding:4rem 2rem;">
+    <div style="width:64px;height:64px;border-radius:16px;margin:0 auto 1rem;background:rgba(124,58,237,.06);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);">
+        <i class="fas fa-shopping-bag"></i>
+    </div>
+    <h6 style="font-weight:800;margin-bottom:.5rem;color:var(--text-main);">لم يتم إضافة أي منتجات أو مجموعات بعد</h6>
+    <p style="color:var(--text-muted);font-size:.85rem;margin-bottom:1.25rem;">ابدئي بإضافة المنتجات والمجموعات من الأزرار أعلاه</p>
+    <div class="d-flex justify-content-center gap-2">
+        <a href="{{ route('admin.shop.products.create') }}" class="ops-banner-btn" style="background:var(--bg-body);color:var(--text-secondary) !important;border:1px solid var(--border);font-size:.82rem;padding:.5rem 1.25rem;">
+            <i class="fas fa-plus"></i> إضافة منتج
+        </a>
+        <a href="{{ route('admin.shop.bundles.create') }}" class="ops-banner-btn" style="font-size:.82rem;padding:.5rem 1.25rem;">
+            <i class="fas fa-plus"></i> إضافة مجموعة
+        </a>
+    </div>
 </div>
 @endif
 @endsection

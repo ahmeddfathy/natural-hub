@@ -3,41 +3,57 @@
 @section('page-title', 'إدارة العميلات (CRM)')
 
 @section('content')
-<div class="row g-3 mb-4">
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm text-center"><div class="card-body">
-            <div class="fs-2 fw-bold text-primary">{{ $stats['total'] }}</div>
-            <div class="small text-muted">إجمالي العميلات</div>
-        </div></div>
+
+<div class="ops-banner">
+    <div class="ops-banner-top">
+        <div class="ops-banner-title">
+            <i class="fas fa-heart ic-customer"></i>
+            <div>
+                <h4>إدارة العميلات</h4>
+                <p>تتبع العميلات وسجل الزيارات</p>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm text-center"><div class="card-body">
-            <div class="fs-2 fw-bold text-success">{{ $stats['regular'] }}</div>
-            <div class="small text-muted">عميلات منتظمات (٣+ زيارات)</div>
-        </div></div>
+</div>
+
+<div class="ops-stats-grid">
+    <div class="ops-stat-card" style="animation-delay:.05s">
+        <div class="ops-stat-icon ic-total"><i class="fas fa-users"></i></div>
+        <div class="ops-stat-value">{{ $stats['total'] }}</div>
+        <div class="ops-stat-label">إجمالي العميلات</div>
     </div>
-    <div class="col-md-4">
-        <div class="card border-0 shadow-sm text-center"><div class="card-body">
-            <div class="fs-2 fw-bold text-info">{{ $stats['new'] }}</div>
-            <div class="small text-muted">جديدات اليوم</div>
-        </div></div>
+    <div class="ops-stat-card" style="animation-delay:.1s">
+        <div class="ops-stat-icon ic-regular"><i class="fas fa-star"></i></div>
+        <div class="ops-stat-value">{{ $stats['regular'] }}</div>
+        <div class="ops-stat-label">عميلات منتظمات (٣+ زيارات)</div>
+    </div>
+    <div class="ops-stat-card" style="animation-delay:.15s">
+        <div class="ops-stat-icon ic-new"><i class="fas fa-user-plus"></i></div>
+        <div class="ops-stat-value">{{ $stats['new'] }}</div>
+        <div class="ops-stat-label">جديدات اليوم</div>
     </div>
 </div>
 
 {{-- Search --}}
 <form method="GET" class="mb-4 d-flex gap-2">
-    <input type="text" name="search" class="form-control" placeholder="ابحثي باسم العميلة أو رقم الموبايل..."
-           value="{{ request('search') }}">
-    <button class="btn btn-primary"><i class="fas fa-search"></i></button>
+    <div class="ops-search-box">
+        <i class="fas fa-search" style="color:var(--text-muted);"></i>
+        <input type="text" name="search" placeholder="ابحثي باسم العميلة أو رقم الموبايل..." value="{{ request('search') }}">
+    </div>
+    <button class="ops-banner-btn" style="padding:.5rem 1.25rem;font-size:.82rem;"><i class="fas fa-search"></i></button>
     @if(request('search'))
-        <a href="{{ route('admin.customers.index') }}" class="btn btn-outline-secondary">مسح</a>
+        <a href="{{ route('admin.customers.index') }}" class="ops-action-btn edit" style="width:auto;padding:0 12px;height:auto;border-radius:10px;background:var(--bg-input);color:var(--text-muted);border:1px solid var(--border);text-decoration:none;display:inline-flex;align-items:center;">مسح</a>
     @endif
 </form>
 
-<div class="card border-0 shadow-sm">
+<div class="ops-table-card">
+    <div class="ops-table-header">
+        <i class="fas fa-list-ul"></i>
+        <h5>سجل العميلات</h5>
+    </div>
     <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead class="table-light">
+        <table class="ops-table">
+            <thead>
                 <tr>
                     <th>الاسم</th>
                     <th>الموبايل</th>
@@ -51,32 +67,34 @@
                 @forelse($customers as $customer)
                 <tr>
                     <td>
-                        <div class="fw-semibold">{{ $customer->name }}</div>
-                        @if($customer->notes)
-                            <div class="small text-muted">{{ $customer->notes }}</div>
-                        @endif
+                        <div class="ops-name-cell">
+                            <div>
+                                <span class="ops-name">{{ $customer->name }}</span>
+                                @if($customer->notes)<span class="ops-sub">{{ $customer->notes }}</span>@endif
+                            </div>
+                        </div>
                     </td>
-                    <td dir="ltr">{{ $customer->phone }}</td>
+                    <td><span style="direction:ltr;display:inline-block;">{{ $customer->phone }}</span></td>
                     <td>
-                        <span class="badge {{ $customer->total_visits >= 3 ? 'bg-success' : 'bg-secondary' }}">
+                        <span class="ops-badge {{ $customer->total_visits >= 3 ? 'ops-badge-success' : 'ops-badge-neutral' }}">
                             {{ $customer->total_visits }}
                         </span>
                     </td>
-                    <td class="small text-muted">
-                        {{ $customer->last_visit_at ? $customer->last_visit_at->diffForHumans() : '—' }}
-                    </td>
-                    <td class="small text-muted">{{ $customer->created_at->format('Y-m-d') }}</td>
+                    <td style="font-size:.82rem;">{{ $customer->last_visit_at ? $customer->last_visit_at->diffForHumans() : '—' }}</td>
+                    <td style="font-size:.82rem;">{{ $customer->created_at->format('Y-m-d') }}</td>
                     <td>
-                        <a href="{{ route('admin.customers.show', $customer) }}" class="btn btn-sm btn-outline-primary">
+                        <a href="{{ route('admin.customers.show', $customer) }}" class="ops-action-btn view" title="عرض">
                             <i class="fas fa-eye"></i>
                         </a>
                     </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="text-center py-5 text-muted">
-                        <i class="fas fa-users fa-2x d-block mb-2"></i>
-                        لا توجد عميلات
+                    <td colspan="6">
+                        <div class="ops-empty">
+                            <div class="ops-empty-icon"><i class="fas fa-users"></i></div>
+                            <h6>لا توجد عميلات</h6>
+                        </div>
                     </td>
                 </tr>
                 @endforelse
@@ -84,7 +102,7 @@
         </table>
     </div>
     @if($customers->hasPages())
-    <div class="card-footer">{{ $customers->withQueryString()->links() }}</div>
+    <div class="ops-pagination">{{ $customers->withQueryString()->links() }}</div>
     @endif
 </div>
 @endsection

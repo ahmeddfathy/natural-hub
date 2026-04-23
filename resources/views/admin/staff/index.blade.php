@@ -3,46 +3,61 @@
 @section('page-title', 'الموظفات')
 
 @section('content')
-@if(session('success'))<div class="alert alert-success"><i class="fas fa-check-circle me-2"></i>{{ session('success') }}</div>@endif
+@if(session('success'))<div class="ops-alert ops-alert-success"><i class="fas fa-check-circle"></i>{{ session('success') }}</div>@endif
 
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
-        <h4 class="mb-0"><i class="fas fa-user-tie text-primary me-2"></i>الموظفات</h4>
-        <p class="text-muted small mb-0">{{ $stats['total'] }} موظفة — {{ $stats['active'] }} نشطة</p>
+<div class="ops-banner">
+    <div class="ops-banner-top">
+        <div class="ops-banner-title">
+            <i class="fas fa-user-tie ic-staff"></i>
+            <div>
+                <h4>إدارة الموظفات</h4>
+                <p>{{ $stats['total'] }} موظفة — {{ $stats['active'] }} نشطة</p>
+            </div>
+        </div>
+        <a href="{{ route('admin.staff.create') }}" class="ops-banner-btn">
+            <i class="fas fa-plus"></i> إضافة موظفة
+        </a>
     </div>
-    <a href="{{ route('admin.staff.create') }}" class="btn btn-primary">
-        <i class="fas fa-plus me-1"></i> إضافة موظفة
-    </a>
 </div>
 
 {{-- Filter --}}
-<form method="GET" class="row g-2 mb-4 align-items-end">
-    <div class="col-md-3">
-        <select name="branch_id" class="form-select form-select-sm">
-            <option value="">كل الفروع</option>
-            @foreach($branches as $branch)
-                <option value="{{ $branch->id }}" {{ request('branch_id') == $branch->id ? 'selected':'' }}>{{ $branch->name }}</option>
-            @endforeach
-        </select>
+<div class="ops-filter-card">
+    <div class="ops-filter-header">
+        <i class="fas fa-filter"></i>
+        <h5>تصفية</h5>
     </div>
-    <div class="col-md-2">
-        <select name="status" class="form-select form-select-sm">
-            <option value="">كل الحالات</option>
-            <option value="active"   {{ request('status')=='active'   ? 'selected':'' }}>نشطة</option>
-            <option value="on_leave" {{ request('status')=='on_leave' ? 'selected':'' }}>إجازة</option>
-            <option value="inactive" {{ request('status')=='inactive' ? 'selected':'' }}>غير نشطة</option>
-        </select>
-    </div>
-    <div class="col-auto">
-        <button class="btn btn-primary btn-sm"><i class="fas fa-filter me-1"></i> فلترة</button>
-        <a href="{{ route('admin.staff.index') }}" class="btn btn-outline-secondary btn-sm">مسح</a>
-    </div>
-</form>
+    <form method="GET" class="row g-2 align-items-end">
+        <div class="col-md-3">
+            <select name="branch_id" class="form-select">
+                <option value="">كل الفروع</option>
+                @foreach($branches as $branch)
+                    <option value="{{ $branch->id }}" {{ request('branch_id') == $branch->id ? 'selected':'' }}>{{ $branch->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select name="status" class="form-select">
+                <option value="">كل الحالات</option>
+                <option value="active"   {{ request('status')=='active'   ? 'selected':'' }}>نشطة</option>
+                <option value="on_leave" {{ request('status')=='on_leave' ? 'selected':'' }}>إجازة</option>
+                <option value="inactive" {{ request('status')=='inactive' ? 'selected':'' }}>غير نشطة</option>
+            </select>
+        </div>
+        <div class="col-auto d-flex gap-2">
+            <button class="ops-banner-btn" style="padding:.5rem 1rem;font-size:.82rem;"><i class="fas fa-filter"></i> فلترة</button>
+            <a href="{{ route('admin.staff.index') }}" class="ops-action-btn edit" style="width:auto;padding:0 12px;height:38px;border-radius:10px;display:inline-flex;align-items:center;font-size:.82rem;text-decoration:none;background:var(--bg-input);color:var(--text-muted);border:1px solid var(--border);">مسح</a>
+        </div>
+    </form>
+</div>
 
-<div class="card border-0 shadow-sm">
+<div class="ops-table-card">
+    <div class="ops-table-header">
+        <i class="fas fa-list-ul"></i>
+        <h5>جدول الموظفات</h5>
+    </div>
     <div class="table-responsive">
-        <table class="table table-hover mb-0">
-            <thead class="table-light">
+        <table class="ops-table">
+            <thead>
                 <tr>
                     <th>الصورة</th>
                     <th>الاسم</th>
@@ -56,40 +71,46 @@
                 @forelse($staff as $member)
                 <tr>
                     <td>
-                        <img src="{{ $member->avatar_url }}" alt="{{ $member->name }}"
-                             class="rounded-circle" width="40" height="40" style="object-fit:cover">
+                        <div class="ops-avatar">
+                            <img src="{{ $member->avatar_url }}" alt="{{ $member->name }}">
+                        </div>
                     </td>
                     <td>
-                        <div class="fw-semibold">{{ $member->name }}</div>
-                        @if($member->phone)<div class="small text-muted">{{ $member->phone }}</div>@endif
+                        <div class="ops-name-cell">
+                            <div>
+                                <span class="ops-name">{{ $member->name }}</span>
+                                @if($member->phone)<span class="ops-sub">{{ $member->phone }}</span>@endif
+                            </div>
+                        </div>
                     </td>
-                    <td class="small">{{ $member->branch->name }}</td>
-                    <td class="small">{{ $member->specialty ?: '—' }}</td>
+                    <td>{{ $member->branch->name }}</td>
+                    <td>{{ $member->specialty ?: '—' }}</td>
                     <td>
-                        @php $colors = ['active'=>'success','on_leave'=>'warning','inactive'=>'secondary'] @endphp
-                        @php $labels = ['active'=>'نشطة','on_leave'=>'إجازة','inactive'=>'متوقفة'] @endphp
-                        <span class="badge bg-{{ $colors[$member->status] }}">{{ $labels[$member->status] }}</span>
+                        @php
+                            $colors = ['active'=>'ops-badge-active','on_leave'=>'ops-badge-leave','inactive'=>'ops-badge-inactive'];
+                            $labels = ['active'=>'نشطة','on_leave'=>'إجازة','inactive'=>'متوقفة'];
+                        @endphp
+                        <span class="ops-badge {{ $colors[$member->status] }}">{{ $labels[$member->status] }}</span>
                     </td>
                     <td>
-                        <div class="d-flex gap-1">
-                            <a href="{{ route('admin.staff.edit', $member) }}" class="btn btn-sm btn-outline-primary">
+                        <div class="ops-actions">
+                            <a href="{{ route('admin.staff.edit', $member) }}" class="ops-action-btn edit" title="تعديل">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <form method="POST" action="{{ route('admin.staff.destroy', $member) }}"
-                                  onsubmit="return confirm('حذف الموظفة؟')">
+                            <form method="POST" action="{{ route('admin.staff.destroy', $member) }}" onsubmit="return confirm('حذف الموظفة؟')">
                                 @csrf @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-outline-danger">
-                                    <i class="fas fa-trash"></i>
-                                </button>
+                                <button type="submit" class="ops-action-btn delete" title="حذف"><i class="fas fa-trash"></i></button>
                             </form>
                         </div>
                     </td>
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" class="text-center py-5 text-muted">
-                        <i class="fas fa-user-slash fa-2x mb-2 d-block"></i>
-                        لا توجد موظفات
+                    <td colspan="6">
+                        <div class="ops-empty">
+                            <div class="ops-empty-icon"><i class="fas fa-user-slash"></i></div>
+                            <h6>لا توجد موظفات</h6>
+                        </div>
                     </td>
                 </tr>
                 @endforelse
@@ -97,7 +118,7 @@
         </table>
     </div>
     @if($staff->hasPages())
-    <div class="card-footer">{{ $staff->withQueryString()->links() }}</div>
+    <div class="ops-pagination">{{ $staff->withQueryString()->links() }}</div>
     @endif
 </div>
 @endsection

@@ -41,6 +41,18 @@
         @if(request()->routeIs('admin.services*'))
             <link rel="stylesheet" href="{{ \App\Support\VersionedAsset::url('assets/css/admin/services.css') }}">
         @endif
+
+        @if(request()->routeIs('admin.bookings*'))
+            <link rel="stylesheet" href="{{ \App\Support\VersionedAsset::url('assets/css/admin/bookings.css') }}">
+        @endif
+
+        @if(request()->routeIs('admin.users*'))
+            <link rel="stylesheet" href="{{ \App\Support\VersionedAsset::url('assets/css/admin/users.css') }}">
+        @endif
+
+        @if(request()->routeIs('admin.branches*') || request()->routeIs('admin.staff*') || request()->routeIs('admin.customers*') || request()->routeIs('admin.gallery*') || request()->routeIs('admin.reports*') || request()->routeIs('admin.shop*') || request()->routeIs('admin.videos*'))
+            <link rel="stylesheet" href="{{ \App\Support\VersionedAsset::url('assets/css/admin/operations.css') }}">
+        @endif
     @endif
 
     @yield('styles')
@@ -55,8 +67,8 @@
             <div class="sidebar-logo">
                 <img src="{{ asset('assets/images/logo/logo.jpeg') }}" alt="Natural Hub" style="max-width:130px;height:auto;object-fit:contain;">
             </div>
-            <div style="text-align:center;padding:0 12px 14px;border-bottom:1px solid rgba(255,255,255,.07);">
-                <span style="font-size:.7rem;color:rgba(255,255,255,.35);letter-spacing:1px;text-transform:uppercase;">Admin Panel</span>
+            <div style="text-align:center;padding:0 12px 14px;border-bottom:1px solid var(--border);">
+                <span style="font-size:.7rem;color:var(--text-faint);letter-spacing:1px;text-transform:uppercase;">Admin Panel</span>
             </div>
         </div>
 

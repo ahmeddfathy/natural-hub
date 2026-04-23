@@ -3,6 +3,10 @@
 @section('title', 'إضافة فيديو')
 @section('page-title', 'إضافة فيديو')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ \App\Support\VersionedAsset::url('assets/css/admin/blogs.css') }}">
+@endsection
+
 @section('content')
 <div class="blogs-page-banner">
     <div class="blogs-page-banner-content">
