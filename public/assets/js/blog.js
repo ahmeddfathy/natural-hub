@@ -242,6 +242,54 @@
     }
 
     /* ════════════════════════════════
+       FEATURED STRIP CAROUSEL
+    ════════════════════════════════ */
+    const featuredTrack = document.getElementById('blogFeaturedTrack');
+    const featuredPrev = document.querySelector('.blog-featured-arrow.prev');
+    const featuredNext = document.querySelector('.blog-featured-arrow.next');
+
+    if (featuredTrack) {
+        if (featuredPrev) {
+            featuredPrev.addEventListener('click', () => {
+                featuredTrack.scrollBy({ left: 400, behavior: 'smooth' });
+            });
+        }
+        if (featuredNext) {
+            featuredNext.addEventListener('click', () => {
+                featuredTrack.scrollBy({ left: -400, behavior: 'smooth' });
+            });
+        }
+
+        let isDragging = false;
+        let startX, scrollStart;
+
+        featuredTrack.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            featuredTrack.style.cursor = 'grabbing';
+            startX = e.pageX - featuredTrack.offsetLeft;
+            scrollStart = featuredTrack.scrollLeft;
+        });
+
+        featuredTrack.addEventListener('mouseleave', () => {
+            isDragging = false;
+            featuredTrack.style.cursor = 'grab';
+        });
+
+        featuredTrack.addEventListener('mouseup', () => {
+            isDragging = false;
+            featuredTrack.style.cursor = 'grab';
+        });
+
+        featuredTrack.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - featuredTrack.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            featuredTrack.scrollLeft = scrollStart - walk;
+        });
+    }
+
+    /* ════════════════════════════════
        NAVBAR + SCROLL
     ════════════════════════════════ */
     const navbar  = document.getElementById('navbar');

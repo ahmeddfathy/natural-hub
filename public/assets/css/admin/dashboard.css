@@ -3,15 +3,15 @@
 .dash-shell {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 32px;
 }
 
 .dash-hero {
     position: relative;
     overflow: hidden;
-    padding: 28px;
+    padding: 36px 40px;
     border: 1px solid #e5e7eb;
-    border-radius: 18px;
+    border-radius: 22px;
     background:
         linear-gradient(135deg, rgba(255, 255, 255, .96), rgba(254, 245, 247, .94)),
         radial-gradient(circle at 8% 10%, rgba(176, 138, 60, .12), transparent 28%),
@@ -46,7 +46,7 @@
 .dash-hero-text h1 {
     margin: 0;
     color: #111827;
-    font-size: 1.9rem;
+    font-size: 2.4rem;
     font-weight: 900;
     letter-spacing: 0;
 }
@@ -108,15 +108,15 @@
 .dash-stats-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
+    gap: 20px;
 }
 
 .dash-stat-card {
     position: relative;
-    min-height: 154px;
-    padding: 18px;
+    min-height: 180px;
+    padding: 24px;
     border: 1px solid #e5e7eb;
-    border-radius: 16px;
+    border-radius: 18px;
     background: #fff;
     box-shadow: 0 10px 28px rgba(15, 23, 42, .045);
     transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
@@ -136,7 +136,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .dash-stat-icon,
@@ -154,10 +154,10 @@
 }
 
 .dash-stat-icon {
-    width: 44px;
-    height: 44px;
-    border-radius: 12px;
-    font-size: 1rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    font-size: 1.15rem;
 }
 
 .dash-stat-card--gold .dash-stat-icon,
@@ -183,16 +183,16 @@
 .dash-stat-trend--down { background: #fff7ed; color: #ea580c; }
 
 .dash-stat-number {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     color: #111827;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 900;
     line-height: 1;
 }
 
 .dash-stat-label {
     color: #64748b;
-    font-size: .83rem;
+    font-size: .9rem;
     font-weight: 700;
 }
 
@@ -232,7 +232,7 @@
 }
 
 .dash-actions-ribbon {
-    padding: 20px;
+    padding: 28px;
 }
 
 .dash-actions-header {
@@ -240,7 +240,7 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 18px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .dash-actions-title {
@@ -283,11 +283,11 @@
 .dash-action-card {
     display: flex;
     align-items: center;
-    gap: 10px;
-    min-height: 62px;
-    padding: 12px;
+    gap: 12px;
+    min-height: 72px;
+    padding: 16px;
     border: 1px solid #e5e7eb;
-    border-radius: 14px;
+    border-radius: 16px;
     background: #f8fafc;
     color: #111827 !important;
     text-decoration: none !important;
@@ -301,9 +301,9 @@
 }
 
 .dash-action-icon {
-    width: 34px;
-    height: 34px;
-    border-radius: 11px;
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
     flex: 0 0 auto;
 }
 
@@ -317,7 +317,7 @@
 .dash-action-label {
     flex: 1;
     color: #1f2937;
-    font-size: .84rem;
+    font-size: .9rem;
     font-weight: 800;
 }
 
@@ -335,8 +335,8 @@
 
 .dash-panel {
     height: auto;
-    min-height: 360px;
-    padding: 20px;
+    min-height: 400px;
+    padding: 26px;
 }
 
 .row .dash-panel {
@@ -348,7 +348,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 14px;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
 }
 
 .dash-panel-title {
@@ -382,8 +382,8 @@
 .dash-alert-card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 0;
+    gap: 14px;
+    padding: 14px 0;
     border-bottom: 1px solid #f1f5f9;
 }
 
@@ -394,10 +394,10 @@
 }
 
 .dash-list-thumb {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
     overflow: hidden;
-    border-radius: 12px;
+    border-radius: 14px;
     background: #f8fafc;
     flex: 0 0 auto;
 }
@@ -601,22 +601,25 @@
 .dash-bottom-strip {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 16px;
+    gap: 20px;
+    clear: both;
+    width: 100%;
+    margin-top: 1.5rem;
 }
 
 .dash-strip-card {
     position: relative;
-    min-height: 78px;
+    min-height: 90px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px;
+    gap: 16px;
+    padding: 20px;
 }
 
 .dash-strip-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 13px;
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
     flex: 0 0 auto;
 }
 
@@ -627,16 +630,16 @@
 
 .dash-strip-label {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
     color: #64748b;
-    font-size: .78rem;
+    font-size: .82rem;
     font-weight: 800;
 }
 
 .dash-strip-value {
     display: block;
     color: #111827;
-    font-size: 1.35rem;
+    font-size: 1.6rem;
     font-weight: 900;
     line-height: 1;
 }

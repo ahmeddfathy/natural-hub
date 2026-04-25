@@ -56,11 +56,20 @@
         </div>
     </div>
 
-    <!-- ===== FEATURED STRIP (أحدث 3 مقالات) ===== -->
+    <!-- ===== FEATURED STRIP (أحدث المقالات) ===== -->
     @if(!request('search') && !request('category') && $featuredBlogs->count())
     <section class="blog-featured-strip">
         <div class="container">
-            <div class="blog-grid blog-grid-featured">
+            <div class="blog-featured-header">
+                <div class="blog-featured-strip-title">
+                    <i class="fas fa-fire"></i> أحدث المقالات
+                </div>
+                <div class="blog-featured-arrows">
+                    <button class="blog-featured-arrow prev" aria-label="السابق"><i class="fas fa-chevron-right"></i></button>
+                    <button class="blog-featured-arrow next" aria-label="التالي"><i class="fas fa-chevron-left"></i></button>
+                </div>
+            </div>
+            <div class="blog-featured-track" id="blogFeaturedTrack">
                 @foreach($featuredBlogs as $featured)
                 <a href="{{ route('blog.show', $featured->slug) }}" class="blog-card blog-card-featured">
                     <div class="blog-card-img">
@@ -69,7 +78,7 @@
                     </div>
                     <div class="blog-card-body">
                         @if($featured->category)
-                            <span class="blog-cat-badge">{{ $featured->category->name }}</span>
+                            <span class="blog-cat-badge {{ $featured->category->slug ?? '' }}">{{ $featured->category->name }}</span>
                         @endif
                         <h2 class="blog-card-title">{{ $featured->title }}</h2>
                         <p class="blog-card-excerpt">{{ Str::limit($featured->excerpt ?? strip_tags($featured->content), 100) }}</p>
@@ -79,6 +88,7 @@
                                 <span><i class="fas fa-clock"></i> {{ $featured->read_time }} دقائق</span>
                             @endif
                         </div>
+                        <span class="blog-card-read">اقرئي المزيد <i class="fas fa-arrow-left"></i></span>
                     </div>
                 </a>
                 @endforeach
@@ -101,7 +111,7 @@
                     </div>
                     <div class="blog-card-body">
                         @if($post->category)
-                            <span class="blog-cat-badge">{{ $post->category->name }}</span>
+                            <span class="blog-cat-badge {{ $post->category->slug ?? '' }}">{{ $post->category->name }}</span>
                         @endif
                         <h3 class="blog-card-title">{{ $post->title }}</h3>
                         <p class="blog-card-excerpt">{{ Str::limit($post->excerpt ?? strip_tags($post->content), 90) }}</p>

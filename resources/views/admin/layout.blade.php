@@ -6,7 +6,7 @@
     <title>@yield('title', 'لوحة التحكم') — Natural Hub</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ \App\Support\VersionedAsset::url('assets/css/admin.css') }}">
 
     @hasSection('styles')
@@ -65,9 +65,8 @@
         <div style="text-align:center;padding:4px 12px 14px;border-bottom:1px solid var(--border);">
             <span style="font-size:.68rem;color:var(--gold);letter-spacing:1px;text-transform:uppercase;font-weight:800;">Management</span>
         </div>
-            <div style="text-align:center;padding:0 12px 14px;border-bottom:1px solid var(--border);">
-                <span style="font-size:.7rem;color:var(--text-faint);letter-spacing:1px;text-transform:uppercase;">Admin Panel</span>
-            </div>
+        <div style="text-align:center;padding:0 12px 14px;border-bottom:1px solid var(--border);">
+            <span style="font-size:.7rem;color:var(--text-faint);letter-spacing:1px;text-transform:uppercase;">Admin Panel</span>
         </div>
 
         <nav class="nav flex-column mt-2">

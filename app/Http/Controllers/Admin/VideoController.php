@@ -60,10 +60,8 @@ class VideoController extends Controller
 
     public function create()
     {
-        $services   = Service::active()->orderBy('category_type')->orderBy('title')->get();
-        $categories = self::CATEGORIES;
-
-        return view('admin.videos.create', compact('services', 'categories'));
+        $services = Service::active()->orderBy('category_type')->orderBy('title')->get();
+        return view('admin.videos.create', compact('services'));
     }
 
     public function store(Request $request)
@@ -84,10 +82,8 @@ class VideoController extends Controller
 
     public function edit(Video $video)
     {
-        $services   = Service::active()->orderBy('category_type')->orderBy('title')->get();
-        $categories = self::CATEGORIES;
-
-        return view('admin.videos.edit', compact('video', 'services', 'categories'));
+        $services = Service::active()->orderBy('category_type')->orderBy('title')->get();
+        return view('admin.videos.edit', compact('video', 'services'));
     }
 
     public function update(Request $request, Video $video)
@@ -126,18 +122,17 @@ class VideoController extends Controller
     private function validateVideo(Request $request, ?Video $video = null): array
     {
         return $request->validate([
-            'title'         => 'required|max:255',
-            'slug'          => 'nullable|max:255|unique:videos,slug,' . ($video?->id ?? 'NULL'),
-            'youtube_url'   => 'required|string|max:500',
-            'category_type' => 'required|in:' . implode(',', array_keys(self::CATEGORIES)),
-            'service_id'    => 'nullable|exists:services,id',
-            'excerpt'       => 'nullable|string|max:500',
-            'description'   => 'nullable|string',
-            'is_featured'   => 'nullable|boolean',
-            'is_published'  => 'nullable|boolean',
-            'is_portrait'   => 'nullable|boolean',
-            'published_at'  => 'nullable|date',
-            'sort_order'    => 'nullable|integer|min:0',
+            'title'        => 'required|max:255',
+            'slug'         => 'nullable|max:255|unique:videos,slug,' . ($video?->id ?? 'NULL'),
+            'youtube_url'  => 'required|string|max:500',
+            'service_id'   => 'nullable|exists:services,id',
+            'excerpt'      => 'nullable|string|max:500',
+            'description'  => 'nullable|string',
+            'is_featured'  => 'nullable|boolean',
+            'is_published' => 'nullable|boolean',
+            'is_portrait'  => 'nullable|boolean',
+            'published_at' => 'nullable|date',
+            'sort_order'   => 'nullable|integer|min:0',
         ]);
     }
 
@@ -190,13 +185,11 @@ class VideoController extends Controller
     private function syncCategoryWithService(array &$validated): void
     {
         if (empty($validated['service_id'])) {
+            $validated['category_type'] = null;
             return;
         }
 
         $service = Service::find($validated['service_id']);
-
-        if ($service) {
-            $validated['category_type'] = $service->category_type;
-        }
+        $validated['category_type'] = $service?->category_type;
     }
 }

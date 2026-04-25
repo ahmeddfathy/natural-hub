@@ -35,14 +35,14 @@
 </div>
 
 {{-- Search --}}
-<form method="GET" class="mb-4 d-flex gap-2">
+<form method="GET" class="ops-search-form">
     <div class="ops-search-box">
-        <i class="fas fa-search" style="color:var(--text-muted);"></i>
+        <i class="fas fa-search"></i>
         <input type="text" name="search" placeholder="ابحثي باسم العميلة أو رقم الموبايل..." value="{{ request('search') }}">
     </div>
-    <button class="ops-banner-btn" style="padding:.5rem 1.25rem;font-size:.82rem;"><i class="fas fa-search"></i></button>
+    <button class="ops-search-submit" title="بحث"><i class="fas fa-search"></i></button>
     @if(request('search'))
-        <a href="{{ route('admin.customers.index') }}" class="ops-action-btn edit" style="width:auto;padding:0 12px;height:auto;border-radius:10px;background:var(--bg-input);color:var(--text-muted);border:1px solid var(--border);text-decoration:none;display:inline-flex;align-items:center;">مسح</a>
+        <a href="{{ route('admin.customers.index') }}" class="ops-search-reset">مسح</a>
     @endif
 </form>
 

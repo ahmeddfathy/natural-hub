@@ -49,7 +49,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['bookings_today'] }}</div>
         <div class="dash-stat-label">حجوزات اليوم</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:{{ min($stats['bookings_today'] * 10, 100) }}%"></div></div>
     </div>
 
     <div class="dash-stat-card dash-stat-card--amber">
@@ -62,7 +61,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['bookings_pending'] }}</div>
         <div class="dash-stat-label">بانتظار التأكيد</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:{{ $stats['bookings_today'] > 0 ? min(($stats['bookings_pending'] / max($stats['bookings_today'],1)) * 100, 100) : 0 }}%"></div></div>
     </div>
 
     <div class="dash-stat-card dash-stat-card--success">
@@ -73,7 +71,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['completed_today'] }}</div>
         <div class="dash-stat-label">مكتملة اليوم</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:{{ $stats['bookings_today'] > 0 ? ($stats['completed_today'] / $stats['bookings_today']) * 100 : 0 }}%"></div></div>
     </div>
 
     <div class="dash-stat-card dash-stat-card--sky">
@@ -83,7 +80,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['bookings_this_month'] }}</div>
         <div class="dash-stat-label">حجوزات الشهر</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:80%"></div></div>
     </div>
 
     {{-- Row 2: Operations --}}
@@ -94,7 +90,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['total_services'] }}</div>
         <div class="dash-stat-label">الخدمات</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:100%"></div></div>
     </div>
 
     <div class="dash-stat-card dash-stat-card--rose">
@@ -104,7 +99,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['total_customers'] }}</div>
         <div class="dash-stat-label">العميلات</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:85%"></div></div>
     </div>
 
     <div class="dash-stat-card dash-stat-card--teal">
@@ -114,7 +108,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['active_branches'] }}<small style="font-size:.55em;color:var(--text-muted)"> / {{ $stats['total_branches'] }}</small></div>
         <div class="dash-stat-label">الفروع النشطة</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:{{ $stats['total_branches'] > 0 ? ($stats['active_branches']/$stats['total_branches'])*100 : 0 }}%"></div></div>
     </div>
 
     <div class="dash-stat-card dash-stat-card--primary">
@@ -124,7 +117,6 @@
         </div>
         <div class="dash-stat-number">{{ $stats['active_staff'] }}<small style="font-size:.55em;color:var(--text-muted)"> / {{ $stats['total_staff'] }}</small></div>
         <div class="dash-stat-label">الموظفات النشطات</div>
-        <div class="dash-stat-bar"><div class="dash-stat-bar-fill" style="width:{{ $stats['total_staff'] > 0 ? ($stats['active_staff']/$stats['total_staff'])*100 : 0 }}%"></div></div>
     </div>
 </div>
 
@@ -172,10 +164,10 @@
 </div>
 
 {{-- ── Main Content: 3 Columns ───────────────────────────────── --}}
-<div class="row g-4">
+<div class="row g-4" style="align-items: flex-start;">
 
     {{-- Column 1: Weekly Chart + Revenue --}}
-    <div class="col-lg-4 mb-4">
+    <div class="col-lg-4 mb-4" style="display:flex; flex-direction:column;">
         {{-- Weekly Bookings Chart --}}
         <div class="dash-panel" style="margin-bottom:1.5rem;">
             <div class="dash-panel-header">
@@ -203,7 +195,7 @@
         </div>
 
         {{-- Revenue per Branch --}}
-        <div class="dash-panel">
+        <div class="dash-panel" style="flex:1;">
             <div class="dash-panel-header">
                 <div class="dash-panel-title">
                     <div class="dash-panel-icon dash-panel-icon--green"><i class="fas fa-coins"></i></div>

@@ -35,37 +35,36 @@
     </div>
 </div>
 
-{{-- Upload Form --}}
-<div class="ops-detail-panel">
+<div class="ops-detail-panel gallery-upload-panel">
     <div class="ops-detail-header"><i class="fas fa-upload"></i> رفع صور جديدة</div>
     <form method="POST" action="{{ route('admin.gallery.store') }}" enctype="multipart/form-data">
         @csrf
-        <div class="row g-3 align-items-end">
-            <div class="col-md-4">
-                <label class="form-label">الصور <span style="color:#dc2626;">*</span></label>
-                <input type="file" name="images[]" class="form-control" accept="image/*" multiple required>
-                <div class="form-text" style="font-size:.75rem;color:var(--text-muted);">يمكنك رفع أكثر من صورة</div>
+        <div class="gallery-upload-grid">
+            <div class="gallery-field gallery-field--file">
+                <label class="form-label">الصور <span class="text-danger">*</span></label>
+                <input type="file" name="images[]" class="form-control gallery-file-input" accept="image/*" multiple required>
+                <div class="form-text">يمكنك رفع أكثر من صورة</div>
             </div>
-            <div class="col-md-3">
-                <label class="form-label">القسم <span style="color:#dc2626;">*</span></label>
+            <div class="gallery-field">
+                <label class="form-label">القسم <span class="text-danger">*</span></label>
                 <select name="category" class="form-select" required>
                     @foreach($categories as $key => $label)
                         <option value="{{ $key }}">{{ $label }}</option>
                     @endforeach
                 </select>
             </div>
-            <div class="col-md-3">
+            <div class="gallery-field">
                 <label class="form-label">تعليق (اختياري)</label>
                 <input type="text" name="caption" class="form-control" placeholder="تعليق الصورة...">
             </div>
-            <div class="col-md-1 d-flex align-items-center">
-                <div class="form-check">
+            <div class="gallery-field gallery-check-wrap">
+                <div class="form-check gallery-check">
                     <input class="form-check-input" type="checkbox" name="is_before_after" id="beforeAfter" value="1">
-                    <label class="form-check-label small" for="beforeAfter">قبل/بعد</label>
+                    <label class="form-check-label" for="beforeAfter">قبل/بعد</label>
                 </div>
             </div>
-            <div class="col-md-1">
-                <button type="submit" class="ops-banner-btn" style="width:100%;justify-content:center;padding:.5rem;">
+            <div class="gallery-field gallery-submit-wrap">
+                <button type="submit" class="gallery-upload-btn" title="رفع">
                     <i class="fas fa-upload"></i>
                 </button>
             </div>
@@ -73,43 +72,39 @@
     </form>
 </div>
 
-{{-- Category Filter --}}
-<div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+<div class="gallery-filter-tabs">
     @foreach(['' => 'الكل'] + $categories as $key => $label)
         <a href="{{ route('admin.gallery.index', $key ? ['category' => $key] : []) }}"
-           style="padding:6px 16px;border-radius:10px;font-size:.82rem;font-weight:700;text-decoration:none;transition:.2s;
-                  {{ request('category') == $key ? 'background:linear-gradient(135deg,var(--accent),var(--accent-light));color:#000;' : 'background:var(--bg-input);color:var(--text-muted);border:1px solid var(--border);' }}">
+           class="gallery-filter-tab {{ request('category') == $key ? 'active' : '' }}">
             {{ $label }}
         </a>
     @endforeach
 </div>
 
-{{-- Images Grid --}}
-<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;">
+<div class="gallery-grid">
     @forelse($images as $img)
-    <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .25s;{{ !$img->is_active ? 'opacity:.5;' : '' }}"
-         onmouseover="this.style.transform='translateY(-3px)'" onmouseout="this.style.transform='none'">
-        <div style="position:relative;height:140px;overflow:hidden;">
-            <img src="{{ $img->full_url }}" alt="{{ $img->alt }}" style="width:100%;height:100%;object-fit:cover;">
+    <div class="gallery-card {{ !$img->is_active ? 'is-muted' : '' }}">
+        <div class="gallery-thumb">
+            <img src="{{ $img->full_url }}" alt="{{ $img->alt }}">
             @if($img->is_before_after)
-                <span style="position:absolute;top:8px;left:8px;padding:3px 8px;border-radius:6px;font-size:.65rem;font-weight:700;background:rgba(245,158,11,.9);color:#000;">قبل/بعد</span>
+                <span class="gallery-badge gallery-badge--compare">قبل/بعد</span>
             @endif
-            <span style="position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:6px;font-size:.65rem;font-weight:700;background:rgba(0,0,0,.6);color:#fff;backdrop-filter:blur(4px);">{{ $img->category }}</span>
+            <span class="gallery-badge gallery-badge--category">{{ $img->category }}</span>
         </div>
-        <div style="padding:.75rem;">
+        <div class="gallery-card-body">
             @if($img->caption)
-                <p style="font-size:.78rem;color:var(--text-muted);margin:0 0 .5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ $img->caption }}</p>
+                <p class="gallery-caption">{{ $img->caption }}</p>
             @endif
-            <div class="ops-actions" style="justify-content:center;">
+            <div class="ops-actions gallery-actions">
                 <form method="POST" action="{{ route('admin.gallery.toggle-status', $img) }}">
                     @csrf
-                    <button type="submit" class="ops-action-btn toggle" title="{{ $img->is_active ? 'إخفاء' : 'إظهار' }}" style="width:28px;height:28px;font-size:.72rem;">
+                    <button type="submit" class="ops-action-btn toggle" title="{{ $img->is_active ? 'إخفاء' : 'إظهار' }}">
                         <i class="fas fa-{{ $img->is_active ? 'eye-slash' : 'eye' }}"></i>
                     </button>
                 </form>
-                <form method="POST" action="{{ route('admin.gallery.destroy', $img) }}" onsubmit="return confirm('حذف الصورة نهائياً؟')">
+                <form method="POST" action="{{ route('admin.gallery.destroy', $img) }}" onsubmit="return confirm('حذف الصورة نهائيا؟')">
                     @csrf @method('DELETE')
-                    <button type="submit" class="ops-action-btn delete" title="حذف" style="width:28px;height:28px;font-size:.72rem;">
+                    <button type="submit" class="ops-action-btn delete" title="حذف">
                         <i class="fas fa-trash"></i>
                     </button>
                 </form>
@@ -117,7 +112,7 @@
         </div>
     </div>
     @empty
-    <div style="grid-column:1/-1;">
+    <div class="gallery-empty-wrap">
         <div class="ops-empty">
             <div class="ops-empty-icon"><i class="fas fa-images"></i></div>
             <h6>لا توجد صور في هذا القسم</h6>
@@ -127,6 +122,6 @@
 </div>
 
 @if($images->hasPages())
-<div class="ops-pagination" style="margin-top:1.5rem;">{{ $images->withQueryString()->links() }}</div>
+<div class="ops-pagination gallery-pagination">{{ $images->withQueryString()->links() }}</div>
 @endif
 @endsection

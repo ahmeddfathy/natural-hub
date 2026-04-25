@@ -29,31 +29,16 @@
     @endif
 </div>
 
-{{-- القسم + الخدمة المرتبطة --}}
+{{-- الخدمة + الترتيب --}}
 <div class="row g-3 mb-3">
-    <div class="col-md-4">
-        <label class="form-label">القسم <span class="text-danger">*</span></label>
-        <select name="category_type" id="catSelect"
-                class="form-select @error('category_type') is-invalid @enderror"
-                required onchange="filterServices(this.value)">
-            <option value="">اختاري القسم...</option>
-            @foreach($categories as $key => $label)
-                <option value="{{ $key }}" {{ old('category_type', $video->category_type ?? '') == $key ? 'selected' : '' }}>
-                    {{ $label }}
-                </option>
-            @endforeach
-        </select>
-        @error('category_type')<div class="invalid-feedback">{{ $message }}</div>@enderror
-    </div>
-    <div class="col-md-5">
+    <div class="col-md-9">
         <label class="form-label">الخدمة المرتبطة <span class="text-muted small">(اختياري)</span></label>
         <select name="service_id" id="serviceSelect" class="form-select @error('service_id') is-invalid @enderror">
             <option value="">— لا خدمة محددة —</option>
             @foreach($services as $service)
                 <option value="{{ $service->id }}"
-                        data-cat="{{ $service->category_type }}"
                         {{ old('service_id', $video->service_id ?? '') == $service->id ? 'selected' : '' }}>
-                    {{ $service->title }} ({{ $service->category_type }})
+                    {{ $service->title }}
                 </option>
             @endforeach
         </select>
@@ -109,17 +94,3 @@
         </button>
     </div>
 </div>
-
-<script>
-function filterServices(cat) {
-    document.querySelectorAll('#serviceSelect option[data-cat]').forEach(opt => {
-        opt.hidden = cat && opt.dataset.cat !== cat;
-    });
-    // reset if hidden
-    const sel = document.getElementById('serviceSelect');
-    const chosen = sel.options[sel.selectedIndex];
-    if (chosen && chosen.hidden) sel.value = '';
-}
-// run on load
-document.addEventListener('DOMContentLoaded', () => filterServices(document.getElementById('catSelect')?.value));
-</script>
