@@ -7,7 +7,7 @@
 <div class="ops-banner">
     <div class="ops-banner-top">
         <div class="ops-banner-title">
-            <i class="fas fa-chart-pie" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
+            <i class="fas fa-chart-pie" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#f74d6c,#B08A3C);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
             <div>
                 <h4>التقارير والإحصائيات</h4>
                 <p>تحليل شامل للأداء والإيرادات</p>
@@ -60,7 +60,7 @@
 {{-- Summary Cards --}}
 @php
     $cards = [
-        ['label'=>'إجمالي الحجوزات','value'=>$bookingSummary['total'],'bg'=>'rgba(124,58,237,.08)','color'=>'#7c3aed','icon'=>'calendar-alt'],
+        ['label'=>'إجمالي الحجوزات','value'=>$bookingSummary['total'],'bg'=>'rgba(247,77,108,.08)','color'=>'#f74d6c','icon'=>'calendar-alt'],
         ['label'=>'مكتملة','value'=>$bookingSummary['completed'],'bg'=>'rgba(5,150,105,.08)','color'=>'#059669','icon'=>'check-circle'],
         ['label'=>'قيد الانتظار','value'=>$bookingSummary['pending'],'bg'=>'rgba(217,119,6,.08)','color'=>'#d97706','icon'=>'clock'],
         ['label'=>'ملغية','value'=>$bookingSummary['cancelled'],'bg'=>'rgba(220,38,38,.08)','color'=>'#dc2626','icon'=>'ban'],
@@ -104,7 +104,7 @@
                 </div>
                 <div style="display:flex;justify-content:space-between;padding:.85rem 0;">
                     <span style="font-size:.88rem;color:var(--text-muted);font-weight:600;">عميلات منتظمات</span>
-                    <span style="font-size:.88rem;font-weight:800;color:#7c3aed;">{{ $crmStats['repeat_customers'] }}</span>
+                    <span style="font-size:.88rem;font-weight:800;color:#f74d6c;">{{ $crmStats['repeat_customers'] }}</span>
                 </div>
             </div>
         </div>

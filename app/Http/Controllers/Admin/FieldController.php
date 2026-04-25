@@ -11,7 +11,7 @@ class FieldController extends Controller
 {
     public function index()
     {
-        $fields = Field::withCount(['portfolios', 'portfolioCategories', 'videoCategories'])
+        $fields = Field::withCount(['categories'])
             ->orderBy('sort_order')
             ->orderBy('name')
             ->paginate(10);
@@ -85,7 +85,7 @@ class FieldController extends Controller
 
     public function destroy(Field $field)
     {
-        if ($field->portfolios()->exists() || $field->portfolioCategories()->exists() || $field->videoCategories()->exists()) {
+        if ($field->categories()->exists()) {
             return redirect()->route('admin.fields.index')
                 ->with('error', 'لا يمكن حذف هذا المجال لأنه مرتبط بتصنيفات موجودة.');
         }

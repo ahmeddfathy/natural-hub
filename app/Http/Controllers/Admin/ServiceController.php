@@ -67,6 +67,11 @@ class ServiceController extends Controller
 
     public function destroy(Service $service)
     {
+        if ($service->bookings()->exists()) {
+            return redirect()->route('admin.services.index')
+                ->with('error', 'لا يمكن حذف الخدمة لأنها مرتبطة بحجوزات مسجلة.');
+        }
+
         if ($service->image) {
             Storage::disk('public')->delete($service->image);
         }
@@ -75,6 +80,17 @@ class ServiceController extends Controller
 
         return redirect()->route('admin.services.index')
             ->with('success', 'تم حذف الخدمة بنجاح.');
+    }
+
+    public function toggleStatus(Service $service)
+    {
+        $service->update(['is_active' => !$service->is_active]);
+
+        $message = $service->is_active
+            ? 'تم تفعيل الخدمة.'
+            : 'تم إيقاف الخدمة.';
+
+        return redirect()->route('admin.services.index')->with('success', $message);
     }
 
     private function validateService(Request $request): array

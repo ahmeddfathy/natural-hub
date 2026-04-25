@@ -1,25 +1,25 @@
-/* ===== OPERATIONS ADMIN — Branches, Staff, Customers, Gallery ===== */
+﻿/* ===== OPERATIONS ADMIN â€” Branches, Staff, Customers, Gallery ===== */
 
 /* Shared Banner */
 .ops-banner { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; margin-bottom: 1.5rem; }
 .ops-banner-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 .ops-banner-title { display: flex; align-items: center; gap: 1rem; }
 .ops-banner-title > i { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-.ops-banner-title > i.ic-branch   { background: linear-gradient(135deg, #14b8a6, #2dd4bf); color: #fff; }
-.ops-banner-title > i.ic-staff    { background: linear-gradient(135deg, #6366f1, #6366f1); color: #fff; }
+.ops-banner-title > i.ic-branch   { background: linear-gradient(135deg, #B08A3C, #D4AF61); color: #fff; }
+.ops-banner-title > i.ic-staff    { background: linear-gradient(135deg, #f74d6c, #B08A3C); color: #fff; }
 .ops-banner-title > i.ic-customer { background: linear-gradient(135deg, #f43f5e, #fb7185); color: #fff; }
-.ops-banner-title > i.ic-gallery  { background: linear-gradient(135deg, #a78bfa, #c4b5fd); color: #fff; }
+.ops-banner-title > i.ic-gallery  { background: linear-gradient(135deg, #ff7a95, #ffc2cc); color: #fff; }
 .ops-banner-title h4 { font-weight: 800; color: var(--accent); margin: 0; }
 .ops-banner-title p { color: var(--text-muted); font-size: .88rem; margin: 4px 0 0; }
-.ops-banner-btn { display: inline-flex; align-items: center; gap: 8px; padding: .65rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .88rem; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff !important; text-decoration: none; transition: .25s; border: none; }
-.ops-banner-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(167,139,250,.3); }
+.ops-banner-btn { display: inline-flex; align-items: center; gap: 8px; padding: .65rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .88rem; background: linear-gradient(135deg, #f74d6c, #B08A3C); color: #fff !important; text-decoration: none; transition: .25s; border: none; }
+.ops-banner-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(247,77,108,.3); }
 
 /* Stats Grid */
 .ops-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 1.5rem; }
 .ops-stat-card { position: relative; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 1.5rem; text-align: center; transition: transform .3s, box-shadow .3s; animation: fadeSlideUp .5s ease both; box-shadow: 0 1px 3px rgba(0,0,0,.04); }
 .ops-stat-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,.08); }
 .ops-stat-icon { width: 48px; height: 48px; border-radius: 14px; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
-.ops-stat-icon.ic-total    { background: rgba(99,102,241,.12); color: #6366f1; }
+.ops-stat-icon.ic-total    { background: rgba(247,77,108,.12); color: #f74d6c; }
 .ops-stat-icon.ic-active   { background: rgba(16,185,129,.12); color: #059669; }
 .ops-stat-icon.ic-new      { background: rgba(56,189,248,.12); color: #0891b2; }
 .ops-stat-icon.ic-regular  { background: rgba(16,185,129,.12); color: #059669; }
@@ -34,7 +34,7 @@
 .ops-table-header i { color: var(--accent); }
 .ops-table-header h5 { margin: 0; font-size: 1rem; font-weight: 800; }
 .ops-table { width: 100%; border-collapse: separate; border-spacing: 0; }
-.ops-table th { background: rgba(167,139,250,.04); color: var(--text-main); font-weight: 700; font-size: .8rem; padding: .8rem 1rem; border-bottom: 1px solid var(--border); white-space: nowrap; }
+.ops-table th { background: rgba(247,77,108,.04); color: var(--text-main); font-weight: 700; font-size: .8rem; padding: .8rem 1rem; border-bottom: 1px solid var(--border); white-space: nowrap; }
 .ops-table td { padding: .8rem 1rem; border-bottom: 1px solid var(--border); vertical-align: middle; font-size: .85rem; color: var(--text-muted); }
 .ops-table tbody tr { transition: background .2s; }
 .ops-table tbody tr:hover { background: var(--bg-input); }
@@ -59,7 +59,7 @@
 /* Avatar */
 .ops-avatar { width: 40px; height: 40px; border-radius: 12px; overflow: hidden; flex-shrink: 0; }
 .ops-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.ops-avatar-placeholder { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent-light)); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: .85rem; }
+.ops-avatar-placeholder { width: 40px; height: 40px; border-radius: 12px; background: linear-gradient(135deg, #f74d6c, #B08A3C); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 800; font-size: .85rem; }
 
 /* Badges */
 .ops-badge { padding: 4px 12px; border-radius: 20px; font-size: .72rem; font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
@@ -72,11 +72,11 @@
 /* Action Buttons */
 .ops-actions { display: flex; align-items: center; gap: 6px; }
 .ops-action-btn { width: 34px; height: 34px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; transition: .2s; border: none; cursor: pointer; font-size: .82rem; text-decoration: none; }
-.ops-action-btn.view   { background: rgba(99,102,241,.08); color: #6366f1; }
-.ops-action-btn.edit   { background: rgba(167,139,250,.08); color: var(--accent); }
+.ops-action-btn.view   { background: rgba(247,77,108,.08); color: #f74d6c; }
+.ops-action-btn.edit   { background: rgba(247,77,108,.08); color: var(--accent); }
 .ops-action-btn.toggle { background: rgba(245,158,11,.08); color: #d97706; }
 .ops-action-btn.delete { background: rgba(239,68,68,.08); color: #dc2626; }
-.ops-action-btn.view:hover   { background: #6366f1; color: #fff; }
+.ops-action-btn.view:hover   { background: #f74d6c; color: #fff; }
 .ops-action-btn.edit:hover   { background: var(--accent); color: #fff; }
 .ops-action-btn.toggle:hover { background: #f59e0b; color: #fff; }
 .ops-action-btn.delete:hover { background: #ef4444; color: #fff; }
@@ -119,3 +119,4 @@
 @media (max-width: 768px) { .ops-stats-grid { grid-template-columns: 1fr 1fr; } .ops-branch-grid { grid-template-columns: 1fr; } }
 
 @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+

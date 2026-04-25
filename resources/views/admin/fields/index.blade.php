@@ -83,7 +83,7 @@
                             <input type="number" class="form-control form-control-sm app-sort-order-input text-center mx-auto" data-id="{{ $field->id }}" data-model="Field" value="{{ $field->sort_order }}" style="width: 70px;">
                         </td>
                         <td><span class="category-slug-cell">{{ $field->slug }}</span></td>
-                        <td>{{ $field->portfolios_count + $field->portfolio_categories_count + $field->video_categories_count }}</td>
+                        <td>{{ $field->categories_count }}</td>
                         <td>{{ \Illuminate\Support\Str::limit($field->description, 50) ?: '—' }}</td>
                         <td>
                             <span class="category-status-badge {{ $field->is_active ? 'category-status-active' : 'category-status-inactive' }}">

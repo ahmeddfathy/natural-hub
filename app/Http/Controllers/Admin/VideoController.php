@@ -69,6 +69,7 @@ class VideoController extends Controller
     public function store(Request $request)
     {
         $validated = $this->validateVideo($request);
+        $this->syncCategoryWithService($validated);
         $validated['youtube_video_id'] = $this->extractYoutubeId($validated['youtube_url']);
         $validated['video_provider']   = 'youtube';
         $validated['slug']             = $this->prepareSlug($validated['slug'] ?? null, $validated['title']);
@@ -92,6 +93,7 @@ class VideoController extends Controller
     public function update(Request $request, Video $video)
     {
         $validated = $this->validateVideo($request, $video);
+        $this->syncCategoryWithService($validated);
         $validated['youtube_video_id'] = $this->extractYoutubeId($validated['youtube_url']);
         $validated['video_provider']   = 'youtube';
         $validated['slug']             = $this->prepareSlug($validated['slug'] ?? null, $validated['title'], $video->id);
@@ -183,5 +185,18 @@ class VideoController extends Controller
         $validated['published_at'] = $validated['is_published']
             ? ($validated['published_at'] ?? now())
             : null;
+    }
+
+    private function syncCategoryWithService(array &$validated): void
+    {
+        if (empty($validated['service_id'])) {
+            return;
+        }
+
+        $service = Service::find($validated['service_id']);
+
+        if ($service) {
+            $validated['category_type'] = $service->category_type;
+        }
     }
 }

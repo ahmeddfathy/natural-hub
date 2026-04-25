@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Validation\Rule;
 
 class BookingController extends Controller
 {
@@ -72,7 +73,12 @@ class BookingController extends Controller
             'phone'          => 'required|string|max:30',
             'service_id'     => 'required|exists:services,id',
             'branch_id'      => 'required|exists:branches,id',
-            'staff_id'       => 'nullable|exists:staff,id',
+            'staff_id'       => [
+                'nullable',
+                Rule::exists('staff', 'id')->where(function ($query) use ($request) {
+                    $query->where('branch_id', $request->input('branch_id'));
+                }),
+            ],
             'appointment_at' => 'required|date',
             'notes'          => 'nullable|string|max:500',
         ]);
@@ -133,7 +139,14 @@ class BookingController extends Controller
 
     public function assignStaff(Request $request, Booking $booking): JsonResponse
     {
-        $request->validate(['staff_id' => 'required|exists:staff,id']);
+        $request->validate([
+            'staff_id' => [
+                'required',
+                Rule::exists('staff', 'id')->where(function ($query) use ($booking) {
+                    $query->where('branch_id', $booking->branch_id);
+                }),
+            ],
+        ]);
 
         $booking->update([
             'staff_id' => $request->staff_id,

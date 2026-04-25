@@ -134,13 +134,13 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->name(
     // Bookings
     Route::get('bookings', [\App\Http\Controllers\Admin\BookingController::class, 'index'])->name('bookings.index');
     Route::get('bookings/create', [\App\Http\Controllers\Admin\BookingController::class, 'create'])->name('bookings.create');
+    Route::get('bookings/lookup-customer', [\App\Http\Controllers\Admin\BookingController::class, 'lookupCustomer'])->name('bookings.lookup-customer');
     Route::post('bookings', [\App\Http\Controllers\Admin\BookingController::class, 'store'])->name('bookings.store');
     Route::get('bookings/{booking}', [\App\Http\Controllers\Admin\BookingController::class, 'show'])->name('bookings.show');
     Route::post('bookings/{booking}/confirm', [\App\Http\Controllers\Admin\BookingController::class, 'confirm'])->name('bookings.confirm');
     Route::post('bookings/{booking}/complete', [\App\Http\Controllers\Admin\BookingController::class, 'complete'])->name('bookings.complete');
     Route::post('bookings/{booking}/cancel', [\App\Http\Controllers\Admin\BookingController::class, 'cancel'])->name('bookings.cancel');
     Route::post('bookings/{booking}/assign-staff', [\App\Http\Controllers\Admin\BookingController::class, 'assignStaff'])->name('bookings.assign-staff');
-    Route::get('bookings/lookup-customer', [\App\Http\Controllers\Admin\BookingController::class, 'lookupCustomer'])->name('bookings.lookup-customer');
 
     // Customers (CRM)
     Route::get('customers', [\App\Http\Controllers\Admin\CustomerController::class, 'index'])->name('customers.index');
@@ -178,5 +178,4 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])->prefix('admin')->name(
     Route::get('reports/daily-chart', [\App\Http\Controllers\Admin\ReportController::class, 'dailyChartJson'])->name('reports.daily-chart');
 
 });
-
 

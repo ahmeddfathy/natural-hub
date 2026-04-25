@@ -12,7 +12,7 @@ class LibraryController extends Controller
         // Featured hero video
         $featuredVideo = Video::where('is_published', true)
             ->where('is_featured', true)
-            ->with(['category', 'field'])
+            ->with('service')
             ->orderBy('sort_order')
             ->orderByDesc('published_at')
             ->first();
@@ -21,7 +21,7 @@ class LibraryController extends Controller
         $videoCategories = VideoCategory::where('is_active', true)
             ->with(['videos' => function ($query) {
                 $query->where('is_published', true)
-                    ->with(['category', 'field'])
+                    ->with('service')
                     ->orderBy('sort_order')
                     ->orderByDesc('is_featured')
                     ->orderByDesc('published_at')

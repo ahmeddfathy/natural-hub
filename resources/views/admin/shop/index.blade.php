@@ -8,7 +8,7 @@
 <div class="ops-banner">
     <div class="ops-banner-top">
         <div class="ops-banner-title">
-            <i class="fas fa-shopping-bag" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#7c3aed,#a78bfa);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
+            <i class="fas fa-shopping-bag" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#f74d6c,#B08A3C);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
             <div>
                 <h4>المتجر</h4>
                 <p>{{ $stats['bundles'] }} مجموعة — {{ $stats['products'] }} منتج — <span style="color:#dc2626;">{{ $stats['out_of_stock'] }} نفذت</span></p>

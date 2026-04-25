@@ -57,23 +57,4 @@ class Field extends Model
         return $this->belongsToMany(Category::class, 'category_field');
     }
 
-    public function portfolioCategories()
-    {
-        return $this->belongsToMany(PortfolioCategory::class, 'portfolio_category_field');
-    }
-
-    public function portfolios()
-    {
-        return $this->hasMany(Portfolio::class);
-    }
-
-    public function videos()
-    {
-        return $this->hasMany(Video::class);
-    }
-
-    public function videoCategories()
-    {
-        return $this->belongsToMany(VideoCategory::class, 'video_category_field');
-    }
 }

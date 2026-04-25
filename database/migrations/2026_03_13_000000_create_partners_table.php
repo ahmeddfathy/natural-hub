@@ -22,18 +22,10 @@ return new class extends Migration
             $table->foreignId('partner_id')->nullable()->after('category_id')->constrained()->onDelete('set null');
         });
 
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->foreignId('partner_id')->nullable()->after('portfolio_category_id')->constrained()->onDelete('set null');
-        });
     }
 
     public function down(): void
     {
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->dropForeign(['partner_id']);
-            $table->dropColumn('partner_id');
-        });
-
         Schema::table('blogs', function (Blueprint $table) {
             $table->dropForeign(['partner_id']);
             $table->dropColumn('partner_id');

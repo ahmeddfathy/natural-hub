@@ -8,15 +8,33 @@ use App\Models\Booking;
 use App\Models\Branch;
 use App\Models\Category;
 use App\Models\Customer;
+use App\Models\Field;
 use App\Models\GalleryImage;
 use App\Models\Service;
+use App\Models\ShopBundle;
+use App\Models\ShopProduct;
 use App\Models\Staff;
 use App\Models\User;
+use App\Models\Video;
+use App\Models\VideoCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
+    private const SORTABLE_MODELS = [
+        'Branch' => Branch::class,
+        'Category' => Category::class,
+        'Field' => Field::class,
+        'GalleryImage' => GalleryImage::class,
+        'Service' => Service::class,
+        'ShopBundle' => ShopBundle::class,
+        'ShopProduct' => ShopProduct::class,
+        'Staff' => Staff::class,
+        'Video' => Video::class,
+        'VideoCategory' => VideoCategory::class,
+    ];
+
     public function index()
     {
         // ── CMS Stats ──────────────────────────────────────────────────────
@@ -107,52 +125,53 @@ class DashboardController extends Controller
     public function updateSortOrder(Request $request)
     {
         $request->validate([
-            'model'      => 'required|string',
+            'model'      => 'required|string|in:' . implode(',', array_keys(self::SORTABLE_MODELS)),
             'id'         => 'required|integer',
             'sort_order' => 'required|integer',
         ]);
 
-        $modelClass = '\\App\\Models\\' . $request->model;
-        if (class_exists($modelClass)) {
-            $instance = $modelClass::find($request->id);
-            if ($instance) {
-                $oldOrder = (int) $instance->sort_order;
-                $newOrder = (int) $request->sort_order;
+        $modelClass = self::SORTABLE_MODELS[$request->model];
+        $instance = $modelClass::find($request->id);
 
-                if ($oldOrder !== $newOrder) {
-                    DB::transaction(function () use ($modelClass, $instance, $oldOrder, $newOrder) {
+        if ($instance) {
+            $oldOrder = (int) $instance->sort_order;
+            $newOrder = (int) $request->sort_order;
 
-                        $scopeQuery = function ($query) use ($instance, $modelClass) {
-                            if (in_array($modelClass, ['\\App\\Models\\Video', '\\App\\Models\\Portfolio']) && $instance->field_id) {
-                                $query->where('field_id', $instance->field_id);
-                            }
-                        };
-
-                        if ($oldOrder === 0) {
-                            $modelClass::where('sort_order', '>=', $newOrder)
-                                       ->where('id', '!=', $instance->id)
-                                       ->where($scopeQuery)
-                                       ->increment('sort_order');
-                        } elseif ($newOrder < $oldOrder) {
-                            $modelClass::whereBetween('sort_order', [$newOrder, $oldOrder - 1])
-                                       ->where('id', '!=', $instance->id)
-                                       ->where($scopeQuery)
-                                       ->increment('sort_order');
-                        } elseif ($newOrder > $oldOrder) {
-                            $modelClass::whereBetween('sort_order', [$oldOrder + 1, $newOrder])
-                                       ->where('id', '!=', $instance->id)
-                                       ->where($scopeQuery)
-                                       ->decrement('sort_order');
+            if ($oldOrder !== $newOrder) {
+                DB::transaction(function () use ($modelClass, $instance, $oldOrder, $newOrder) {
+                    $scopeQuery = function ($query) use ($instance, $modelClass) {
+                        if ($modelClass === Video::class && !empty($instance->service_id)) {
+                            $query->where('service_id', $instance->service_id);
+                        } elseif ($modelClass === Video::class && !empty($instance->category_type)) {
+                            $query->where('category_type', $instance->category_type);
                         }
+                    };
 
-                        $instance->sort_order = $newOrder;
-                        $instance->save();
-                    });
-                }
+                    if ($oldOrder === 0) {
+                        $modelClass::where('sort_order', '>=', $newOrder)
+                            ->where('id', '!=', $instance->id)
+                            ->where($scopeQuery)
+                            ->increment('sort_order');
+                    } elseif ($newOrder < $oldOrder) {
+                        $modelClass::whereBetween('sort_order', [$newOrder, $oldOrder - 1])
+                            ->where('id', '!=', $instance->id)
+                            ->where($scopeQuery)
+                            ->increment('sort_order');
+                    } elseif ($newOrder > $oldOrder) {
+                        $modelClass::whereBetween('sort_order', [$oldOrder + 1, $newOrder])
+                            ->where('id', '!=', $instance->id)
+                            ->where($scopeQuery)
+                            ->decrement('sort_order');
+                    }
 
-                return response()->json(['success' => true]);
+                    $instance->sort_order = $newOrder;
+                    $instance->save();
+                });
             }
+
+            return response()->json(['success' => true]);
         }
+
         return response()->json(['success' => false], 400);
     }
 
@@ -163,5 +182,3 @@ class DashboardController extends Controller
         return ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'][$dayOfWeek];
     }
 }
-
-

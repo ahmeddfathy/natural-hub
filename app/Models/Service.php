@@ -49,6 +49,11 @@ class Service extends Model
         return $this->hasMany(Booking::class);
     }
 
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
     // ─── Scopes ─────────────────────────────────────────────────────────────
 
     public function scopeActive($query)
@@ -87,4 +92,3 @@ class Service extends Model
         ];
     }
 }
-

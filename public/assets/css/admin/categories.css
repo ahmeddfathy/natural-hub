@@ -1,4 +1,4 @@
-/* ===== CATEGORIES ADMIN — PREMIUM MODULE STYLES ===== */
+﻿/* ===== CATEGORIES ADMIN â€” PREMIUM MODULE STYLES ===== */
 
 .categories-stats-grid {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -25,10 +25,10 @@
 .categories-banner-btn {
     display: inline-flex; align-items: center; gap: 8px;
     padding: .65rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .88rem;
-    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    background: linear-gradient(135deg, #f74d6c, #B08A3C);
     color: #fff !important; text-decoration: none; transition: .25s; border: none;
 }
-.categories-banner-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(167,139,250,.3); }
+.categories-banner-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(247,77,108,.3); }
 
 .categories-alert {
     display: flex; align-items: center; gap: .75rem;
@@ -63,7 +63,7 @@
 
 .category-actions { display: flex; align-items: center; gap: 6px; }
 .category-action-btn { width: 34px; height: 34px; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; transition: .2s; border: none; cursor: pointer; position: relative; font-size: .82rem; text-decoration: none; }
-.category-action-btn.edit   { background: rgba(167,139,250,.08); color: var(--accent); }
+.category-action-btn.edit   { background: rgba(247,77,108,.08); color: var(--accent); }
 .category-action-btn.delete { background: rgba(239,68,68,.08); color: #dc2626; }
 .category-action-btn.edit:hover   { background: var(--accent); color: #fff; }
 .category-action-btn.delete:hover { background: #ef4444; color: #fff; }
@@ -74,7 +74,7 @@
 .categories-empty-icon { width: 64px; height: 64px; border-radius: 16px; margin: 0 auto 1rem; background: var(--bg-input); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--text-muted); }
 .categories-empty h6 { font-weight: 800; }
 .categories-empty p { color: var(--text-muted); font-size: .85rem; margin-bottom: 1rem; }
-.categories-empty-btn { display: inline-flex; align-items: center; gap: 8px; padding: .6rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .85rem; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff; text-decoration: none; transition: .2s; }
+.categories-empty-btn { display: inline-flex; align-items: center; gap: 8px; padding: .6rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .85rem; background: linear-gradient(135deg, #f74d6c, #B08A3C); color: #fff; text-decoration: none; transition: .2s; }
 .categories-empty-btn:hover { transform: translateY(-2px); }
 .categories-pagination { padding: 1.25rem; display: flex; justify-content: center; border-top: 1px solid var(--border); }
 
@@ -107,8 +107,8 @@
 .categories-form-actions { display: flex; justify-content: space-between; align-items: center; padding-top: .5rem; }
 .categories-back-btn { display: inline-flex; align-items: center; gap: 6px; padding: .5rem 1.25rem; border-radius: 10px; font-weight: 700; font-size: .82rem; background: var(--bg-input); color: var(--text-muted); border: 1px solid var(--border); text-decoration: none; transition: .2s; }
 .categories-back-btn:hover { background: rgba(0,0,0,.04); color: var(--text-main); }
-.categories-save-btn { display: inline-flex; align-items: center; gap: 8px; padding: .65rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .88rem; background: linear-gradient(135deg, var(--accent), var(--accent-light)); color: #fff; border: none; cursor: pointer; transition: .25s; }
-.categories-save-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(167,139,250,.3); }
+.categories-save-btn { display: inline-flex; align-items: center; gap: 8px; padding: .65rem 1.5rem; border-radius: 12px; font-weight: 700; font-size: .88rem; background: linear-gradient(135deg, #f74d6c, #B08A3C); color: #fff; border: none; cursor: pointer; transition: .25s; }
+.categories-save-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(247,77,108,.3); }
 
 .categories-table-wrapper { padding: 0 1.5rem 1.5rem; overflow-x: auto; }
 
@@ -117,4 +117,5 @@
 
 .categories-slug-info { display: flex; align-items: center; gap: 6px; margin-top: .75rem; font-size: .78rem; color: var(--text-muted); }
 .categories-slug-info code { background: var(--bg-input); padding: 2px 8px; border-radius: 6px; font-size: .75rem; }
+
 

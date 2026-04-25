@@ -24,7 +24,7 @@
             <i class="fas fa-layer-group"></i>
             <div>
                 <h4>تصنيفات الفيديوهات</h4>
-                <p>إدارة التصنيفات التي تُستخدم مع المجالات مثل: ريلز أو فيديو طويل</p>
+                <p>إدارة تصنيفات الفيديو مثل: ريلز أو فيديو طويل</p>
             </div>
         </div>
         <a href="{{ route('admin.video-categories.create') }}" class="categories-banner-btn">
@@ -64,7 +64,6 @@
                 <tr>
                     <th>الاسم</th>
                     <th>الترتيب</th>
-                    <th>المجالات المرتبطة</th>
                     <th>الربط</th>
                     <th>عدد الفيديوهات</th>
                     <th>الحالة</th>
@@ -77,17 +76,6 @@
                         <td>{{ $category->name }}</td>
                         <td>
                             <input type="number" class="form-control form-control-sm app-sort-order-input text-center mx-auto" data-id="{{ $category->id }}" data-model="VideoCategory" value="{{ $category->sort_order }}" style="width: 70px;">
-                        </td>
-                        <td>
-                            @if($category->fields->isNotEmpty())
-                                <div class="d-flex flex-wrap gap-2">
-                                    @foreach($category->fields as $field)
-                                        <span class="tag-chip">{{ $field->name }}</span>
-                                    @endforeach
-                                </div>
-                            @else
-                                <span class="text-muted">بدون مجال</span>
-                            @endif
                         </td>
                         <td><span class="category-slug-cell">{{ $category->slug }}</span></td>
                         <td>{{ $category->videos_count }}</td>
@@ -113,7 +101,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="7">
+                        <td colspan="6">
                             <div class="categories-empty">
                                 <h6>لا توجد تصنيفات فيديوهات بعد</h6>
                             </div>

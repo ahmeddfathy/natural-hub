@@ -21,19 +21,10 @@ return new class extends Migration
             $table->index(['blog_id', 'sort_order'], 'blog_images_blog_sort_idx');
         });
 
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->index('is_featured', 'portfolios_is_featured_idx');
-            $table->index('project_type', 'portfolios_project_type_idx');
-            $table->index('created_at', 'portfolios_created_at_idx');
-        });
-
         Schema::table('categories', function (Blueprint $table) {
             $table->index('is_active', 'categories_is_active_idx');
         });
 
-        Schema::table('portfolio_categories', function (Blueprint $table) {
-            $table->index('is_active', 'portfolio_categories_is_active_idx');
-        });
     }
 
     /**
@@ -51,18 +42,9 @@ return new class extends Migration
             $table->dropIndex('blog_images_blog_sort_idx');
         });
 
-        Schema::table('portfolios', function (Blueprint $table) {
-            $table->dropIndex('portfolios_is_featured_idx');
-            $table->dropIndex('portfolios_project_type_idx');
-            $table->dropIndex('portfolios_created_at_idx');
-        });
-
         Schema::table('categories', function (Blueprint $table) {
             $table->dropIndex('categories_is_active_idx');
         });
 
-        Schema::table('portfolio_categories', function (Blueprint $table) {
-            $table->dropIndex('portfolio_categories_is_active_idx');
-        });
     }
 };

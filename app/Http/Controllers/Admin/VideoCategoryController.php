@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Field;
 use App\Models\VideoCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -13,8 +12,7 @@ class VideoCategoryController extends Controller
 {
     public function index()
     {
-        $categories = VideoCategory::with('fields')
-            ->withCount('videos')
+        $categories = VideoCategory::withCount('videos')
             ->orderBy('sort_order')
             ->orderBy('name')
             ->paginate(15);
@@ -24,11 +22,7 @@ class VideoCategoryController extends Controller
 
     public function create()
     {
-        $fields = Field::where('is_active', true)
-            ->orderBy('name')
-            ->get();
-
-        return view('admin.video-categories.create', compact('fields'));
+        return view('admin.video-categories.create');
     }
 
     public function store(Request $request)
@@ -41,8 +35,6 @@ class VideoCategoryController extends Controller
             'image_alt' => 'nullable|string|max:255',
             'is_active' => 'boolean',
             'sort_order' => 'nullable|integer',
-            'field_ids' => 'nullable|array',
-            'field_ids.*' => 'integer|exists:fields,id',
         ]);
 
         $validated['slug'] = $this->prepareSlug($validated['slug'] ?? null, $validated['name']);
@@ -52,8 +44,7 @@ class VideoCategoryController extends Controller
             $validated['image'] = $request->file('image')->store('video-categories', 'public');
         }
 
-        $videoCategory = VideoCategory::create($validated);
-        $videoCategory->fields()->sync($validated['field_ids'] ?? []);
+        VideoCategory::create($validated);
 
         return redirect()->route('admin.video-categories.index')
             ->with('success', 'تم إنشاء تصنيف الفيديو بنجاح');
@@ -61,11 +52,7 @@ class VideoCategoryController extends Controller
 
     public function edit(VideoCategory $videoCategory)
     {
-        $fields = Field::where('is_active', true)
-            ->orderBy('name')
-            ->get();
-
-        return view('admin.video-categories.edit', compact('videoCategory', 'fields'));
+        return view('admin.video-categories.edit', compact('videoCategory'));
     }
 
     public function update(Request $request, VideoCategory $videoCategory)
@@ -78,8 +65,6 @@ class VideoCategoryController extends Controller
             'image_alt' => 'nullable|string|max:255',
             'is_active' => 'boolean',
             'sort_order' => 'nullable|integer',
-            'field_ids' => 'nullable|array',
-            'field_ids.*' => 'integer|exists:fields,id',
         ]);
 
         $validated['slug'] = $this->prepareSlug($validated['slug'] ?? null, $validated['name'], $videoCategory->id);
@@ -94,7 +79,6 @@ class VideoCategoryController extends Controller
         }
 
         $videoCategory->update($validated);
-        $videoCategory->fields()->sync($validated['field_ids'] ?? []);
 
         return redirect()->route('admin.video-categories.index')
             ->with('success', 'تم تحديث تصنيف الفيديو بنجاح');

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 class BlogController extends Controller
 {
@@ -248,8 +249,18 @@ class BlogController extends Controller
             'image_alts.*' => 'nullable|string|max:255',
             'existing_image_captions.*' => 'nullable|string|max:255',
             'existing_image_alts.*' => 'nullable|string|max:255',
-            'existing_image_ids.*' => 'nullable|exists:blog_images,id',
-            'images_to_delete.*' => 'nullable|exists:blog_images,id',
+            'existing_image_ids.*' => [
+                'nullable',
+                Rule::exists('blog_images', 'id')->where(function ($query) use ($blog) {
+                    $query->where('blog_id', $blog->id);
+                }),
+            ],
+            'images_to_delete.*' => [
+                'nullable',
+                Rule::exists('blog_images', 'id')->where(function ($query) use ($blog) {
+                    $query->where('blog_id', $blog->id);
+                }),
+            ],
             'tags' => 'nullable',
             'blog_highlights' => 'nullable',
             'contact_info' => 'nullable|string',
@@ -346,14 +357,14 @@ class BlogController extends Controller
                         $updateData['alt_text'] = $alts[$index];
                     }
                     if (!empty($updateData)) {
-                        BlogImage::where('id', $id)->update($updateData);
+                        $blog->images()->whereKey($id)->update($updateData);
                     }
                 }
             }
 
             if ($request->has('images_to_delete')) {
                 foreach ($request->input('images_to_delete') as $imageId) {
-                    $image = BlogImage::find($imageId);
+                    $image = $blog->images()->whereKey($imageId)->first();
                     if ($image) {
                         Storage::disk('public')->delete($image->image_path);
                         $image->delete();
@@ -437,12 +448,7 @@ class BlogController extends Controller
                 Storage::disk('public')->delete($blog->featured_image);
             }
 
-            $contentImages = Storage::disk('public')->files('blogs/content');
-            foreach ($contentImages as $image) {
-                if (Storage::disk('public')->exists($image)) {
-                    Storage::disk('public')->delete($image);
-                }
-            }
+            $this->deleteContentImagesFromContent($blog->content);
 
             $blog->delete();
 
@@ -546,39 +552,58 @@ class BlogController extends Controller
         $tempImages = $request->session()->get('temp_quill_images', []);
 
         if (empty($tempImages)) {
-            try {
-                $contentImages = Storage::disk('public')->files('blogs/content');
-                if (empty($contentImages)) {
-                    return;
-                }
-
-                foreach ($contentImages as $imagePath) {
-                    $filename = basename($imagePath);
-                    if (strpos($content, $filename) === false) {
-                        Storage::disk('public')->delete($imagePath);
-                    }
-                }
-                return;
-            } catch (\Exception $e) {
-                Log::error('Error cleaning content images: ' . $e->getMessage());
-                return;
-            }
+            return;
         }
 
-        $usedImages = [];
         foreach ($tempImages as $imagePath) {
             $filename = basename($imagePath);
 
-            if (strpos($content, $filename) !== false) {
-                $usedImages[] = $imagePath;
-            } else {
-                if (Storage::disk('public')->exists($imagePath)) {
-                    Storage::disk('public')->delete($imagePath);
-                }
+            if (strpos((string) $content, $filename) === false && Storage::disk('public')->exists($imagePath)) {
+                Storage::disk('public')->delete($imagePath);
             }
         }
 
         $request->session()->forget('temp_quill_images');
+    }
+
+    private function deleteContentImagesFromContent(?string $content): void
+    {
+        foreach ($this->extractContentImagePaths($content) as $path) {
+            if (Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+        }
+    }
+
+    private function extractContentImagePaths(?string $content): array
+    {
+        if (empty($content)) {
+            return [];
+        }
+
+        preg_match_all('/<img[^>]+src=["\']([^"\']+)["\']/i', $content, $matches);
+
+        if (empty($matches[1])) {
+            return [];
+        }
+
+        $paths = [];
+
+        foreach ($matches[1] as $src) {
+            $parsedPath = parse_url($src, PHP_URL_PATH) ?? $src;
+            $parsedPath = urldecode((string) $parsedPath);
+            $parsedPath = ltrim($parsedPath, '/');
+
+            if (Str::startsWith($parsedPath, 'storage/')) {
+                $parsedPath = Str::after($parsedPath, 'storage/');
+            }
+
+            if (Str::startsWith($parsedPath, 'blogs/content/')) {
+                $paths[] = $parsedPath;
+            }
+        }
+
+        return array_values(array_unique($paths));
     }
 
     public function clearTempImages(Request $request)

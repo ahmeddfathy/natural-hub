@@ -51,11 +51,6 @@
                 <label class="form-check-label">نشط</label>
             </div>
 
-            @include('admin.partials.fields-picker', [
-                'fields' => $fields,
-                'selectedFieldIds' => old('field_ids', $videoCategory->fields->pluck('id')->all()),
-            ])
-
             <div class="mb-3">
                 <label class="form-label">صورة التصنيف</label>
                 @if($videoCategory->image)

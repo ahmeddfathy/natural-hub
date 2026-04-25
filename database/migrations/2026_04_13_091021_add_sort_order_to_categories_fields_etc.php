@@ -15,9 +15,7 @@ return new class extends Migration
             'categories',
             'fields',
             'video_categories',
-            'videos',
-            'portfolio_categories',
-            'portfolios'
+            'videos'
         ];
 
         foreach ($tables as $tableName) {
@@ -36,9 +34,7 @@ return new class extends Migration
             'categories',
             'fields',
             'video_categories',
-            'videos',
-            'portfolio_categories',
-            'portfolios'
+            'videos'
         ];
 
         foreach ($tables as $tableName) {

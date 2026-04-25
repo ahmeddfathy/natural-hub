@@ -16,9 +16,7 @@ return new class extends Migration
             $table->foreignId('service_id')->nullable()->constrained('services')->nullOnDelete()
                   ->after('category_type');
 
-            // ── جعل field_id و video_category_id اختياريين (backward compat) ─
-            // لا نحذفهم حتى لا تفشل الـ query القديمة إن وُجدت
-            $table->unsignedBigInteger('field_id')->nullable()->change();
+            // Keep legacy video categories optional while videos move to category_type/service_id.
             $table->unsignedBigInteger('video_category_id')->nullable()->change();
 
             // ── نقل البيانات الموجودة: category_type = General مؤقتاً ──────

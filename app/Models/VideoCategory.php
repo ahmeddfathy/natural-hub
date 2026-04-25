@@ -59,11 +59,6 @@ class VideoCategory extends Model
         return $this->hasMany(self::class, 'parent_id')->orderBy('name');
     }
 
-    public function fields()
-    {
-        return $this->belongsToMany(Field::class, 'video_category_field');
-    }
-
     public function getFullNameAttribute(): string
     {
         if (!$this->parent) {

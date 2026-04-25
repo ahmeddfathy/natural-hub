@@ -13,10 +13,6 @@ return new class extends Migration
             $table->string('image_alt')->nullable()->after('image');
         });
 
-        Schema::table('portfolio_categories', function (Blueprint $table) {
-            $table->string('image')->nullable()->after('description');
-            $table->string('image_alt')->nullable()->after('image');
-        });
     }
 
     public function down(): void
@@ -25,8 +21,5 @@ return new class extends Migration
             $table->dropColumn(['image', 'image_alt']);
         });
 
-        Schema::table('portfolio_categories', function (Blueprint $table) {
-            $table->dropColumn(['image', 'image_alt']);
-        });
     }
 };

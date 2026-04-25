@@ -49,11 +49,6 @@
                 <label class="form-check-label">نشط</label>
             </div>
 
-            @include('admin.partials.fields-picker', [
-                'fields' => $fields,
-                'selectedFieldIds' => old('field_ids', []),
-            ])
-
             <div class="mb-3">
                 <label class="form-label">صورة التصنيف</label>
                 <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" accept="image/*">

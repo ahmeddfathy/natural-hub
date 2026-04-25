@@ -29,7 +29,6 @@ class Video extends Model
         'is_featured',
         'is_published',
         'published_at',
-        'field_id',
         'video_category_id',
         'sort_order',
     ];
@@ -60,11 +59,6 @@ class Video extends Model
     public function category()
     {
         return $this->belongsTo(VideoCategory::class, 'video_category_id');
-    }
-
-    public function field()
-    {
-        return $this->belongsTo(Field::class);
     }
 
     public function getYoutubeThumbnailUrlAttribute(): string
