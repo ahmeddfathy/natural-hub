@@ -808,7 +808,7 @@ body {
     width: 34px;
     height: 34px;
     border-radius: 11px;
-    background: linear-gradient(135deg, #f74d6c, #B08A3C);
+    background: #f74d6c;
     box-shadow: 0 10px 24px rgba(247, 77, 108, .18);
 }
 
@@ -1105,7 +1105,7 @@ body {
 .main-content table.blogs-table thead th,
 .main-content table.bk-table thead th {
     background: #fff5f7 !important;
-    color: #f74d6c !important;
+    color: #111827 !important;
     border-bottom: 1px solid rgba(247, 77, 108, .14) !important;
     padding: 1rem 1.1rem !important;
     font-size: .78rem !important;
@@ -1121,7 +1121,7 @@ body {
 .main-content table.users-table thead th i,
 .main-content table.blogs-table thead th i,
 .main-content table.bk-table thead th i {
-    color: #f74d6c !important;
+    color: #111827 !important;
 }
 
 .main-content table.table tbody td,

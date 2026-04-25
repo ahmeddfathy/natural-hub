@@ -7,7 +7,7 @@
 <div class="ops-banner">
     <div class="ops-banner-top">
         <div class="ops-banner-title">
-            <i class="fas fa-chart-pie" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#f74d6c,#B08A3C);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
+            <i class="fas fa-chart-pie" style="width:48px;height:48px;border-radius:14px;background:#f74d6c;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;"></i>
             <div>
                 <h4>التقارير والإحصائيات</h4>
                 <p>تحليل شامل للأداء والإيرادات</p>

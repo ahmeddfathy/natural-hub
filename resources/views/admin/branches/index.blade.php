@@ -62,12 +62,16 @@
         </div>
     </div>
     @empty
-    <div class="col-12">
-        <div class="ops-empty">
-            <div class="ops-empty-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <h6>لم يتم إضافة أي فرع بعد</h6>
-            <p>ابدأ بإضافة أول فرع</p>
-            <a href="{{ route('admin.branches.create') }}" class="ops-banner-btn"><i class="fas fa-plus"></i> إضافة أول فرع</a>
+    <div style="grid-column: 1 / -1;">
+        <div class="gallery-empty-state">
+            <div class="gallery-empty-icon" style="background:#fef3e2; color:#B08A3C; box-shadow: 0 12px 28px rgba(176,138,60,.12);">
+                <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h5>لم يتم إضافة أي فرع بعد</h5>
+            <p>ابدأ بإضافة أول فرع لمركزك</p>
+            <a href="{{ route('admin.branches.create') }}" class="ops-banner-btn" style="margin-top:16px;">
+                <i class="fas fa-plus"></i> إضافة أول فرع
+            </a>
         </div>
     </div>
     @endforelse

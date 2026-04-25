@@ -113,9 +113,12 @@
     </div>
     @empty
     <div class="gallery-empty-wrap">
-        <div class="ops-empty">
-            <div class="ops-empty-icon"><i class="fas fa-images"></i></div>
-            <h6>لا توجد صور في هذا القسم</h6>
+        <div class="gallery-empty-state">
+            <div class="gallery-empty-icon">
+                <i class="fas fa-images"></i>
+            </div>
+            <h5>لا توجد صور في هذا القسم</h5>
+            <p>ارفعي صورك من الأعلى وستظهر هنا فوراً</p>
         </div>
     </div>
     @endforelse
